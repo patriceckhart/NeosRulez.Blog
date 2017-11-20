@@ -8,6 +8,30 @@
 			<trans-unit id="nodefinition" xml:space="preserve">
 				<source>Bitte im Inspector definieren.</source>
 			</trans-unit>
+			<trans-unit id="category" xml:space="preserve">
+				<source>Kategorie</source>
+			</trans-unit>
+			<trans-unit id="categories" xml:space="preserve">
+				<source>Kategorien</source>
+			</trans-unit>
+			<trans-unit id="categorymoddescription" xml:space="preserve">
+				<source>Mit diesem Modul, können Sie die Kategorien bearbeiten.</source>
+			</trans-unit>
+			<trans-unit id="addnewcategory" xml:space="preserve">
+				<source>Neue Kategorie erstellen</source>
+			</trans-unit>
+            <trans-unit id="savecategory" xml:space="preserve">
+				<source>Kategorie speichern</source>
+			</trans-unit>
+			<trans-unit id="nocategory" xml:space="preserve">
+				<source>Keine Kategorien verfügbar.</source>
+			</trans-unit>
+            <trans-unit id="editcategories" xml:space="preserve">
+				<source>Kategorien bearbeiten</source>
+			</trans-unit>
+            <trans-unit id="savechanges" xml:space="preserve">
+				<source>Änderungen speichern</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

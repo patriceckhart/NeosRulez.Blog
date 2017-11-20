@@ -24,11 +24,11 @@ Neos:
         resource: 'Neos_Neos_Backend_Module_Management'
         submodules:
           Category:
-            label: 'Kategorien'
+            label: NeosRulez.Blog:Main:categories
             controller: '\NeosRulez\Blog\Controller\CategoryController'
-            description: 'Mit diesem Modul, können Sie die Kategorien bearbeiten.'
+            description: NeosRulez.Blog:Main:categorymoddescription
             icon: 'icon-bookmark'
             actions:
               index:
-                label: 'Kategorien bearbeiten'
-                title: 'Kategorien bearbeiten'
+                label: NeosRulez.Blog:Main:editcategories
+                title: NeosRulez.Blog:Main:editcategories

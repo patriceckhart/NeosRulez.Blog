@@ -3,15 +3,13 @@
         <table class="neos-table">
             <thead>
             <tr>
-                <td>ID</td>
-                <td>Kategorie</td>
+                <td>{f:translate(id: 'category', package: 'NeosRulez.Blog', source: 'Main')}</td>
                 <td>&nbsp;</td>
             </tr>
             </thead>
             <tbody>
             <f:for each="{categories}" as="category">
                 <tr>
-                    <td><f:format.identifier>{category}</f:format.identifier></td>
                     <td>{category.name}</td>
                     <td class="neos-action">
                         <div class="neos-pull-right">
@@ -27,9 +25,9 @@
         </table>
     </f:then>
     <f:else>
-        <br />Keine Kategorien verfügbar.
+        <br />{f:translate(id: 'nocategory', package: 'NeosRulez.Blog', source: 'Main')}
     </f:else>
 </f:if>
 <div class="neos-footer">
-    <f:link.action class="neos-button neos-button-primary" action="new">Neue Kategorie erstellen</f:link.action>
+    <f:link.action class="neos-button neos-button-primary" action="new">{f:translate(id: 'addnewcategory', package: 'NeosRulez.Blog', source: 'Main')}</f:link.action>
 </div>

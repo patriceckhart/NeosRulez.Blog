@@ -15,10 +15,10 @@
                     <div class="card-body">
                         <f:if condition="{item.properties.blogtitle}">
                             <f:then>
-                                <h4>{item.properties.blogtitle}</h4>
+                                <h4><f:format.crop maxCharacters="160">{item.properties.blogtitle}</f:format.crop></h4>
                             </f:then>
                             <f:else>
-                                <h4>{item.label}</h4>
+                                <h4><f:format.crop maxCharacters="160">{item.label}</f:format.crop></h4>
                             </f:else>
                         </f:if>
                         <f:if condition="{item.properties.blogsubtitle}">

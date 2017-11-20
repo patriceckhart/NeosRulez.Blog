@@ -6,7 +6,7 @@ use Neos\Flow\Persistence\PersistenceManagerInterface;
 use Neos\Neos\Service\DataSource\AbstractDataSource;
 use Neos\ContentRepository\Domain\Model\NodeInterface;
 
-class EditorsDataSource extends AbstractDataSource
+class CategoriesDataSource extends AbstractDataSource
 {
 
     /**

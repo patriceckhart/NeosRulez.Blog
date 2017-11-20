@@ -2,7 +2,6 @@
 namespace NeosRulez\Blog\Eel\Helper;
 
 use Neos\Flow\Annotations as Flow;
-use Neos\Neos\Domain\Repository\UserRepository;
 
 class DataHelper extends \Neos\Eel\Helper\ArrayHelper
 {
@@ -30,4 +29,5 @@ class DataHelper extends \Neos\Eel\Helper\ArrayHelper
             return $category->getName();
         }, $categories));
     }
+
 }
