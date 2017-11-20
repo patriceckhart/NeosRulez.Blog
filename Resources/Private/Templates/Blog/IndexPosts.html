@@ -7,48 +7,63 @@
         {f:translate(id: 'nodefinition', package: 'NeosRulez.Blog', source: 'Main')}
     </f:then>
     <f:else>
-        <nav id="blogitems" class="blogposts">
+        <div id="blogitems" class="card-columns">
             <f:for each="{items}" as="item" iteration="objIterator">
                 <div class="card">
-                    <a href="/{pathsegment}/{item.properties.uriPathSegment}.html">
-                        <media:image image="{item.properties.blogimage}" width="300" height="180" allowCropping="TRUE" alt="{item.label}" />
-                        <div class="cardcontent">
-                            <f:if condition="{showdate}==1"><small class="news-date"><f:format.date format="d.m.Y">{item.properties.blogdate}</f:format.date></small></f:if>
-                            <f:if condition="{item.properties.blogtitle}">
-                                <f:then>
-                                    <h3>{item.properties.blogtitle}</h3>
-                                </f:then>
-                                <f:else>
-                                    <h3>{item.label}</h3>
-                                </f:else>
+                    <a href="/{pathsegment}/{item.properties.uriPathSegment}.html" class="card-item-action">
+                    <f:if condition="{item.properties.blogimage}"><media:image class="card-img-top" image="{item.properties.blogimage}" width="395" height="160" allowCropping="TRUE" alt="{item.label}" /></f:if>
+                    <div class="card-body">
+                        <f:if condition="{item.properties.blogtitle}">
+                            <f:then>
+                                <h4>{item.properties.blogtitle}</h4>
+                            </f:then>
+                            <f:else>
+                                <h4>{item.label}</h4>
+                            </f:else>
+                        </f:if>
+                        <f:if condition="{item.properties.blogsubtitle}">
+                            <p>{item.properties.blogsubtitle}</p>
+                            <f:if condition="{showdate}==1">
+                                <small class="text-muted">
+                                    <f:format.date format="d.m.Y">{item.properties.blogdate}</f:format.date>
+                                </small>
                             </f:if>
-                        </div>
+                        </f:if>
+                    </div>
                     </a>
                 </div>
             </f:for>
-        </nav>
+        </div>
         <f:if condition="{pagebrowser}">
-            <div class="pagebrowser">
+            <nav class="pagebrowser" aria-label="pagebrowser">
+                <ul class="pagination">
                 <f:if condition="{pagination}">
                     <f:if condition="{pagination.prev}">
-                        <f:link.action action="indexPosts" arguments="{page: pagination.prev}" class="paginator-page btn">
+                        <li class="page-item">
+                        <f:link.action action="indexPosts" arguments="{page: pagination.prev}" class="page-link">
                             <i class="fa fa-angle-left"></i>
                         </f:link.action>
+                        </li>
                     </f:if>
 
                     <f:for each="{pagination.pages}" as="item">
+                        <li class="page-item">
                         <f:link.action action="indexPosts" arguments="{page: item.text}"
-                                       class="paginator-page btn {f:if(condition: '{0:pagination.current} == {0:item.text}',
+                                       class="page-link{f:if(condition: '{0:pagination.current} == {0:item.text}',
 then: ' active', else: '')}">
                             {item.text}</f:link.action>
+                        </li>
                     </f:for>
                     <f:if condition="{pagination.next}">
-                        <f:link.action action="indexPosts" arguments="{page:pagination.next}" class="next btn">
+                        <li class="page-item">
+                        <f:link.action action="indexPosts" arguments="{page:pagination.next}" class="page-link">
                             <i class="fa fa-angle-right"></i>
                         </f:link.action>
+                        </li>
                     </f:if>
                 </f:if>
-            </div>
+                </ul>
+            </nav>
         </f:if>
     </f:else>
 </f:if>
