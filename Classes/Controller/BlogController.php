@@ -28,6 +28,7 @@ class BlogController extends ActionController
         $nodeidentifier = $this->request->getInternalArgument('__nodeidentifier');
         $pagebrowser = $this->request->getInternalArgument('__pagebrowser');
         $sorting = $this->request->getInternalArgument('__sorting');
+        $categories = $this->request->getInternalArgument('__blogcategories');
         $this->view->assign('pagebrowser', $pagebrowser);
         $this->view->assign('showdate', $showdate);
 
@@ -39,20 +40,21 @@ class BlogController extends ActionController
             $itemsPerPage = $posts;
         }
 
+        if($sorting=="ascending") {
+            $sorting = "ASC";
+        } else {
+            $sorting = "DESC";
+        }
+
         $context = $this->contextFactory->create(array('workspaceName' => $workspaceName));
 
         if ($nodeidentifier==null) {
             $this->view->assign('noIdent', '1');
         } else {
             $nodeidentifier = $nodeidentifier->getIdentifier();
-
             $node = $context->getNodeByIdentifier($nodeidentifier);
 
-            if($sorting=="ascending") {
-                $articles = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', 'ASC')->get();
-            } else {
-                $articles = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', 'DESC')->get();
-            }
+            $articles = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', $sorting)->get();
 
             $pathsegment = $node->getProperty('uriPathSegment');
             $this->view->assign('pathsegment', $pathsegment);
@@ -65,18 +67,14 @@ class BlogController extends ActionController
 
             $resultsCount = count($articles);
             if ($resultsCount <= $itemsPerPage) {
-                $articles2 = $articles;
+                $items = $articles;
             } else {
                 $queryOffset = $itemsPerPage * ($page - 1);
                 $queryItems = $itemsPerPage * $page;
 
                 $this->view->assign('queryOffset', $queryOffset);
 
-                if($sorting=="ascending") {
-                    $articles2 = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', 'ASC')->slice($queryOffset, $queryItems)->get();
-                } else {
-                    $articles2 = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', 'DESC')->slice($queryOffset, $queryItems)->get();
-                }
+                $items = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', $sorting)->slice($queryOffset, $queryItems)->get();
 
                 $pages = ceil($resultsCount / $itemsPerPage);
                 if ($pages <= 10) {
@@ -113,8 +111,7 @@ class BlogController extends ActionController
 
             $pagination['current'] = $page;
             $this->view->assign('pagination', $pagination);
-
-            $this->view->assign('items', $articles2);
+            $this->view->assign('items', $items);
         }
 
 

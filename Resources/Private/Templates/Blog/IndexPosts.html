@@ -1,7 +1,6 @@
 {namespace neos=Neos\Neos\ViewHelpers}
 {namespace fusion=Neos\Fusion\ViewHelpers}
 {namespace media=Neos\Media\ViewHelpers}
-<div{attributes -> f:format.raw()}>
 <f:if condition="{noIdent}==1">
     <f:then>
         {f:translate(id: 'nodefinition', package: 'NeosRulez.Blog', source: 'Main')}
@@ -67,4 +66,3 @@ then: ' active', else: '')}">
         </f:if>
     </f:else>
 </f:if>
-</div>
