@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca782e27-9067-48c9-8f71-94216a50038b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Configuration/Settings.yaml" afterPath="$PROJECT_DIR$/Configuration/Settings.yaml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -73,7 +73,6 @@
         <option value="$PROJECT_DIR$/Configuration/NodeTypes.BlogPosts.yaml" />
         <option value="$PROJECT_DIR$/Resources/Private/Fusion/NodeTypes/BlogPosts.fusion" />
         <option value="$PROJECT_DIR$/Resources/Private/Templates/Blog/IndexPosts.html" />
-        <option value="$PROJECT_DIR$/Configuration/NodeTypes.BlogPost.yaml" />
         <option value="$PROJECT_DIR$/Classes/Eel/Helper/DataHelper.php" />
         <option value="$PROJECT_DIR$/Resources/Private/Translations/de/NodeTypes/BlogPost.xlf" />
         <option value="$PROJECT_DIR$/Resources/Private/Translations/en/NodeTypes/BlogPost.xlf" />
@@ -82,9 +81,10 @@
         <option value="$PROJECT_DIR$/Resources/Private/Translations/de/Main.xlf" />
         <option value="$PROJECT_DIR$/Resources/Private/Templates/Category/New.html" />
         <option value="$PROJECT_DIR$/Resources/Private/Translations/en/Main.xlf" />
-        <option value="$PROJECT_DIR$/Configuration/Settings.yaml" />
         <option value="$PROJECT_DIR$/Configuration/Routes.yaml" />
         <option value="&lt;cc005294-ba46-48bb-baa8-942f3bb836a4&gt;/data/releases/current/Configuration/Routes.yaml" />
+        <option value="$PROJECT_DIR$/Configuration/Settings.yaml" />
+        <option value="$PROJECT_DIR$/Configuration/NodeTypes.BlogPost.yaml" />
       </list>
     </option>
   </component>
@@ -370,12 +370,12 @@
       <updated>1511161073183</updated>
       <workItem from="1511161076291" duration="7305000" />
       <workItem from="1511168886262" duration="133000" />
-      <workItem from="1511172797844" duration="11145000" />
+      <workItem from="1511172797844" duration="11419000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18583000" />
+    <option name="totallyTimeSpent" value="18857000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1342" extended-state="0" />
@@ -652,14 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Configuration/NodeTypes.BlogPost.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="61" lean-forward="true" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Eel/Helper/DataHelper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -726,14 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Configuration/Settings.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="57" lean-forward="true" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Configuration/Routes.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -772,6 +756,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
           <caret line="37" column="62" lean-forward="true" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Configuration/Settings.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Configuration/NodeTypes.BlogPost.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="51" column="59" lean-forward="false" selection-start-line="51" selection-start-column="59" selection-end-line="51" selection-end-column="59" />
           <folding />
         </state>
       </provider>
