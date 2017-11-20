@@ -34,7 +34,7 @@ class BlogController extends ActionController
         $workspaceName = "live";
 
         if ($posts=="") {
-            $itemsPerPage = 4;
+            $itemsPerPage = 6;
         } else {
             $itemsPerPage = $posts;
         }

@@ -22,7 +22,7 @@
                             </f:else>
                         </f:if>
                         <f:if condition="{item.properties.blogsubtitle}">
-                            <p>{item.properties.blogsubtitle}</p>
+                            <p><f:format.crop maxCharacters="160">{item.properties.blogsubtitle}</f:format.crop></p>
                             <f:if condition="{showdate}==1">
                                 <small class="text-muted">
                                     <f:format.date format="d.m.Y">{item.properties.blogdate}</f:format.date>
@@ -56,7 +56,7 @@ then: ' active', else: '')}">
                     </f:for>
                     <f:if condition="{pagination.next}">
                         <li class="page-item">
-                        <f:link.action action="indexPosts" arguments="{page:pagination.next}" class="page-link">
+                        <f:link.action action="indexPosts" arguments="{page:pagination.next}" class="page-link next">
                             <i class="fa fa-angle-right"></i>
                         </f:link.action>
                         </li>

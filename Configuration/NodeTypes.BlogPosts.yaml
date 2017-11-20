@@ -13,7 +13,7 @@
   properties:
     posts:
       type: string
-      defaultValue: '4'
+      defaultValue: '6'
       ui:
         label: i18n
         reloadIfChanged: TRUE
