@@ -1,0 +1,34 @@
+Neos:
+  Neos:
+    userInterface:
+      translation:
+        autoInclude:
+          NeosRulez.Blog:
+            - Main
+            - 'NodeTypes/*'
+      defaultLanguage: 'de'
+    nodeTypes:
+      groups:
+        blog:
+          position: 'end'
+          label: 'Blog'
+    fusion:
+      autoInclude:
+        NeosRulez.Blog: true
+    modules:
+      neosRulezBlog:
+        label: 'Blog'
+        controller: '\Neos\Neos\Controller\Module\ManagementController'
+        description: 'Blog Admin'
+        icon: 'icon-file-text-o'
+        resource: 'Neos_Neos_Backend_Module_Management'
+        submodules:
+          Category:
+            label: 'Kategorien'
+            controller: '\NeosRulez\Blog\Controller\CategoryController'
+            description: 'Mit diesem Modul, können Sie die Kategorien bearbeiten.'
+            icon: 'icon-bookmark'
+            actions:
+              index:
+                label: 'Kategorien bearbeiten'
+                title: 'Kategorien bearbeiten'

@@ -1,0 +1,18 @@
+prototype(Site:BlogPosts) < prototype(Neos.Neos:Plugin)
+prototype(Site:BlogPosts) {
+    package = 'NeosRulez.Blog'
+    controller = 'Blog'
+    action = 'indexPosts'
+    posts = ${q(node).property('posts')}
+    nodeidentifier = ${q(node).property('nodeidentifier')}
+    pagebrowser = ${q(node).property('pagebrowser')}
+    showdate = ${q(node).property('showdate')}
+    sorting = ${q(node).property('sorting')}
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+}

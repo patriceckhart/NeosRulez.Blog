@@ -1,0 +1,16 @@
+privilegeTargets:
+  Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+    'NeosRulez.Blog:CategoryControllerActions':
+      matcher: 'method(NeosRulez\Blog\Controller\CategoryController->.*Action())'
+    'NeosRulez.Blog:BlogControllerActions':
+      matcher: 'method(NeosRulez\Blog\Controller\BlogController->.*Action())'
+
+roles:
+  'Neos.Flow:Everybody':
+    privileges:
+      -
+        privilegeTarget: 'NeosRulez.Blog:CategoryControllerActions'
+        permission: GRANT
+      -
+        privilegeTarget: 'NeosRulez.Blog:BlogControllerActions'
+        permission: GRANT

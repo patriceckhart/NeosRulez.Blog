@@ -1,0 +1,11 @@
+prototype(Site:BlogSubTitle) < prototype(Content) {
+    templatePath = 'resource://NeosRulez.Blog/Private/Templates/FusionObjects/BlogSubTitle.html'
+    blogSubTitle = ${q(documentNode).property('blogsubtitle')}
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+}

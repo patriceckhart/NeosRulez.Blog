@@ -1,0 +1,52 @@
+'NeosRulez.Blog:BlogPost':
+  ui:
+    label: i18n
+    icon: 'icon-file-text'
+    inspector:
+      groups:
+        blogsettings:
+          label: NeosRulez.Blog:Main:blogsettings
+          icon: 'icon-cog'
+          position: 1
+  superTypes:
+    'Neos.NodeTypes:Page': TRUE
+  properties:
+    blogdate:
+      type: DateTime
+      defaultValue: FALSE
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'blogsettings'
+    blogtitle:
+      type: string
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'blogsettings'
+    blogsubtitle:
+      type: string
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'blogsettings'
+    blogimage:
+      type: 'Neos\Media\Domain\Model\ImageInterface'
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'blogsettings'
+    blogcategories:
+      type: array
+      ui:
+        label: i18n
+        reloadPageIfChanged: true
+        inspector:
+          group: 'blogsettings'
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            dataSourceIdentifier: neosrulez-blog-categories

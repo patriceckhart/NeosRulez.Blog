@@ -1,0 +1,11 @@
+prototype(Site:BlogDate) < prototype(Content) {
+    templatePath = 'resource://NeosRulez.Blog/Private/Templates/FusionObjects/BlogDate.html'
+    blogDate = ${q(documentNode).property('blogdate')}
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+}

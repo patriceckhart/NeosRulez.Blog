@@ -1,0 +1,27 @@
+{
+    "description": "A Neos CMS plugin for a simple blog",
+    "license": "GPL-3.0+",
+    "type": "neos-plugin",
+    "name": "neosrulez/blog",
+    "authors": [
+        {
+            "name": "Patric Eckhart",
+            "email": "mail@patriceckhart.com",
+            "homepage": "http://www.patriceckhart.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "neos/neos": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "NeosRulez\\Blog\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "NeosRulez.Blog"
+        }
+    }
+}
