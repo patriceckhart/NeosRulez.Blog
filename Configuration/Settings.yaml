@@ -20,7 +20,7 @@ Neos:
         label: 'Blog'
         controller: '\Neos\Neos\Controller\Module\ManagementController'
         description: 'Blog Admin'
-        icon: 'icon-newspaper-o'
+        icon: 'icon-sticky-note'
         resource: 'Neos_Neos_Backend_Module_Management'
         submodules:
           Category:

@@ -31,51 +31,37 @@ class BlogController extends ActionController
         $categories = $this->request->getInternalArgument('__blogcategories');
         $this->view->assign('pagebrowser', $pagebrowser);
         $this->view->assign('showdate', $showdate);
-
         $workspaceName = "live";
-
-        if ($posts=="") {
+        if (empty($posts)) {
             $itemsPerPage = 6;
         } else {
             $itemsPerPage = $posts;
         }
-
         if($sorting=="ascending") {
             $sorting = "ASC";
         } else {
             $sorting = "DESC";
         }
-
         $context = $this->contextFactory->create(array('workspaceName' => $workspaceName));
-
         if ($nodeidentifier==null) {
             $this->view->assign('noIdent', '1');
         } else {
-            $nodeidentifier = $nodeidentifier->getIdentifier();
-            $node = $context->getNodeByIdentifier($nodeidentifier);
-
+            $node = $context->getNodeByIdentifier($nodeidentifier->getIdentifier());
             $articles = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', $sorting)->get();
-
-            $pathsegment = $node->getProperty('uriPathSegment');
-            $this->view->assign('pathsegment', $pathsegment);
-
+            $this->view->assign('pathsegment', $node->getProperty('uriPathSegment'));
             if ($this->request->hasArgument('page')) {
                 $page = $this->request->getArgument('page');
             } else {
                 $page = 1;
             }
-
             $resultsCount = count($articles);
             if ($resultsCount <= $itemsPerPage) {
                 $items = $articles;
             } else {
                 $queryOffset = $itemsPerPage * ($page - 1);
                 $queryItems = $itemsPerPage * $page;
-
                 $this->view->assign('queryOffset', $queryOffset);
-
                 $items = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', $sorting)->slice($queryOffset, $queryItems)->get();
-
                 $pages = ceil($resultsCount / $itemsPerPage);
                 if ($pages <= 10) {
                     $minPagination = 1;
@@ -108,14 +94,10 @@ class BlogController extends ActionController
                     $pagination['last'] = $pages;
                 }
             }
-
             $pagination['current'] = $page;
             $this->view->assign('pagination', $pagination);
             $this->view->assign('items', $items);
         }
-
-
-
     }
 
 }
