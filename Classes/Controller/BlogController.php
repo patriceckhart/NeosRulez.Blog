@@ -31,6 +31,7 @@ class BlogController extends ActionController
         $categories = $this->request->getInternalArgument('__blogcategories');
         $this->view->assign('pagebrowser', $pagebrowser);
         $this->view->assign('showdate', $showdate);
+        $this->view->assign('categories', $categories);
         $workspaceName = "live";
         if (empty($posts)) {
             $itemsPerPage = 6;
@@ -97,6 +98,15 @@ class BlogController extends ActionController
             $pagination['current'] = $page;
             $this->view->assign('pagination', $pagination);
             $this->view->assign('items', $items);
+
+
+            $this->view->assign('countcat', count($categories));
+            $catval="";
+            for ($i = 0; $i < count($categories); $i++) {
+                $catval .= $categories[$i];
+            }
+            $this->view->assign('catval', $catval);
+
         }
     }
 
