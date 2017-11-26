@@ -15,20 +15,3 @@ Neos:
     fusion:
       autoInclude:
         NeosRulez.Blog: true
-    modules:
-      neosRulezBlog:
-        label: 'Blog'
-        controller: '\Neos\Neos\Controller\Module\ManagementController'
-        description: 'Blog Admin'
-        icon: 'icon-sticky-note'
-        resource: 'Neos_Neos_Backend_Module_Management'
-        submodules:
-          Category:
-            label: NeosRulez.Blog:Main:categories
-            controller: '\NeosRulez\Blog\Controller\CategoryController'
-            description: NeosRulez.Blog:Main:categorymoddescription
-            icon: 'icon-bookmark-o'
-            actions:
-              index:
-                label: NeosRulez.Blog:Main:editcategories
-                title: NeosRulez.Blog:Main:editcategories

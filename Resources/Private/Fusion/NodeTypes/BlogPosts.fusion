@@ -8,7 +8,6 @@ prototype(Site:BlogPosts) {
     pagebrowser = ${q(node).property('pagebrowser')}
     showdate = ${q(node).property('showdate')}
     sorting = ${q(node).property('sorting')}
-    blogcategories = ${q(node).property('blogcategories')}
     @cache {
         mode = 'uncached'
         context {

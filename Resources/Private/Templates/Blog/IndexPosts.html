@@ -8,23 +8,11 @@
     <f:else>
         {countcat}
         <div id="blogitems" class="card-columns">
-
             <f:for each="{items}" as="item" iteration="objIterator">
                 <div class="card">
                     <a href="/{pathsegment}/{item.properties.uriPathSegment}.html" class="card-item-action">
                     <f:if condition="{item.properties.blogimage}"><media:image class="card-img-top" image="{item.properties.blogimage}" width="395" height="160" allowCropping="TRUE" alt="{item.label}" /></f:if>
                     <div class="card-body">
-
-                        Menu Categories:<br/>
-                        <f:for each="{categories}" as="category">
-                             {category}<br/><br/>
-                        </f:for>
-                        <br/><br/>
-                        Post Categories:<br/>
-                        <f:for each="{item.properties.blogcategories}" as="category">
-                            {category}<br/><br/>
-                        </f:for>
-
                         <f:if condition="{item.properties.blogtitle}">
                             <f:then>
                                 <h4><f:format.crop maxCharacters="160">{item.properties.blogtitle}</f:format.crop></h4>
