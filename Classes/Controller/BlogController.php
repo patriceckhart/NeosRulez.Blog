@@ -28,6 +28,8 @@ class BlogController extends ActionController
         $nodeidentifier = $this->request->getInternalArgument('__nodeidentifier');
         $pagebrowser = $this->request->getInternalArgument('__pagebrowser');
         $sorting = $this->request->getInternalArgument('__sorting');
+        $categories = $this->request->getInternalArgument('__blogcategories');
+        $this->view->assign('categories', $categories);
         $this->view->assign('pagebrowser', $pagebrowser);
         $this->view->assign('showdate', $showdate);
         $workspaceName = "live";

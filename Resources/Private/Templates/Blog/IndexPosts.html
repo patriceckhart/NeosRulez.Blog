@@ -6,6 +6,10 @@
         {f:translate(id: 'nodefinition', package: 'NeosRulez.Blog', source: 'Main')}
     </f:then>
     <f:else>
+        Kategorien:<br/>
+        <f:for each="{categories}" as="category">
+            {category}<br />
+        </f:for>
         <div id="blogitems" class="card-columns">
             <f:for each="{items}" as="item" iteration="objIterator">
                 <div class="card">
@@ -28,6 +32,15 @@
                                 </small>
                             </f:if>
                         </f:if>
+
+                        <f:for each="{item.properties.blogcategories}" as="category">
+                            {category}<br />
+                        </f:for>
+                        <br /><br /><br />
+                        <f:for each="{blogcats}" as="category2">
+                            {category2}<br />
+                        </f:for>
+
                     </div>
                     </a>
                 </div>
