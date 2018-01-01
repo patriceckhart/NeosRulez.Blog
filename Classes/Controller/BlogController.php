@@ -29,6 +29,8 @@ class BlogController extends ActionController
         $pagebrowser = $this->request->getInternalArgument('__pagebrowser');
         $sorting = $this->request->getInternalArgument('__sorting');
         $categories = $this->request->getInternalArgument('__blogcategories');
+        //$countcategories = count($categories);
+        sort($categories);
         $this->view->assign('categories', $categories);
         $this->view->assign('pagebrowser', $pagebrowser);
         $this->view->assign('showdate', $showdate);
