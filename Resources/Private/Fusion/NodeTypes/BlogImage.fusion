@@ -1,0 +1,13 @@
+prototype(Site:BlogImage) < prototype(Content) {
+    templatePath = 'resource://NeosRulez.Blog/Private/Templates/FusionObjects/BlogImage.html'
+    blogImage = ${q(documentNode).property('blogimage')}
+    blogTitle = ${q(documentNode).property('blogtitle')}
+    blogImageWidth = ${Configuration.setting('NeosRulez.Blog.blogImageWidth')}
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+}

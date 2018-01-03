@@ -20,6 +20,9 @@
 			<trans-unit id="properties.blogcategories" xml:space="preserve">
 				<source>Kategorien</source>
 			</trans-unit>
+            <trans-unit id="properties.blogauthor" xml:space="preserve">
+				<source>Author</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

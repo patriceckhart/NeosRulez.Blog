@@ -4,6 +4,7 @@
             <thead>
             <tr>
                 <td>{f:translate(id: 'category', package: 'NeosRulez.Blog', source: 'Main')}</td>
+                <td>{f:translate(id: 'categorydescription', package: 'NeosRulez.Blog', source: 'Main')}</td>
                 <td>&nbsp;</td>
             </tr>
             </thead>
@@ -11,6 +12,7 @@
             <f:for each="{categories}" as="category">
                 <tr>
                     <td>{category.name}</td>
+                    <td>{category.description}</td>
                     <td class="neos-action">
                         <div class="neos-pull-right">
                             <f:form action="change" arguments="{category: category}">

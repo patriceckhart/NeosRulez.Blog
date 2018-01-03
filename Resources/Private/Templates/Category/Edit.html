@@ -4,6 +4,10 @@
             <label for="name">{f:translate(id: 'category', package: 'NeosRulez.Blog', source: 'Main')}</label>
             <f:form.textfield property="name" id="name" />
         </div>
+        <div class="neos-control-group">
+            <label for="description">{f:translate(id: 'categorydescription', package: 'NeosRulez.Blog', source: 'Main')}</label>
+            <f:form.textfield property="description" id="description" />
+        </div>
     </div>
     <div class="neos-footer">
         <f:form.submit class="neos-button neos-button-primary" value="{f:translate(id: 'savechanges', package: 'NeosRulez.Blog', source: 'Main')}" />

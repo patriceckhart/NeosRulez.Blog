@@ -38,6 +38,29 @@ class Category
     }
 
     /**
+     * @var string
+     */
+    protected $description;
+
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     * @return void
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
      * @var integer
      */
     protected $deleted;

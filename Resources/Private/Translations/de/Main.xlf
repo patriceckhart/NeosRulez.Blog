@@ -11,6 +11,9 @@
 			<trans-unit id="category" xml:space="preserve">
 				<source>Kategorie</source>
 			</trans-unit>
+            <trans-unit id="categorydescription" xml:space="preserve">
+				<source>Beschreibung</source>
+			</trans-unit>
 			<trans-unit id="categories" xml:space="preserve">
 				<source>Kategorien</source>
 			</trans-unit>

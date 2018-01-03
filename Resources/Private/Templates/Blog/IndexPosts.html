@@ -6,10 +6,6 @@
         {f:translate(id: 'nodefinition', package: 'NeosRulez.Blog', source: 'Main')}
     </f:then>
     <f:else>
-        Kategorien:<br/>
-        <f:for each="{categories}" as="category">
-            {category}<br />
-        </f:for>
         <div id="blogitems" class="card-columns">
             <f:for each="{items}" as="item" iteration="objIterator">
                 <div class="card">
@@ -24,23 +20,16 @@
                                 <h4><f:format.crop maxCharacters="160">{item.label}</f:format.crop></h4>
                             </f:else>
                         </f:if>
-                        <f:if condition="{item.properties.blogsubtitle}">
-                            <p><f:format.crop maxCharacters="160">{item.properties.blogsubtitle}</f:format.crop></p>
-                            <f:if condition="{showdate}==1">
-                                <small class="text-muted">
-                                    <f:format.date format="d.m.Y">{item.properties.blogdate}</f:format.date>
-                                </small>
+                        <f:if condition="{showsubtitle}==1">
+                            <f:if condition="{item.properties.blogsubtitle}">
+                                <p><f:format.crop maxCharacters="160">{item.properties.blogsubtitle}</f:format.crop></p>
                             </f:if>
                         </f:if>
-
-                        <f:for each="{item.properties.blogcategories}" as="category">
-                            {category}<br />
-                        </f:for>
-                        <br /><br /><br />
-                        <f:for each="{blogcats}" as="category2">
-                            {category2}<br />
-                        </f:for>
-
+                        <f:if condition="{showdate}==1">
+                            <small class="text-muted">
+                                <f:format.date format="d.m.Y">{item.properties.blogdate}</f:format.date>
+                            </small>
+                        </f:if>
                     </div>
                     </a>
                 </div>

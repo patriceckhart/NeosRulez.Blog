@@ -17,6 +17,9 @@
 			<trans-unit id="properties.showdate" xml:space="preserve">
 				<source>Datum anzeigen</source>
 			</trans-unit>
+            <trans-unit id="properties.showsubtitle" xml:space="preserve">
+				<source>Untertitel anzeigen</source>
+			</trans-unit>
 			<trans-unit id="properties.sorting" xml:space="preserve">
 				<source>Sortierung</source>
 			</trans-unit>

@@ -17,6 +17,9 @@
 			<trans-unit id="properties.showdate" xml:space="preserve">
 				<source>Show date</source>
 			</trans-unit>
+            <trans-unit id="properties.showsubtitle" xml:space="preserve">
+				<source>Show subtitle</source>
+			</trans-unit>
 			<trans-unit id="properties.sorting" xml:space="preserve">
 				<source>Sorting</source>
 			</trans-unit>
