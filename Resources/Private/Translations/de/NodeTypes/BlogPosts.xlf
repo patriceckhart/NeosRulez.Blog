@@ -3,7 +3,7 @@
 	<file original="" product-name="NeosRulez.Blog" source-language="de" datatype="plaintext">
 		<body>
 			<trans-unit id="ui.label" xml:space="preserve">
-				<source>Blog Einträge</source>
+				<source>Blog Einträge (Menü)</source>
 			</trans-unit>
 			<trans-unit id="properties.posts" xml:space="preserve">
 				<source>Maximale Anzahl</source>
@@ -31,6 +31,9 @@
             </trans-unit>
 			<trans-unit id="properties.blogcategories" xml:space="preserve">
 				<source>Kategorien</source>
+			</trans-unit>
+			<trans-unit id="properties.showaslist" xml:space="preserve">
+				<source>Als Liste darstellen</source>
 			</trans-unit>
 		</body>
 	</file>

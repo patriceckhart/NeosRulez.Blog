@@ -10,6 +10,7 @@ prototype(Site:BlogPosts) {
     sorting = ${q(node).property('sorting')}
     blogcategories = ${q(node).property('blogcategories')}
     showsubtitle = ${q(node).property('showsubtitle')}
+    showaslist = ${q(node).property('showaslist')}
     @cache {
         mode = 'uncached'
         context {
