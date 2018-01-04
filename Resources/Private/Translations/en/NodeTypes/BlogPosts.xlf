@@ -30,7 +30,7 @@
                 <source>Descending</source>
             </trans-unit>
 			<trans-unit id="properties.blogcategories" xml:space="preserve">
-				<source>Categories</source>
+				<source>Category</source>
 			</trans-unit>
 			<trans-unit id="properties.showaslist" xml:space="preserve">
 				<source>Show as list</source>

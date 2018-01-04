@@ -9,6 +9,7 @@ use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Mvc\Controller\ActionController;
 use Neos\Eel\FlowQuery\FlowQuery;
 use Neos\Eel\FlowQuery\Operations;
+use NeosRulez\Blog\FlowQueryOperations\FilterOperation;
 
 class BlogController extends ActionController
 {
@@ -28,16 +29,14 @@ class BlogController extends ActionController
         $nodeidentifier = $this->request->getInternalArgument('__nodeidentifier');
         $pagebrowser = $this->request->getInternalArgument('__pagebrowser');
         $sorting = $this->request->getInternalArgument('__sorting');
-        $categories = $this->request->getInternalArgument('__blogcategories');
+        $category = $this->request->getInternalArgument('__blogcategories');
         $showsubtitle = $this->request->getInternalArgument('__showsubtitle');
         $showaslist = $this->request->getInternalArgument('__showaslist');
-        //$countcategories = count($categories);
-        sort($categories);
-        $this->view->assign('categories', $categories);
         $this->view->assign('pagebrowser', $pagebrowser);
         $this->view->assign('showdate', $showdate);
         $this->view->assign('showsubtitle', $showsubtitle);
         $this->view->assign('showaslist', $showaslist);
+        $filterString = '';
         $workspaceName = "live";
         if (empty($posts)) {
             $itemsPerPage = 6;
@@ -54,18 +53,8 @@ class BlogController extends ActionController
             $this->view->assign('noIdent', '1');
         } else {
             $node = $context->getNodeByIdentifier($nodeidentifier->getIdentifier());
-
-            /*$filterString = '';
-            $searchString = '';
-            foreach ($categories as $key => $category) {
-                if ($filterString !== '') {
-                    $searchString .= ',';
-                }
-                $filterString .= '[blogcategories *= "' . $category . '"]';
-            }
+            $filterString .= '[blogcategories *= "' . $category . '"]';
             $articles = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', $sorting)->filter($filterString)->get();
-*/
-            $articles = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', $sorting)->get();
             $this->view->assign('pathsegment', $node->getProperty('uriPathSegment'));
             if ($this->request->hasArgument('page')) {
                 $page = $this->request->getArgument('page');
@@ -79,7 +68,8 @@ class BlogController extends ActionController
                 $queryOffset = $itemsPerPage * ($page - 1);
                 $queryItems = $itemsPerPage * $page;
                 $this->view->assign('queryOffset', $queryOffset);
-                $items = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', $sorting)->slice($queryOffset, $queryItems)->get();
+                $filterString .= '[blogcategories *= "' . $category . '"]';
+                $items = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', $sorting)->slice($queryOffset, $queryItems)->filter($filterString)->get();
                 $pages = ceil($resultsCount / $itemsPerPage);
                 if ($pages <= 10) {
                     $minPagination = 1;
