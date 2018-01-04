@@ -8,61 +8,79 @@
     <f:else>
         <f:if condition="{showaslist}==1">
             <f:then>
-                <dl class="row">
-                    <f:for each="{items}" as="item" iteration="objIterator">
-                        <f:if condition="{showdate}==1">
-                            <dt class="col-md-2"><f:format.date format="d.m.Y">{item.properties.blogdate}</f:format.date></dt>
-                        </f:if>
-                        <dd class="col-md-10">
-                            <a href="/{pathsegment}/{item.properties.uriPathSegment}.html">
-                            <f:if condition="{item.properties.blogtitle}">
-                                <f:then>
-                                    <f:format.crop maxCharacters="160">{item.properties.blogtitle}</f:format.crop>
-                                </f:then>
-                                <f:else>
-                                    <f:format.crop maxCharacters="160">{item.label}</f:format.crop>
-                                </f:else>
-                            </f:if>
-                            </a>
-                            <f:if condition="{showsubtitle}==1">
-                                <f:if condition="{item.properties.blogsubtitle}">
-                                    <p><f:format.crop maxCharacters="160">{item.properties.blogsubtitle}</f:format.crop></p>
+                <f:if condition="{items}">
+                    <f:then>
+                        <dl class="row">
+                            <f:for each="{items}" as="item" iteration="objIterator">
+                                <f:if condition="{showdate}==1">
+                                    <dt class="col-md-2"><f:format.date format="d.m.Y">{item.properties.blogdate}</f:format.date></dt>
                                 </f:if>
-                            </f:if>
-                        </dd>
-                    </f:for>
-                </dl>
-            </f:then>
-            <f:else>
-                <div id="blogitems" class="card-columns">
-                    <f:for each="{items}" as="item" iteration="objIterator">
-                        <div class="card">
-                            <a href="/{pathsegment}/{item.properties.uriPathSegment}.html" class="card-item-action">
-                                <f:if condition="{item.properties.blogimage}"><media:image class="card-img-top" image="{item.properties.blogimage}" width="395" height="160" allowCropping="TRUE" alt="{item.label}" /></f:if>
-                                <div class="card-body">
-                                    <f:if condition="{item.properties.blogtitle}">
-                                        <f:then>
-                                            <h4><f:format.crop maxCharacters="160">{item.properties.blogtitle}</f:format.crop></h4>
-                                        </f:then>
-                                        <f:else>
-                                            <h4><f:format.crop maxCharacters="160">{item.label}</f:format.crop></h4>
-                                        </f:else>
-                                    </f:if>
+                                <dd class="col-md-10">
+                                    <a href="/{pathsegment}/{item.properties.uriPathSegment}.html">
+                                        <f:if condition="{item.properties.blogtitle}">
+                                            <f:then>
+                                                <f:format.crop maxCharacters="160">{item.properties.blogtitle}</f:format.crop>
+                                            </f:then>
+                                            <f:else>
+                                                <f:format.crop maxCharacters="160">{item.label}</f:format.crop>
+                                            </f:else>
+                                        </f:if>
+                                    </a>
                                     <f:if condition="{showsubtitle}==1">
                                         <f:if condition="{item.properties.blogsubtitle}">
                                             <p><f:format.crop maxCharacters="160">{item.properties.blogsubtitle}</f:format.crop></p>
                                         </f:if>
                                     </f:if>
-                                    <f:if condition="{showdate}==1">
-                                        <small class="text-muted">
-                                            <f:format.date format="d.m.Y">{item.properties.blogdate}</f:format.date>
-                                        </small>
-                                    </f:if>
+                                </dd>
+                            </f:for>
+                        </dl>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{node.context.workspace.name} != 'live'">
+                            {f:translate(id: 'nonodes', package: 'NeosRulez.Blog', source: 'Main')}
+                        </f:if>
+                    </f:else>
+                </f:if>
+            </f:then>
+            <f:else>
+                <f:if condition="{items}">
+                    <f:then>
+                        <div id="blogitems" class="card-columns">
+                            <f:for each="{items}" as="item" iteration="objIterator">
+                                <div class="card">
+                                    <a href="/{pathsegment}/{item.properties.uriPathSegment}.html" class="card-item-action">
+                                        <f:if condition="{item.properties.blogimage}"><media:image class="card-img-top" image="{item.properties.blogimage}" width="395" height="160" allowCropping="TRUE" alt="{item.label}" /></f:if>
+                                        <div class="card-body">
+                                            <f:if condition="{item.properties.blogtitle}">
+                                                <f:then>
+                                                    <h4><f:format.crop maxCharacters="160">{item.properties.blogtitle}</f:format.crop></h4>
+                                                </f:then>
+                                                <f:else>
+                                                    <h4><f:format.crop maxCharacters="160">{item.label}</f:format.crop></h4>
+                                                </f:else>
+                                            </f:if>
+                                            <f:if condition="{showsubtitle}==1">
+                                                <f:if condition="{item.properties.blogsubtitle}">
+                                                    <p><f:format.crop maxCharacters="160">{item.properties.blogsubtitle}</f:format.crop></p>
+                                                </f:if>
+                                            </f:if>
+                                            <f:if condition="{showdate}==1">
+                                                <small class="text-muted">
+                                                    <f:format.date format="d.m.Y">{item.properties.blogdate}</f:format.date>
+                                                </small>
+                                            </f:if>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
+                            </f:for>
                         </div>
-                    </f:for>
-                </div>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{node.context.workspace.name} != 'live'">
+                            {f:translate(id: 'nonodes', package: 'NeosRulez.Blog', source: 'Main')}
+                        </f:if>
+                    </f:else>
+                </f:if>
             </f:else>
         </f:if>
         <f:if condition="{pagebrowser}">

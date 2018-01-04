@@ -35,6 +35,9 @@
             <trans-unit id="savechanges" xml:space="preserve">
 				<source>Save changes</source>
 			</trans-unit>
+            <trans-unit id="nonodes" xml:space="preserve">
+				<source>No blog entries available</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
