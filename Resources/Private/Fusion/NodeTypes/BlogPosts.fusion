@@ -1,5 +1,5 @@
-prototype(Site:BlogPosts) < prototype(Neos.Neos:Plugin)
-prototype(Site:BlogPosts) {
+prototype(BlogBlogPosts) < prototype(Neos.Neos:Plugin)
+prototype(BlogBlogPosts) {
     package = 'NeosRulez.Blog'
     controller = 'Blog'
     action = 'indexPosts'
