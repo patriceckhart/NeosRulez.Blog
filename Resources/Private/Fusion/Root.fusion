@@ -1,3 +1,2 @@
-namespace: Blog=NeosRulez.Blog
 include: ProtoTypes/*
 include: NodeTypes/*

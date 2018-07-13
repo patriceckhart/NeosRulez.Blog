@@ -1,4 +1,4 @@
-prototype(BlogBlogDate) < prototype(Content) {
+prototype(NeosRulez.Blog:BlogDate) {
     templatePath = 'resource://NeosRulez.Blog/Private/Templates/FusionObjects/BlogDate.html'
     blogDate = ${q(documentNode).property('blogdate')}
     @cache {
