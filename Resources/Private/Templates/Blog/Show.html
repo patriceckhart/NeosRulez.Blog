@@ -1,0 +1,12 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+{namespace fusion=Neos\Fusion\ViewHelpers}
+{namespace media=Neos\Media\ViewHelpers}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <h1>{blogtitle}</h1>
+            <f:if condition="{blogimage}"><media:image class="d-block my-4 img-fluid blog-image" image="{blogimage}" width="1110c" height="545c" allowCropping="TRUE" alt="{blogtitle}" /></f:if>
+            <h3 class="blog-teaser">{blogsubtitle}</h3>
+        </div>
+    </div>
+</div>

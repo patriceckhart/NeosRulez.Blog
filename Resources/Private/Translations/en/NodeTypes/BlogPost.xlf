@@ -6,22 +6,22 @@
 				<source>Blog Post</source>
 			</trans-unit>
 			<trans-unit id="properties.blogdate" xml:space="preserve">
-				<source>Date</source>
+				<source>Post date</source>
 			</trans-unit>
 			<trans-unit id="properties.blogtitle" xml:space="preserve">
-				<source>Title</source>
+				<source>Post title</source>
 			</trans-unit>
 			<trans-unit id="properties.blogsubtitle" xml:space="preserve">
-				<source>Subtitle</source>
+				<source>Post subtitle</source>
 			</trans-unit>
 			<trans-unit id="properties.blogimage" xml:space="preserve">
-				<source>Image</source>
+				<source>Thumbnail Image</source>
 			</trans-unit>
 			<trans-unit id="properties.blogcategories" xml:space="preserve">
-				<source>Categories</source>
+				<source>Post categories</source>
 			</trans-unit>
             <trans-unit id="properties.blogauthor" xml:space="preserve">
-				<source>Author</source>
+				<source>Post author</source>
 			</trans-unit>
 		</body>
 	</file>

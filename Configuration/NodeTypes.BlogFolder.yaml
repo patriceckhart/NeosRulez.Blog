@@ -1,0 +1,11 @@
+'NeosRulez.Blog:BlogFolder':
+  superTypes:
+    'Neos.Neos:Shortcut': TRUE
+  ui:
+    label: i18n
+    icon: 'icon-folder-open'
+    group: 'blog'
+  properties:
+    _hiddenInIndex:
+      type: boolean
+      defaultValue: TRUE

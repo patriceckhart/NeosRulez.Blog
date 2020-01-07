@@ -9,13 +9,13 @@
 				<source>Datum</source>
 			</trans-unit>
 			<trans-unit id="properties.blogtitle" xml:space="preserve">
-				<source>Titel</source>
+				<source>Eintrag Titel</source>
 			</trans-unit>
 			<trans-unit id="properties.blogsubtitle" xml:space="preserve">
-				<source>Untertitel</source>
+				<source>Eintrag Untertitel</source>
 			</trans-unit>
 			<trans-unit id="properties.blogimage" xml:space="preserve">
-				<source>Bild</source>
+				<source>Vorschau-Bild</source>
 			</trans-unit>
 			<trans-unit id="properties.blogcategories" xml:space="preserve">
 				<source>Kategorien</source>

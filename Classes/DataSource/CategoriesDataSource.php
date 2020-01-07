@@ -31,7 +31,7 @@ class CategoriesDataSource extends AbstractDataSource
      * @param array $arguments Additional arguments (key / value)
      * @return array
      */
-    public function getData(NodeInterface $node = null, array $arguments)
+    public function getData(NodeInterface $node = null, array $arguments = array())
     {
         $options = [];
         foreach ($this->categoryRepository->getCategories() as $category) {

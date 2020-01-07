@@ -16,7 +16,6 @@ class AuthorsDataSource extends AbstractDataSource {
      */
     protected $userService;
 
-
     /**
      * @Flow\Inject
      * @var PersistenceManagerInterface
@@ -31,23 +30,16 @@ class AuthorsDataSource extends AbstractDataSource {
     /**
      * @inheritDoc
      */
-    public function getData(NodeInterface $node = null, array $arguments)
+    public function getData(NodeInterface $node = null, array $arguments = array())
     {
         $options = [];
-
         $authors = $this->userService->getUsers();
-
         foreach ($authors as $author) {
             $options[] = [
                 'label' => $author->getLabel(),
                 'value' => $author->getLabel()
-                /*'value' => json_encode([
-                    '__identity' => $this->persistenceManager->getIdentifierByObject($author),
-                    '__type' => TypeHandling::getTypeForValue($author)
-                ])*/
             ];
         }
-
         return $options;
     }
 

@@ -108,4 +108,13 @@ class BlogController extends ActionController
         }
     }
 
+    /**
+     * @return void
+     */
+    public function showAction() {
+        $this->view->assign('blogtitle', $this->request->getInternalArgument('__blogtitle'));
+        $this->view->assign('blogsubtitle', $this->request->getInternalArgument('__blogsubtitle'));
+        $this->view->assign('blogimage', $this->request->getInternalArgument('__blogimage'));
+    }
+
 }

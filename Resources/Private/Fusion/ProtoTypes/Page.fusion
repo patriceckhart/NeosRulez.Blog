@@ -1,4 +1,14 @@
 prototype(Neos.Neos:Page) {
+    body {
+        content {
+            main {
+                NeosRulezBlogShowBlogPost = NeosRulez.Blog:ShowBlogPost
+                NeosRulezBlogShowBlogPost {
+                    position = 1
+                }
+            }
+        }
+    }
     NeosRulezBlogJs = Neos.Fusion:Tag {
         @position = 'after NeosRulezBootstrapJs'
         tagName = 'script'
@@ -10,4 +20,21 @@ prototype(Neos.Neos:Page) {
         }
     }
     NeosRulezBlogJs.@if.contentIsPresent = ${q(documentNode).children('[instanceof Neos.Neos:ContentCollection]').find('[instanceof NeosRulez.Blog:BlogPosts]').is()}
+}
+
+prototype(NeosRulez.Blog:ShowBlogPost) < prototype(Neos.Neos:Plugin)
+prototype(NeosRulez.Blog:ShowBlogPost) {
+    package = 'NeosRulez.Blog'
+    controller = 'Blog'
+    action = 'show'
+    blogtitle = ${q(node).property('blogtitle')}
+    blogsubtitle = ${q(node).property('blogsubtitle')}
+    blogimage = ${q(node).property('blogimage')}
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
 }
