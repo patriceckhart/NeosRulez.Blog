@@ -16,9 +16,28 @@ class BlogController extends ActionController
 
     /**
      * @Flow\Inject
+     * @var \NeosRulez\Blog\Domain\Repository\CategoryRepository
+     */
+    protected $categoryRepository;
+
+    /**
+     * @Flow\Inject
      * @var \Neos\ContentRepository\Domain\Service\ContextFactoryInterface
      */
     protected $contextFactory;
+
+    /**
+     * @var array
+     */
+    protected $settings;
+
+    /**
+     * @param array $settings
+     * @return void
+     */
+    public function injectSettings(array $settings) {
+        $this->settings = $settings;
+    }
 
     /**
      * @return void
@@ -115,6 +134,29 @@ class BlogController extends ActionController
         $this->view->assign('blogtitle', $this->request->getInternalArgument('__blogtitle'));
         $this->view->assign('blogsubtitle', $this->request->getInternalArgument('__blogsubtitle'));
         $this->view->assign('blogimage', $this->request->getInternalArgument('__blogimage'));
+        $this->view->assign('blogpostcontent', $this->request->getInternalArgument('__blogpostcontent'));
+        $this->view->assign('blogauthor', $this->request->getInternalArgument('__blogauthor'));
+        $this->view->assign('blogdate', $this->request->getInternalArgument('__blogdate'));
+        $this->view->assign('node', $this->request->getInternalArgument('__node'));
+
+        $blogcategories = $this->request->getInternalArgument('__blogcategories');
+        $blogcategoriesArray = array();
+        foreach ($blogcategories as $blogcategory) {
+            $category = $this->categoryRepository->findByIdentifier($blogcategory);
+            array_push($blogcategoriesArray, $category);
+        }
+
+        $this->view->assign('blogcategories', $blogcategoriesArray);
+
+        $this->view->assign('showAuthor', $this->settings['showAuthor']);
+        $this->view->assign('showDate', $this->settings['showDate']);
+        $this->view->assign('showSocialShare', $this->settings['showSocialShare']);
+        $this->view->assign('showCategory', $this->settings['showCategory']);
+
+        $this->view->assign('twitterAccountName', $this->settings['twitterAccountName']);
+
+        $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $this->view->assign('postUri', $url);
     }
 
 }

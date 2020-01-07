@@ -4,9 +4,45 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-12">
-            <h1>{blogtitle}</h1>
+            {neos:contentElement.editable(property: 'blogtitle', tag: 'h1', node: node)}
+            <h3 class="blog-teaser">{neos:contentElement.editable(property: 'blogsubtitle', node: node)}</h3>
+            <div class="row align-items-end">
+                <div class="{f:if(condition: '{showSocialShare}', then: 'col-md-6', else: 'col-12')}">
+                    <f:if condition="{showDate}">
+                        <span class="d-block blog-post-date">
+                            <f:format.date format="d.m.Y" forceLocale="1">{blogdate}</f:format.date>
+                        </span>
+                    </f:if>
+                    <f:if condition="{showAuthor}">
+                        <span class="d-inline blog-author">{f:translate(id: 'from', package: 'NeosRulez.Blog', source: 'NodeTypes/BlogPost')} {blogauthor}</span>
+                    </f:if>
+                    <f:if condition="{showCategory}">
+                        <span class="d-inline blog-categories ml-3">
+                            <f:if condition="{blogcategories}">
+                                <f:for each="{blogcategories}" as="blogcategory" iteration="iterator">
+                                    <f:if condition="!{iterator.isFirst}">
+                                        <f:then>
+                                            <i class="fas fa-tags ml-2"></i>
+                                        </f:then>
+                                        <f:else>
+                                            <i class="fas fa-tags"></i>
+                                        </f:else>
+                                    </f:if>{blogcategory.name}
+                                </f:for>
+                            </f:if>
+                        </span>
+                    </f:if>
+                </div>
+                <f:if condition="{showSocialShare}">
+                    <div class="col-md-6 blog-social-share">
+                        <a href="https://twitter.com/intent/tweet?source={postUri}&text={blogtitle}&via={twitterAccountName}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={postUri}&title={blogtitle}" target="_blank" onclick="return !window.open(this.href, 'LinkedIn', 'width=500,height=500')" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={postUri}&quote={blogtitle}" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=500,height=500')" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </f:if>
+            </div>
             <f:if condition="{blogimage}"><media:image class="d-block my-4 img-fluid blog-image" image="{blogimage}" width="1110c" height="545c" allowCropping="TRUE" alt="{blogtitle}" /></f:if>
-            <h3 class="blog-teaser">{blogsubtitle}</h3>
+            {blogpostcontent -> f:format.raw()}
         </div>
     </div>
 </div>

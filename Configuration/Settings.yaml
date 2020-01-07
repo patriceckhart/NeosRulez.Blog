@@ -35,3 +35,8 @@ Neos:
 NeosRulez:
   Blog:
     blogImageWidth: '1080'
+    showAuthor: true
+    showDate: true
+    showSocialShare: true #Font Awesome needed
+    showCategory: true
+    twitterAccountName: 'patriceckhart'

@@ -23,4 +23,13 @@ class CategoryRepository extends Repository
 
     }
 
+    public function findByIdentifier($identifier) {
+
+        $classname = '\NeosRulez\Blog\Domain\Model\Category';
+        $query = $this->persistenceManager->createQueryForType($classname);
+        $results = $query->matching($query->equals('Persistence_Object_Identifier', $identifier))->execute()->getFirst();
+        return $results;
+
+    }
+
 }

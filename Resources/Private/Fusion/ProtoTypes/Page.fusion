@@ -1,7 +1,8 @@
 prototype(Neos.Neos:Page) {
     body {
         content {
-            main {
+            main >
+            main = Neos.Neos:PrimaryContent {
                 NeosRulezBlogShowBlogPost = NeosRulez.Blog:ShowBlogPost
                 NeosRulezBlogShowBlogPost {
                     position = 1
@@ -30,6 +31,12 @@ prototype(NeosRulez.Blog:ShowBlogPost) {
     blogtitle = ${q(node).property('blogtitle')}
     blogsubtitle = ${q(node).property('blogsubtitle')}
     blogimage = ${q(node).property('blogimage')}
+    blogauthor = ${q(node).property('blogauthor')}
+    blogdate = ${q(node).property('blogdate')}
+    blogcategories = ${q(node).property('blogcategories')}
+    blogpostcontent = Neos.Neos:ContentCollection {
+        nodePath = 'blogpostcontent'
+    }
     @cache {
         mode = 'uncached'
         context {

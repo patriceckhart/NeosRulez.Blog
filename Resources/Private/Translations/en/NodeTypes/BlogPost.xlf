@@ -23,6 +23,9 @@
             <trans-unit id="properties.blogauthor" xml:space="preserve">
 				<source>Post author</source>
 			</trans-unit>
+			<trans-unit id="from" xml:space="preserve">
+				<source>from</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
