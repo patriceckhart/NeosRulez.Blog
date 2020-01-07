@@ -9,3 +9,7 @@
     _hiddenInIndex:
       type: boolean
       defaultValue: TRUE
+  constraints:
+    nodeTypes:
+      '*': FALSE
+      'NeosRulez.Blog:BlogPost': TRUE
