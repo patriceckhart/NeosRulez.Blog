@@ -9,6 +9,15 @@
     _hiddenInIndex:
       type: boolean
       defaultValue: TRUE
+      ui:
+        inspector:
+          group: ~
+    targetMode:
+      type: string
+      defaultValue: 'firstChildNode'
+      ui:
+        inspector:
+          group: ~
   constraints:
     nodeTypes:
       '*': FALSE

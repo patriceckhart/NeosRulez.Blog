@@ -1,0 +1,38 @@
+'NeosRulez.Blog:BlogCategory':
+  ui:
+    label: i18n
+    icon: 'icon-tag'
+    inspector:
+      groups:
+        blogsettings:
+          label: NeosRulez.Blog:Main:blogsettings
+          icon: 'icon-cog'
+          position: 1
+    group: 'blog'
+  superTypes:
+    'Neos.Neos:Shortcut': TRUE
+  properties:
+    _hiddenInIndex:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        inspector:
+          group: ~
+    metaRobotsNoindex:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        inspector:
+          group: ~
+    metaRobotsNofollow:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        inspector:
+          group: ~
+    targetMode:
+      type: string
+      defaultValue: FALSE
+      ui:
+        inspector:
+          group: ~

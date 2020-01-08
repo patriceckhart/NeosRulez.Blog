@@ -54,16 +54,14 @@
         inspector:
           group: 'blogsettings'
     blogcategories:
-      type: array
+      type: references
       ui:
         label: i18n
-        showInCreationDialog: true
         reloadIfChanged: TRUE
         inspector:
           group: 'blogsettings'
-          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
-            dataSourceIdentifier: neosrulez-blog-categories
+            nodeTypes: ['NeosRulez.Blog:BlogCategory']
     blogauthor:
       ui:
         label: i18n

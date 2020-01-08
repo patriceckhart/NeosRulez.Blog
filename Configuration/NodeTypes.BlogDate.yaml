@@ -1,7 +1,0 @@
-'NeosRulez.Blog:BlogDate':
-  superTypes:
-    'Neos.Neos:Content': TRUE
-  ui:
-    group: 'blog'
-    label: i18n
-    icon: 'icon-calendar'

@@ -16,12 +16,6 @@ class BlogController extends ActionController
 
     /**
      * @Flow\Inject
-     * @var \NeosRulez\Blog\Domain\Repository\CategoryRepository
-     */
-    protected $categoryRepository;
-
-    /**
-     * @Flow\Inject
      * @var \Neos\ContentRepository\Domain\Service\ContextFactoryInterface
      */
     protected $contextFactory;
@@ -72,7 +66,11 @@ class BlogController extends ActionController
             $this->view->assign('noIdent', '1');
         } else {
             $node = $context->getNodeByIdentifier($nodeidentifier->getIdentifier());
-            $filterString .= '[blogcategories *= "' . $category . '"]';
+            $filterString = '[blogcategories *= "';
+            foreach ($category as $cat) {
+                $filterString .= $cat->getIdentifier().',';
+            }
+            $filterString .= '"]';
             $articles = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', $sorting)->filter($filterString)->get();
             $this->view->assign('pathsegment', $node->getProperty('uriPathSegment'));
             if ($this->request->hasArgument('page')) {
@@ -140,13 +138,8 @@ class BlogController extends ActionController
         $this->view->assign('node', $this->request->getInternalArgument('__node'));
 
         $blogcategories = $this->request->getInternalArgument('__blogcategories');
-        $blogcategoriesArray = array();
-        foreach ($blogcategories as $blogcategory) {
-            $category = $this->categoryRepository->findByIdentifier($blogcategory);
-            array_push($blogcategoriesArray, $category);
-        }
 
-        $this->view->assign('blogcategories', $blogcategoriesArray);
+        $this->view->assign('blogcategories', $blogcategories);
 
         $this->view->assign('showAuthor', $this->settings['showAuthor']);
         $this->view->assign('showDate', $this->settings['showDate']);

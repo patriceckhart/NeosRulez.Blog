@@ -27,7 +27,7 @@
                                         <f:else>
                                             <i class="fas fa-tags"></i>
                                         </f:else>
-                                    </f:if>{blogcategory.name}
+                                    </f:if>{blogcategory.properties.title}
                                 </f:for>
                             </f:if>
                         </span>
@@ -35,6 +35,7 @@
                 </div>
                 <f:if condition="{showSocialShare}">
                     <div class="col-md-6 blog-social-share">
+                        <span class="d-inline mr-3">{f:translate(id: 'share', package: 'NeosRulez.Blog', source: 'NodeTypes/BlogPost')}:</span>
                         <a href="https://twitter.com/intent/tweet?source={postUri}&text={blogtitle}&via={twitterAccountName}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.linkedin.com/shareArticle?mini=true&url={postUri}&title={blogtitle}" target="_blank" onclick="return !window.open(this.href, 'LinkedIn', 'width=500,height=500')" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://www.facebook.com/sharer/sharer.php?u={postUri}&quote={blogtitle}" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=500,height=500')" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>

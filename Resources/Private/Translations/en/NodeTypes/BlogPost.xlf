@@ -26,6 +26,9 @@
 			<trans-unit id="from" xml:space="preserve">
 				<source>from</source>
 			</trans-unit>
+			<trans-unit id="share" xml:space="preserve">
+				<source>Share</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
