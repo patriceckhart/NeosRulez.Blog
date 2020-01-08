@@ -1,3 +1,1 @@
-prototype(NeosRulez.Blog:BlogCategory) < prototype(Neos.Fusion:Template) {
-    #templatePath = 'resource://NeosRulez.Blog/Private/Templates/Blog/BlogCategory.html'
-}
+prototype(NeosRulez.Blog:BlogCategory) < prototype(Neos.Fusion:Template)
