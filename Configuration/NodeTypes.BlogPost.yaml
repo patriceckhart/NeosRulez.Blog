@@ -11,10 +11,6 @@
     group: 'blog'
   superTypes:
     'Neos.NodeTypes:Page': TRUE
-  childNodes:
-    'blogpostcontent':
-      position: 'end'
-      type: 'Neos.Neos:ContentCollection'
   properties:
     blogdate:
       type: DateTime
@@ -53,6 +49,13 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'blogsettings'
+    blogimages:
+      type: array<Neos\Media\Domain\Model\Asset>
+      ui:
+        inspector:
+          group: 'blogsettings'
+        label: i18n
+        reloadIfChanged: TRUE
     blogcategories:
       type: references
       ui:
@@ -72,3 +75,43 @@
           editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             dataSourceIdentifier: neosrulez-blog-authors
+    blogcontent:
+      type: string
+      ui:
+        label: i18n
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Enter Text here'
+            autoparagraph: true
+            linking:
+              anchor: true
+              title: true
+              relNofollow: true
+              targetBlank: true
+            formatting:
+              strong: true
+              em: true
+              u: false
+              sub: true
+              sup: true
+              del: false
+              p: true
+              h1: true
+              h2: true
+              h3: true
+              h4: true
+              h5: true
+              h6: true
+              pre: true
+              underline: true
+              strikethrough: true
+              removeFormat: true
+              left: true
+              right: true
+              center: true
+              justify: false
+              table: true
+              ol: true
+              ul: true
+              a: true

@@ -7,6 +7,9 @@ prototype(NeosRulez.Blog:BlogPost) < prototype(Neos.NodeTypes:Page) {
                     position = 1
                 }
             }
+            blogMainContent = Neos.Neos:ContentCollection {
+                nodePath = ${q(node).children('main').property('_path')}
+            }
         }
     }
     NeosRulezBlogJs = Neos.Fusion:Tag {
@@ -33,9 +36,6 @@ prototype(NeosRulez.Blog:ShowBlogPost) {
     blogauthor = ${q(node).property('blogauthor')}
     blogdate = ${q(node).property('blogdate')}
     blogcategories = ${q(node).property('blogcategories')}
-    blogpostcontent = Neos.Neos:ContentCollection {
-        nodePath = 'blogpostcontent'
-    }
     @cache {
         mode = 'uncached'
         context {

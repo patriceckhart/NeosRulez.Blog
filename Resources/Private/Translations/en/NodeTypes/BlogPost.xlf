@@ -29,6 +29,12 @@
 			<trans-unit id="share" xml:space="preserve">
 				<source>Share</source>
 			</trans-unit>
+			<trans-unit id="properties.blogcontent" xml:space="preserve">
+				<source>Content Blogpost</source>
+			</trans-unit>
+			<trans-unit id="properties.blogimages" xml:space="preserve">
+				<source>Images</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

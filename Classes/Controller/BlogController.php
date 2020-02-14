@@ -129,27 +129,22 @@ class BlogController extends ActionController
      * @return void
      */
     public function showAction() {
-        $this->view->assign('blogtitle', $this->request->getInternalArgument('__blogtitle'));
-        $this->view->assign('blogsubtitle', $this->request->getInternalArgument('__blogsubtitle'));
-        $this->view->assign('blogimage', $this->request->getInternalArgument('__blogimage'));
-        $this->view->assign('blogpostcontent', $this->request->getInternalArgument('__blogpostcontent'));
-        $this->view->assign('blogauthor', $this->request->getInternalArgument('__blogauthor'));
-        $this->view->assign('blogdate', $this->request->getInternalArgument('__blogdate'));
-        $this->view->assign('node', $this->request->getInternalArgument('__node'));
-
-        $blogcategories = $this->request->getInternalArgument('__blogcategories');
-
-        $this->view->assign('blogcategories', $blogcategories);
 
         $this->view->assign('showAuthor', $this->settings['showAuthor']);
         $this->view->assign('showDate', $this->settings['showDate']);
         $this->view->assign('showSocialShare', $this->settings['showSocialShare']);
         $this->view->assign('showCategory', $this->settings['showCategory']);
-
         $this->view->assign('twitterAccountName', $this->settings['twitterAccountName']);
 
         $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         $this->view->assign('postUri', $url);
+
+        $args = $this->request->getInternalArgument('__node')->getProperties();
+        $this->view->assign('node', $this->request->getInternalArgument('__node'));
+        foreach($args as $key=>$data) {
+            $this->view->assign($key, $data);
+        }
+
     }
 
 }
