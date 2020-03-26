@@ -89,6 +89,7 @@ class BlogController extends ActionController
                 foreach ($category as $cat) {
                     $filterString .= $cat->getIdentifier().',';
                 }
+                $filterString = trim($filterString, ',');
                 $filterString .= '"]';
                 $items = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', $sorting)->slice($queryOffset, $queryItems)->filter($filterString)->get();
                 $pages = ceil($resultsCount / $itemsPerPage);
