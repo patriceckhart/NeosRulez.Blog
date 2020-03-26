@@ -85,7 +85,11 @@ class BlogController extends ActionController
                 $queryOffset = $itemsPerPage * ($page - 1);
                 $queryItems = $itemsPerPage * $page;
                 $this->view->assign('queryOffset', $queryOffset);
-                $filterString .= '[blogcategories *= "' . $category . '"]';
+                $filterString = '[blogcategories *= "';
+                foreach ($category as $cat) {
+                    $filterString .= $cat->getIdentifier().',';
+                }
+                $filterString .= '"]';
                 $items = (new FlowQuery(array($node)))->children('[instanceof NeosRulez.Blog:BlogPost]')->context(array('workspaceName' => 'live'))->sort('_index', $sorting)->slice($queryOffset, $queryItems)->filter($filterString)->get();
                 $pages = ceil($resultsCount / $itemsPerPage);
                 if ($pages <= 10) {
@@ -122,6 +126,11 @@ class BlogController extends ActionController
             $pagination['current'] = $page;
             $this->view->assign('pagination', $pagination);
             $this->view->assign('items', $items);
+        }
+        $args = $this->request->getInternalArgument('__node')->getProperties();
+        $this->view->assign('node', $this->request->getInternalArgument('__node'));
+        foreach($args as $key=>$data) {
+            $this->view->assign($key, $data);
         }
     }
 
