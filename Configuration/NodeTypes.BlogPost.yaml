@@ -1,7 +1,7 @@
 'NeosRulez.Blog:BlogPost':
   ui:
     label: i18n
-    icon: 'icon-file-text'
+    icon: 'far fa-file-alt'
     inspector:
       groups:
         blogsettings:
@@ -23,14 +23,7 @@
         inspector:
           group: 'blogsettings'
     blogtitle:
-      type: string
-      ui:
-        label: i18n
-        showInCreationDialog: true
-        inlineEditable: TRUE
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'blogsettings'
+      ui: ~
     blogsubtitle:
       type: string
       ui:
@@ -38,17 +31,10 @@
         showInCreationDialog: true
         inlineEditable: TRUE
         reloadIfChanged: TRUE
-        inspector:
-          group: 'blogsettings'
+        #inspector:
+          #group: 'blogsettings'
     blogimage:
-      type: 'Neos\Media\Domain\Model\ImageInterface'
-      ui:
-        label: i18n
-        showInCreationDialog: true
-        inlineEditable: TRUE
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'blogsettings'
+      ui: ~
     blogimages:
       type: array<Neos\Media\Domain\Model\Asset>
       ui:
@@ -65,6 +51,9 @@
           group: 'blogsettings'
           editorOptions:
             nodeTypes: ['NeosRulez.Blog:BlogCategory']
+            createNew:
+              path: /sites/site
+              type: 'NeosRulez.Blog:BlogCategory'
     blogauthor:
       ui:
         label: i18n

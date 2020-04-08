@@ -1,0 +1,49 @@
+prototype(NeosRulez.Blog:ShowBlogPost) < prototype(Neos.Neos:Content) {
+    templatePath = 'resource://NeosRulez.Blog/Private/Templates/NodeTypes/BlogPost.html'
+
+    title = ${q(node).property('title')}
+    blogsubtitle = ${q(node).property('blogsubtitle')}
+    blogimages = ${q(node).property('blogimages')}
+    blogauthor = ${q(node).property('blogauthor')}
+    blogdate = ${q(node).property('blogdate')}
+    blogcategories = ${q(node).property('blogcategories')}
+    blogcontent = ${q(node).property('blogcontent')}
+
+    showAuthor = ${Configuration.setting('NeosRulez.Blog.showAuthor')}
+    showDate = ${Configuration.setting('NeosRulez.Blog.showDate')}
+    showSocialShare = ${Configuration.setting('NeosRulez.Blog.showSocialShare')}
+    showCategory = ${Configuration.setting('NeosRulez.Blog.showCategory')}
+    twitterAccountName = ${Configuration.setting('NeosRulez.Blog.twitterAccountName')}
+    blogImageWidth = ${Configuration.setting('NeosRulez.Blog.blogImageWidth')}
+
+    pageContent = Neos.Neos:ContentCollection {
+        nodePath = 'main'
+    }
+
+    assets = NeosRulez.Bootstrap:Gallery {
+        assets = ${q(node).property('blogimages')}
+        lightbox = true
+        crop = false
+    }
+
+    #blogimage = Neos.NodeTypes:Image {
+        #srcset = Neos.Fusion:Collection {
+            #itemRenderer = Neos.Neos:ImageUri {
+                #asset = ${q(node).property('blogimages')}
+                #asset = ${Array.first(this.blogimages)}
+            #}
+        #}
+        #rounded = false
+        #lightbox = false
+        #imgfullwidth = 1110
+    #}
+    #firstimage = ${Array.first(this.blogimages)}
+
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+}

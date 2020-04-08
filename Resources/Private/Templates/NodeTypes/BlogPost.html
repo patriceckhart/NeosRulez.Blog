@@ -4,7 +4,7 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-12">
-            {neos:contentElement.editable(property: 'blogtitle', tag: 'h1', node: node)}
+            {neos:contentElement.editable(property: 'title', tag: 'h1', node: node)}
             <h3 class="blog-teaser">{neos:contentElement.editable(property: 'blogsubtitle', node: node)}</h3>
             <div class="row align-items-end">
                 <div class="{f:if(condition: '{showSocialShare}', then: 'col-md-6', else: 'col-12')}">
@@ -36,14 +36,20 @@
                 <f:if condition="{showSocialShare}">
                     <div class="col-md-6 blog-social-share">
                         <span class="d-inline mr-3">{f:translate(id: 'share', package: 'NeosRulez.Blog', source: 'NodeTypes/BlogPost')}:</span>
-                        <a href="https://twitter.com/intent/tweet?source={postUri}&text={blogtitle}&via={twitterAccountName}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={postUri}&title={blogtitle}" target="_blank" onclick="return !window.open(this.href, 'LinkedIn', 'width=500,height=500')" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u={postUri}&quote={blogtitle}" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=500,height=500')" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/intent/tweet?source={postUri}&text={title}&via={twitterAccountName}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={postUri}&title={title}" target="_blank" onclick="return !window.open(this.href, 'LinkedIn', 'width=500,height=500')" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={postUri}&quote={title}" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=500,height=500')" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </f:if>
             </div>
-            <f:if condition="{blogimage}"><media:image class="d-block my-4 img-fluid blog-image" image="{blogimage}" width="1110c" height="545c" allowCropping="TRUE" alt="{blogtitle}" /></f:if>
-            {blogpostcontent -> f:format.raw()}
+            <f:if condition="{blogimages}"><media:image class="d-block my-4 img-fluid blog-image" image="{blogimages.0}" width="1110c" height="545c" allowCropping="TRUE" alt="{blogtitle}" /></f:if>
+            {neos:contentElement.editable(property: 'blogcontent', node: node)}
+            <f:if condition="{assets}">
+                <div class="neosrulez-bootstrap-gallery">
+                    {assets -> f:format.raw()}
+                </div>
+            </f:if>
         </div>
     </div>
 </div>
+{pageContent -> f:format.raw()}

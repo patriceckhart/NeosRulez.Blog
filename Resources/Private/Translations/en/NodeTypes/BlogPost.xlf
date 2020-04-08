@@ -12,7 +12,7 @@
 				<source>Post title</source>
 			</trans-unit>
 			<trans-unit id="properties.blogsubtitle" xml:space="preserve">
-				<source>Post subtitle</source>
+				<source>Subtitle</source>
 			</trans-unit>
 			<trans-unit id="properties.blogimage" xml:space="preserve">
 				<source>Thumbnail Image</source>

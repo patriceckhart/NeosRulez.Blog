@@ -1,0 +1,11 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+{namespace fusion=Neos\Fusion\ViewHelpers}
+{namespace media=Neos\Media\ViewHelpers}
+<div{attributes -> f:format.raw()}>
+    <f:render section="Content" arguments="{_all}" />
+</div>
+<f:section name="Content">
+    Blog Beiträge:<br />
+    {posts -> f:debug()}
+    {test -> f:debug()}
+</f:section>

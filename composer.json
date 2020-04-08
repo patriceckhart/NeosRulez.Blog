@@ -12,7 +12,8 @@
         }
     ],
     "require": {
-        "neos/neos": "*"
+        "neos/neos": "*",
+        "neosrulez/bootstrap": "^3.3"
     },
     "autoload": {
         "psr-4": {

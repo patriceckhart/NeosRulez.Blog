@@ -1,6 +1,6 @@
 'NeosRulez.Blog:BlogPosts':
   superTypes:
-    'Neos.Neos:Plugin': TRUE
+    'Neos.Neos:Content': TRUE
   ui:
     label: i18n
     group: 'blog'

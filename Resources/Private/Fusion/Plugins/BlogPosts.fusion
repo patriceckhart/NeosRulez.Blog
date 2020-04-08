@@ -1,0 +1,20 @@
+prototype(NeosRulez.Blog:BlogPosts) < prototype(Neos.Neos:Content) {
+    templatePath = 'resource://NeosRulez.Blog/Private/Templates/NodeTypes/BlogPosts.html'
+    #startingPoint = ${q(node).property('startingPoint') ? q(node).property('startingPoint') : documentNode}
+    #itemCollection = ${Array.isEmpty(q(node).property('selection') ? q(node).property('selection') : {}) ? null : q(node).property('selection')}
+
+    #posts = ${q(node).property('posts')}
+    #nodeidentifier = ${q(node).property('nodeidentifier')}
+    #pagebrowser = ${q(node).property('pagebrowser')}
+    #showdate = ${q(node).property('showdate')}
+    #sorting = ${q(node).property('sorting')}
+    #blogcategories = ${q(node).property('blogcategories')}
+    #showsubtitle = ${q(node).property('showsubtitle')}
+    #showaslist = ${q(node).property('showaslist')}
+
+    test = NeosRulez.Blog:FusionBlogPosts
+}
+
+prototype(NeosRulez.Blog:FusionBlogPosts) {
+    @class = 'NeosRulez\\Blog\\Fusion\\BlogPostsImplementation'
+}
