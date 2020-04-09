@@ -61,9 +61,9 @@
           editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
             values:
-              'ascending':
+              'ASC':
                 label: i18n
-              'descending':
+              'DESC':
                 label: i18n
     blogcategories:
       type: references

@@ -1,20 +1,38 @@
 prototype(NeosRulez.Blog:BlogPosts) < prototype(Neos.Neos:Content) {
     templatePath = 'resource://NeosRulez.Blog/Private/Templates/NodeTypes/BlogPosts.html'
-    #startingPoint = ${q(node).property('startingPoint') ? q(node).property('startingPoint') : documentNode}
-    #itemCollection = ${Array.isEmpty(q(node).property('selection') ? q(node).property('selection') : {}) ? null : q(node).property('selection')}
 
-    #posts = ${q(node).property('posts')}
-    #nodeidentifier = ${q(node).property('nodeidentifier')}
-    #pagebrowser = ${q(node).property('pagebrowser')}
-    #showdate = ${q(node).property('showdate')}
-    #sorting = ${q(node).property('sorting')}
-    #blogcategories = ${q(node).property('blogcategories')}
-    #showsubtitle = ${q(node).property('showsubtitle')}
-    #showaslist = ${q(node).property('showaslist')}
+    pagebrowser = ${q(node).property('pagebrowser')}
+    showdate = ${q(node).property('showdate')}
+    showsubtitle = ${q(node).property('showsubtitle')}
+    showaslist = ${q(node).property('showaslist')}
 
-    test = NeosRulez.Blog:FusionBlogPosts
+    startingPoint = ${q(node).property('nodeidentifier')}
+    sorting = ${q(node).property('sorting')}
+    filter = Neos.Fusion:Collection {
+        collection = ${q(node).property('blogcategories')}
+        itemName = 'category'
+        itemKey = 'key'
+        itemRenderer = ${category.identifier + (iterator.isLast ? '' : ', ')}
+    }
+    filterstring = ${'[blogcategories *= "' + this.filter + '"]'}
+    blogposts = ${q(this.startingPoint).children('[instanceof NeosRulez.Blog:BlogPost]').filter(this.filterstring).sort('_index', this.sorting).get()}
+    @context.countposts = ${Array.length(this.blogposts)}
+
+    pagebrowserImplementation = NeosRulez.Blog:FusionPageBrowser {
+        collection = ${this.blogposts}
+        posts = ${q(node).property('posts')}
+        countposts = ${this.countposts}
+    }
+
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
 }
 
-prototype(NeosRulez.Blog:FusionBlogPosts) {
-    @class = 'NeosRulez\\Blog\\Fusion\\BlogPostsImplementation'
+prototype(NeosRulez.Blog:FusionPageBrowser) {
+    @class = 'NeosRulez\\Blog\\Fusion\\PageBrowserImplementation'
 }

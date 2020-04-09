@@ -5,7 +5,9 @@
     <f:render section="Content" arguments="{_all}" />
 </div>
 <f:section name="Content">
-    Blog Beiträge:<br />
-    {posts -> f:debug()}
-    {test -> f:debug()}
+    {pagebrowserImplementation -> f:debug()}
+    <f:comment>
+        {filterstring -> f:debug()}
+    </f:comment>
+    {blogposts -> f:debug()}
 </f:section>

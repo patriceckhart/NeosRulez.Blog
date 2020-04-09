@@ -23,10 +23,10 @@
 			<trans-unit id="properties.sorting" xml:space="preserve">
 				<source>Sorting</source>
 			</trans-unit>
-            <trans-unit id="properties.sorting.selectBoxEditor.values.ascending" xml:space="preserve">
+            <trans-unit id="properties.sorting.selectBoxEditor.values.ASC" xml:space="preserve">
                 <source>Ascending</source>
             </trans-unit>
-            <trans-unit id="properties.sorting.selectBoxEditor.values.descending" xml:space="preserve">
+            <trans-unit id="properties.sorting.selectBoxEditor.values.DESC" xml:space="preserve">
                 <source>Descending</source>
             </trans-unit>
 			<trans-unit id="properties.blogcategories" xml:space="preserve">
