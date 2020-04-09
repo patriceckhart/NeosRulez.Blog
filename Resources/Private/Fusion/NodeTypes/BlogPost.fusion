@@ -16,6 +16,7 @@ prototype(NeosRulez.Blog:ShowBlogPost) < prototype(Neos.Neos:Content) {
     twitterAccountName = ${Configuration.setting('NeosRulez.Blog.twitterAccountName')}
     blogImageWidth = ${Configuration.setting('NeosRulez.Blog.blogImageWidth')}
 
+    node = ${node}
     pageContent = Neos.Neos:ContentCollection {
         nodePath = 'main'
     }
@@ -25,19 +26,6 @@ prototype(NeosRulez.Blog:ShowBlogPost) < prototype(Neos.Neos:Content) {
         lightbox = true
         crop = false
     }
-
-    #blogimage = Neos.NodeTypes:Image {
-        #srcset = Neos.Fusion:Collection {
-            #itemRenderer = Neos.Neos:ImageUri {
-                #asset = ${q(node).property('blogimages')}
-                #asset = ${Array.first(this.blogimages)}
-            #}
-        #}
-        #rounded = false
-        #lightbox = false
-        #imgfullwidth = 1110
-    #}
-    #firstimage = ${Array.first(this.blogimages)}
 
     @cache {
         mode = 'uncached'

@@ -36,9 +36,9 @@
                 <f:if condition="{showSocialShare}">
                     <div class="col-md-6 blog-social-share">
                         <span class="d-inline mr-3">{f:translate(id: 'share', package: 'NeosRulez.Blog', source: 'NodeTypes/BlogPost')}:</span>
-                        <a href="https://twitter.com/intent/tweet?source={postUri}&text={title}&via={twitterAccountName}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={postUri}&title={title}" target="_blank" onclick="return !window.open(this.href, 'LinkedIn', 'width=500,height=500')" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u={postUri}&quote={title}" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=500,height=500')" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/intent/tweet?source={neos:uri.node(absolute: '{true}')}&text={title}&via={twitterAccountName}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={neos:uri.node(absolute: '{true}')}&title={title}" target="_blank" onclick="return !window.open(this.href, 'LinkedIn', 'width=500,height=500')" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={neos:uri.node(absolute: '{true}')}&quote={title}" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=500,height=500')" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </f:if>
             </div>

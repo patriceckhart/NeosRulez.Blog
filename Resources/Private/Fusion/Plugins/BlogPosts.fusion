@@ -1,10 +1,17 @@
 prototype(NeosRulez.Blog:BlogPosts) < prototype(Neos.Neos:Content) {
     templatePath = 'resource://NeosRulez.Blog/Private/Templates/NodeTypes/BlogPosts.html'
 
+    node = ${q(node)}
+
     pagebrowser = ${q(node).property('pagebrowser')}
     showdate = ${q(node).property('showdate')}
     showsubtitle = ${q(node).property('showsubtitle')}
     showaslist = ${q(node).property('showaslist')}
+    blogcategories = ${q(node).property('blogcategories')}
+
+    showAuthor = ${Configuration.setting('NeosRulez.Blog.showAuthor')}
+    showDate = ${Configuration.setting('NeosRulez.Blog.showDate')}
+    showCategory = ${Configuration.setting('NeosRulez.Blog.showCategory')}
 
     startingPoint = ${q(node).property('nodeidentifier')}
     sorting = ${q(node).property('sorting')}
@@ -12,17 +19,21 @@ prototype(NeosRulez.Blog:BlogPosts) < prototype(Neos.Neos:Content) {
         collection = ${q(node).property('blogcategories')}
         itemName = 'category'
         itemKey = 'key'
-        itemRenderer = ${category.identifier + (iterator.isLast ? '' : ', ')}
+        itemRenderer = ${category.identifier + (iterator.isLast ? '' : ',')}
     }
     filterstring = ${'[blogcategories *= "' + this.filter + '"]'}
     blogposts = ${q(this.startingPoint).children('[instanceof NeosRulez.Blog:BlogPost]').filter(this.filterstring).sort('_index', this.sorting).get()}
-    @context.countposts = ${Array.length(this.blogposts)}
 
-    pagebrowserImplementation = NeosRulez.Blog:FusionPageBrowser {
-        collection = ${this.blogposts}
+    @context.countposts = ${Array.length(this.blogposts)}
+    @context.page = ${request.arguments.page}
+
+    pagination = NeosRulez.Blog:FusionPageBrowser {
         posts = ${q(node).property('posts')}
-        countposts = ${this.countposts}
+        countposts = ${countposts}
+        page = ${page}
     }
+
+    blogpostsoutput = ${q(this.startingPoint).children('[instanceof NeosRulez.Blog:BlogPost]').slice(this.pagination.queryOffset,this.pagination.queryItems).filter(this.filterstring).sort('_index', this.sorting).get()}
 
     @cache {
         mode = 'uncached'

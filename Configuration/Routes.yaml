@@ -1,6 +1,6 @@
 -
   name: 'pagination page'
-  uriPattern: '{node}/page/{currentPage}'
+  uriPattern: '{node}/page/{page}'
   defaults:
     '@package': 'Neos.Neos'
     '@controller': 'Frontend\Node'

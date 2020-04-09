@@ -1,9 +1,9 @@
 Neos:
-  #Flow:
-    #mvc:
-      #routes:
-        #'NeosRulez.Blog':
-          #position: 'before Neos.Neos'
+  Flow:
+    mvc:
+      routes:
+        'NeosRulez.Blog':
+          position: 'before Neos.Neos'
   Neos:
     userInterface:
       translation:
