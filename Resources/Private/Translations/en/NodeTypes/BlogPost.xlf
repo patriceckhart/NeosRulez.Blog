@@ -35,6 +35,9 @@
 			<trans-unit id="properties.blogimages" xml:space="preserve">
 				<source>Images</source>
 			</trans-unit>
+			<trans-unit id="properties.enablecomments" xml:space="preserve">
+				<source>Enable comments</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

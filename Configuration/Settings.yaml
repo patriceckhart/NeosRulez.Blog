@@ -2,6 +2,7 @@ Neos:
   Flow:
     mvc:
       routes:
+        'Neos.Flow': true
         'NeosRulez.Blog':
           position: 'before Neos.Neos'
   Neos:
@@ -27,4 +28,5 @@ NeosRulez:
     showDate: true
     showSocialShare: true #Font Awesome needed
     showCategory: true
-    twitterAccountName: 'patriceckhart'
+    twitterAccountName: 'yourtwittername'
+    #notificationMail: 'your@mailaddress.com'

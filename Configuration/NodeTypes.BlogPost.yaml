@@ -104,3 +104,19 @@
               ol: true
               ul: true
               a: true
+    enablecomments:
+      type: boolean
+      defaultValue: FALSE
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'blogsettings'
+          position: 'end'
+  childNodes:
+    comments:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': FALSE
+          'NeosRulez.Blog:BlogPostComment': TRUE

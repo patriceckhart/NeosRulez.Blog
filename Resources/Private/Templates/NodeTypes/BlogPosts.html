@@ -83,49 +83,51 @@
 </f:section>
 
 <f:section name="pagination">
-    <nav class="pagebrowser mt-5" aria-label="pagebrowser">
-        <ul class="pagination">
-            <f:if condition="{pagination}">
-                <f:if condition="{pagination.pagination.prev}">
-                    <li class="page-item">
-                        <neos:link.node node="{node}" arguments="{page: pagination.pagination.prev}" class="page-link">
-                            <i class="fa fa-angle-left"></i>
-                        </neos:link.node>
-                        <f:comment>
-                            <f:link.action action="indexPosts" arguments="{page: pagination.pagination.prev}" class="page-link">
+    <f:if condition="{pagination.pagination.pages -> f:count()}>1">
+        <nav class="pagebrowser mt-5" aria-label="pagebrowser">
+            <ul class="pagination">
+                <f:if condition="{pagination}">
+                    <f:if condition="{pagination.pagination.prev}">
+                        <li class="page-item">
+                            <neos:link.node node="{node}" arguments="{page: pagination.pagination.prev}" class="page-link">
                                 <i class="fa fa-angle-left"></i>
-                            </f:link.action>
-                        </f:comment>
-                    </li>
-                </f:if>
+                            </neos:link.node>
+                            <f:comment>
+                                <f:link.action action="indexPosts" arguments="{page: pagination.pagination.prev}" class="page-link">
+                                    <i class="fa fa-angle-left"></i>
+                                </f:link.action>
+                            </f:comment>
+                        </li>
+                    </f:if>
 
-                <f:for each="{pagination.pagination.pages}" as="item">
-                    <li class="page-item">
-                        <neos:link.node node="{node}" arguments="{page: item.text}" class="page-link{f:if(condition: '{0:pagination.pagination.current} == {0:item.text}',
+                    <f:for each="{pagination.pagination.pages}" as="item">
+                        <li class="page-item">
+                            <neos:link.node node="{node}" arguments="{page: item.text}" class="page-link{f:if(condition: '{0:pagination.pagination.current} == {0:item.text}',
 then: ' bg-primary text-white', else: '')}">
-                            {item.text}
-                        </neos:link.node>
-                        <f:comment>
-                            <f:link.action action="indexPosts" arguments="{page: item.text}"
-                                           class="page-link{f:if(condition: '{0:pagination.pagination.current} == {0:item.text}',
+                                {item.text}
+                            </neos:link.node>
+                            <f:comment>
+                                <f:link.action action="indexPosts" arguments="{page: item.text}"
+                                               class="page-link{f:if(condition: '{0:pagination.pagination.current} == {0:item.text}',
 then: ' bg-primary text-white', else: '')}">
-                                {item.text}</f:link.action>
-                        </f:comment>
-                    </li>
-                </f:for>
-                <f:if condition="{pagination.next}">
-                    <li class="page-item">
-                        <neos:link.node node="{node}" arguments="{page:pagination.pagination.next}" class="page-link next">
-                            <i class="fa fa-angle-right"></i>
-                        </neos:link.node>
-                        <f:comment>
-                            <f:link.action action="indexPosts" arguments="{page:pagination.pagination.next}" class="page-link next">
+                                    {item.text}</f:link.action>
+                            </f:comment>
+                        </li>
+                    </f:for>
+                    <f:if condition="{pagination.next}">
+                        <li class="page-item">
+                            <neos:link.node node="{node}" arguments="{page:pagination.pagination.next}" class="page-link next">
                                 <i class="fa fa-angle-right"></i>
-                            </f:link.action>
-                        </f:comment>
-                    </li>
+                            </neos:link.node>
+                            <f:comment>
+                                <f:link.action action="indexPosts" arguments="{page:pagination.pagination.next}" class="page-link next">
+                                    <i class="fa fa-angle-right"></i>
+                                </f:link.action>
+                            </f:comment>
+                        </li>
+                    </f:if>
                 </f:if>
-            </f:if>
-        </ul>
-    </nav>
+            </ul>
+        </nav>
+    </f:if>
 </f:section>

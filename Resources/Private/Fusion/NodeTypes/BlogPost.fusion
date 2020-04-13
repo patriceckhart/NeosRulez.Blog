@@ -8,6 +8,7 @@ prototype(NeosRulez.Blog:ShowBlogPost) < prototype(Neos.Neos:Content) {
     blogdate = ${q(node).property('blogdate')}
     blogcategories = ${q(node).property('blogcategories')}
     blogcontent = ${q(node).property('blogcontent')}
+    enablecomments = ${q(node).property('enablecomments')}
 
     showAuthor = ${Configuration.setting('NeosRulez.Blog.showAuthor')}
     showDate = ${Configuration.setting('NeosRulez.Blog.showDate')}
@@ -17,6 +18,7 @@ prototype(NeosRulez.Blog:ShowBlogPost) < prototype(Neos.Neos:Content) {
     blogImageWidth = ${Configuration.setting('NeosRulez.Blog.blogImageWidth')}
 
     node = ${node}
+
     pageContent = Neos.Neos:ContentCollection {
         nodePath = 'main'
     }
@@ -26,6 +28,8 @@ prototype(NeosRulez.Blog:ShowBlogPost) < prototype(Neos.Neos:Content) {
         lightbox = true
         crop = false
     }
+
+    comments = ${q(node).children().children('[instanceof NeosRulez.Blog:BlogPostComment]').sort('_index', 'DESC').get()}
 
     @cache {
         mode = 'uncached'
