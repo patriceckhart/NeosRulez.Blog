@@ -31,8 +31,6 @@
         showInCreationDialog: true
         inlineEditable: TRUE
         reloadIfChanged: TRUE
-        #inspector:
-          #group: 'blogsettings'
     blogimage:
       ui: ~
     blogimages:
@@ -113,6 +111,10 @@
         inspector:
           group: 'blogsettings'
           position: 'end'
+    faicon:
+      ui: ~
+    onlyicon:
+      ui: ~
   childNodes:
     comments:
       type: 'Neos.Neos:ContentCollection'
@@ -120,3 +122,6 @@
         nodeTypes:
           '*': FALSE
           'NeosRulez.Blog:BlogPostComment': TRUE
+  constraints:
+    nodeTypes:
+      '*': false

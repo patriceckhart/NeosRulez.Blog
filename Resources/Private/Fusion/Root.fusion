@@ -1,3 +1,1 @@
-include: ProtoTypes/*
-include: NodeTypes/*
-include: Plugins/*
+include: **/*

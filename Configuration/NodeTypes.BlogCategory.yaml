@@ -4,14 +4,21 @@
     icon: 'icon-tag'
     inspector:
       groups:
-        blogsettings:
-          label: NeosRulez.Blog:Main:blogsettings
-          icon: 'icon-cog'
+        document:
+          label: NeosRulez.Blog:Main:category
+          icon: 'icon-tag'
           position: 1
     group: 'blog'
   superTypes:
     'Neos.Neos:Shortcut': TRUE
   properties:
+    faicon:
+      ui: ~
+    onlyicon:
+      ui: ~
+    uriPathSegment:
+      defaultValue: ''
+      ui: ~
     _hiddenInIndex:
       type: boolean
       defaultValue: TRUE

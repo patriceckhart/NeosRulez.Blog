@@ -3,7 +3,7 @@
     'Neos.Neos:Shortcut': TRUE
   ui:
     label: i18n
-    icon: 'icon-folder-open'
+    icon: 'far fa-folder-open'
     group: 'blog'
   properties:
     _hiddenInIndex:

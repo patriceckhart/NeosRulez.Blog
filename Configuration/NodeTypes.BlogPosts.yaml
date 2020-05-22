@@ -26,6 +26,8 @@
         label: i18n
         inspector:
           group: 'blogsettings'
+          editorOptions:
+            nodeTypes: ['NeosRulez.Blog:BlogFolder']
     pagebrowser:
       type: boolean
       defaultValue: TRUE
@@ -52,7 +54,7 @@
           group: 'blogsettings'
     sorting:
       type: string
-      defaultValue: 'ascending'
+      defaultValue: 'ASC'
       ui:
         label: i18n
         reloadIfChanged: TRUE
