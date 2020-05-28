@@ -1,0 +1,25 @@
+'NeosRulez.Blog:BlogFolder':
+  superTypes:
+    'Neos.Neos:Shortcut': TRUE
+  ui:
+    label: i18n
+    icon: 'far fa-folder-open'
+    group: 'blog'
+    position: 1
+  properties:
+    _hiddenInIndex:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        inspector:
+          group: ~
+    targetMode:
+      type: string
+      defaultValue: 'firstChildNode'
+      ui:
+        inspector:
+          group: ~
+  constraints:
+    nodeTypes:
+      '*': FALSE
+      'NeosRulez.Blog:BlogPost': TRUE

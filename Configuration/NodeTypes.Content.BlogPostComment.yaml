@@ -1,0 +1,18 @@
+'NeosRulez.Blog:BlogPostComment':
+  superTypes:
+    'Neos.Neos:Content': TRUE
+  ui:
+    label: i18n
+    icon: 'far fa-comments'
+    group: 'blog'
+  properties:
+    title:
+      type: string
+    blogPostCommentdate:
+      type: DateTime
+    blogPostCommentAuthorName:
+      type: string
+    blogPostCommentAuthorEmail:
+      type: string
+    blogPostCommentMessage:
+      type: string
