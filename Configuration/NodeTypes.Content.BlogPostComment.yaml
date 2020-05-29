@@ -1,10 +1,9 @@
 'NeosRulez.Blog:BlogPostComment':
   superTypes:
     'Neos.Neos:Content': TRUE
-  ui:
-    label: i18n
-    icon: 'far fa-comments'
-    group: 'blog'
+  ui: ~
+    #label: i18n
+    #icon: 'far fa-comments'
   properties:
     title:
       type: string

@@ -9,7 +9,7 @@
 				<source>Maximum amount</source>
 			</trans-unit>
 			<trans-unit id="properties.nodeidentifier" xml:space="preserve">
-				<source>Parent page</source>
+				<source>Blog folder</source>
 			</trans-unit>
 			<trans-unit id="properties.pagebrowser" xml:space="preserve">
 				<source>Show pagebrowser</source>
@@ -35,6 +35,9 @@
 			<trans-unit id="properties.showaslist" xml:space="preserve">
 				<source>Show as list</source>
 			</trans-unit>
+			<trans-unit id="properties.posts.selectBoxEditor.values.0" xml:space="preserve">
+                <source>Show all</source>
+            </trans-unit>
 		</body>
 	</file>
 </xliff>

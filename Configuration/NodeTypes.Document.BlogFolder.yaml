@@ -6,7 +6,20 @@
     icon: 'far fa-folder-open'
     group: 'blog'
     position: 1
+    inspector:
+      groups:
+        document:
+          label: NeosRulez.Blog:NodeTypes.BlogFolder:ui.label
+          icon: 'far fa-folder-open'
+          position: 1
   properties:
+    faicon:
+      ui: ~
+    onlyicon:
+      ui: ~
+    uriPathSegment:
+      defaultValue: ''
+      ui: ~
     _hiddenInIndex:
       type: boolean
       defaultValue: TRUE
@@ -16,6 +29,18 @@
     targetMode:
       type: string
       defaultValue: 'firstChildNode'
+      ui:
+        inspector:
+          group: ~
+    metaRobotsNoindex:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        inspector:
+          group: ~
+    metaRobotsNofollow:
+      type: boolean
+      defaultValue: TRUE
       ui:
         inspector:
           group: ~

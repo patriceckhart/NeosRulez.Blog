@@ -35,13 +35,13 @@ prototype(NeosRulez.Blog:BlogPosts) < prototype(Neos.Neos:Content) {
 
     blogpostsoutput = ${q(this.startingPoint).children('[instanceof NeosRulez.Blog:BlogPost]').slice(this.pagination.queryOffset,this.pagination.queryItems).filter(this.filterstring).sort('_index', this.sorting).get()}
 
-    @cache {
-        mode = 'uncached'
-        context {
-            1 = 'node'
-            2 = 'documentNode'
-        }
-    }
+    #@cache {
+    #    mode = 'uncached'
+    #    context {
+    #        1 = 'node'
+    #        2 = 'documentNode'
+    #    }
+    #}
 }
 
 prototype(NeosRulez.Blog:FusionPageBrowser) {

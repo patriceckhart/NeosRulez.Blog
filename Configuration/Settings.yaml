@@ -2,9 +2,7 @@ Neos:
   Flow:
     mvc:
       routes:
-        'Neos.Flow': true
-        'NeosRulez.Blog':
-          position: 'before Neos.Neos'
+        'NeosRulez.Blog': true
   Neos:
     userInterface:
       translation:

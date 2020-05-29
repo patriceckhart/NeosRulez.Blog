@@ -48,7 +48,7 @@
     <div class="col-md-4 blogitem">
         <neos:link.node node="{blogpost}" class="d-block">
             <f:if condition="{blogpost.properties.blogimages}">
-                <media:image class="d-block mb-2 img-fluid" image="{blogpost.properties.blogimages.0}" width="550c" height="230c" allowCropping="TRUE" alt="{blogpost.properties.title}" />
+                <media:image class="d-block mb-2 img-fluid" image="{blogpost.properties.blogimages.0}" width="550c" height="350c" allowCropping="TRUE" alt="{blogpost.properties.title}" />
             </f:if>
             <h4>{blogpost.properties.title}</h4>
             <f:if condition="{showAuthor}">
@@ -68,7 +68,7 @@
                 <div class="col-md-6">
                     <f:format.date format="d.m.Y">{blogpost.properties.blogdate}</f:format.date>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 text-right">
                     <f:if condition="{blogcategories}">
                         <f:for each="{blogcategories}" as="blogcategory" iteration="iterator">
                             <span class="d-block">
