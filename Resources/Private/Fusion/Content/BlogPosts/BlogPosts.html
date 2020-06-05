@@ -26,7 +26,16 @@
             </f:if>
         </f:then>
         <f:else>
-            {f:translate(id: 'nodefinition', package: 'NeosRulez.Blog', source: 'Main')}
+            <f:if condition="{post}">
+                <f:then>
+                    <div class="row">
+                        <f:render section="blogThumbItem" arguments="{_all}" />
+                    </div>
+                </f:then>
+                <f:else>
+                    {f:translate(id: 'nodefinition', package: 'NeosRulez.Blog', source: 'Main')}
+                </f:else>
+            </f:if>
         </f:else>
     </f:if>
 </f:section>
@@ -45,7 +54,7 @@
 </f:section>
 
 <f:section name="blogThumbItem">
-    <div class="col-md-4 blogitem">
+    <div class="{f:if(condition: '{post}', then: 'col-12', else: 'col-md-4')} blogitem">
         <neos:link.node node="{blogpost}" class="d-block">
             <f:if condition="{blogpost.properties.blogimages}">
                 <media:image class="d-block mb-2 img-fluid" image="{blogpost.properties.blogimages.0}" width="550c" height="350c" allowCropping="TRUE" alt="{blogpost.properties.title}" />

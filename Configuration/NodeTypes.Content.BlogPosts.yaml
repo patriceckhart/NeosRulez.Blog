@@ -11,6 +11,19 @@
           label: NeosRulez.Blog:Main:blogsettings
           icon: 'icon-cog'
   properties:
+    post:
+      type: reference
+      ui:
+        showInCreationDialog: false
+        reloadIfChanged: TRUE
+        label: i18n
+        inspector:
+          hidden: 'ClientEval:node.properties.posts ? true : false'
+          group: 'blogsettings'
+          position: 'start'
+          editorOptions:
+            allowEmpty: false
+            nodeTypes: ['NeosRulez.Blog:BlogPost']
     posts:
       type: string
       defaultValue: '0'
@@ -19,6 +32,7 @@
         showInCreationDialog: true
         reloadIfChanged: TRUE
         inspector:
+          hidden: 'ClientEval:node.properties.post ? true : false'
           group: 'blogsettings'
           editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
@@ -233,6 +247,7 @@
         reloadIfChanged: TRUE
         label: i18n
         inspector:
+          hidden: 'ClientEval:node.properties.post ? true : false'
           group: 'blogsettings'
           editorOptions:
             allowEmpty: false
@@ -244,6 +259,7 @@
         label: i18n
         reloadIfChanged: TRUE
         inspector:
+          hidden: 'ClientEval:node.properties.post ? true : false'
           group: 'blogsettings'
     showdate:
       type: boolean
@@ -268,6 +284,7 @@
         label: i18n
         reloadIfChanged: TRUE
         inspector:
+          hidden: 'ClientEval:node.properties.post ? true : false'
           group: 'blogsettings'
           editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
@@ -284,6 +301,7 @@
         showInCreationDialog: true
         reloadIfChanged: TRUE
         inspector:
+          hidden: 'ClientEval:node.properties.post ? true : false'
           group: 'blogsettings'
           editorOptions:
             nodeTypes: ['NeosRulez.Blog:BlogCategory']
@@ -294,4 +312,5 @@
         label: i18n
         reloadIfChanged: TRUE
         inspector:
+          hidden: 'ClientEval:node.properties.post ? true : false'
           group: 'blogsettings'

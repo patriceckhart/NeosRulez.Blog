@@ -3,6 +3,9 @@ prototype(NeosRulez.Blog:BlogPosts) < prototype(Neos.Neos:Content) {
 
     node = ${q(node)}
 
+    post = ${q(node).property('post')}
+    blogpost = ${q(node).property('post')}
+
     pagebrowser = ${q(node).property('pagebrowser')}
     showdate = ${q(node).property('showdate')}
     showsubtitle = ${q(node).property('showsubtitle')}
@@ -22,9 +25,9 @@ prototype(NeosRulez.Blog:BlogPosts) < prototype(Neos.Neos:Content) {
         itemRenderer = ${category.identifier + (iterator.isLast ? '' : ',')}
     }
     filterstring = ${'[blogcategories *= "' + this.filter + '"]'}
-    blogposts = ${q(this.startingPoint).children('[instanceof NeosRulez.Blog:BlogPost]').filter(this.filterstring).sort('_index', this.sorting).get()}
+    blogposts = ${this.startingPoint ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:BlogPost]').filter(this.filterstring).sort('_index', this.sorting).get() : false}
 
-    @context.countposts = ${Array.length(this.blogposts)}
+    @context.countposts = ${this.startingPoint ? Array.length(this.blogposts) : 0}
     @context.page = ${request.arguments.page}
 
     pagination = NeosRulez.Blog:FusionPageBrowser {
@@ -33,7 +36,7 @@ prototype(NeosRulez.Blog:BlogPosts) < prototype(Neos.Neos:Content) {
         page = ${page}
     }
 
-    blogpostsoutput = ${q(this.startingPoint).children('[instanceof NeosRulez.Blog:BlogPost]').slice(this.pagination.queryOffset,this.pagination.queryItems).filter(this.filterstring).sort('_index', this.sorting).get()}
+    blogpostsoutput = ${this.startingPoint ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:BlogPost]').slice(this.pagination.queryOffset,this.pagination.queryItems).filter(this.filterstring).sort('_index', this.sorting).get() : false}
 
     #@cache {
     #    mode = 'uncached'

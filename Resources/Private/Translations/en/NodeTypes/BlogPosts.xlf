@@ -11,6 +11,9 @@
 			<trans-unit id="properties.nodeidentifier" xml:space="preserve">
 				<source>Blog folder</source>
 			</trans-unit>
+			<trans-unit id="properties.post" xml:space="preserve">
+				<source>Single Blog Post</source>
+			</trans-unit>
 			<trans-unit id="properties.pagebrowser" xml:space="preserve">
 				<source>Show pagebrowser</source>
 			</trans-unit>

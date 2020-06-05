@@ -26,12 +26,6 @@
       ui:
         inspector:
           group: ~
-    targetMode:
-      type: string
-      defaultValue: 'firstChildNode'
-      ui:
-        inspector:
-          group: ~
     metaRobotsNoindex:
       type: boolean
       defaultValue: TRUE
@@ -41,6 +35,12 @@
     metaRobotsNofollow:
       type: boolean
       defaultValue: TRUE
+      ui:
+        inspector:
+          group: ~
+    targetMode:
+      type: string
+      defaultValue: FALSE
       ui:
         inspector:
           group: ~
