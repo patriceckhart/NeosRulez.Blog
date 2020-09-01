@@ -25,7 +25,7 @@ prototype(NeosRulez.Blog:BlogPosts) < prototype(Neos.Neos:Content) {
         itemRenderer = ${category.identifier + (iterator.isLast ? '' : ',')}
     }
     filterstring = ${'[blogcategories *= "' + this.filter + '"]'}
-    blogposts = ${this.startingPoint ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:BlogPost]').filter(this.filterstring).sort('_index', this.sorting).get() : false}
+    blogposts = ${this.startingPoint ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:BlogPost]').sort('_index', this.sorting).filter(this.filterstring).get() : false}
 
     @context.countposts = ${this.startingPoint ? Array.length(this.blogposts) : 0}
     @context.page = ${request.arguments.page}
@@ -36,7 +36,7 @@ prototype(NeosRulez.Blog:BlogPosts) < prototype(Neos.Neos:Content) {
         page = ${page}
     }
 
-    blogpostsoutput = ${this.startingPoint ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:BlogPost]').slice(this.pagination.queryOffset,this.pagination.queryItems).filter(this.filterstring).sort('_index', this.sorting).get() : false}
+    blogpostsoutput = ${this.startingPoint ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:BlogPost]').sort('_index', this.sorting).filter(this.filterstring).slice(this.pagination.queryOffset,this.pagination.queryItems).get() : false}
 
     #@cache {
     #    mode = 'uncached'
