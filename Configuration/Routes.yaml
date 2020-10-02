@@ -22,3 +22,11 @@
     node:
       handler: Neos\Neos\Routing\FrontendNodeRoutePartHandlerInterface
   appendExceedingArguments: true
+-
+  name: 'comment'
+  uriPattern: 'comment'
+  defaults:
+    '@controller': 'Comment'
+    '@package': 'NeosRulez.Blog'
+    '@action': 'create'
+  appendExceedingArguments: true

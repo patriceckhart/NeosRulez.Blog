@@ -41,31 +41,29 @@ class CommentController extends ActionController
 
     public function createAction() {
 
-        $args = $this->request->getArguments();
+        $args = $this->request->getArguments()['args'];
 
-        print_r($args);
+        $context = $this->contextFactory->create();
+        $newNode = new \Neos\ContentRepository\Domain\Model\NodeTemplate();
+        $newNode->setNodeType($this->nodeTypeManager->getNodeType('NeosRulez.Blog:Content.BlogPostComment'));
+        $parentNode = $context->getNodeByIdentifier($args['parentnode']);
+        $childNodes = $parentNode->getChildNodes();
+        $commentNode = end($childNodes);
 
-//        $context = $this->contextFactory->create();
-//        $newNode = new \Neos\ContentRepository\Domain\Model\NodeTemplate();
-//        $newNode->setNodeType($this->nodeTypeManager->getNodeType('NeosRulez.Blog:Content.BlogPostComment'));
-//        $parentNode = $context->getNodeByIdentifier($args['parentnode']);
-//        $childNodes = $parentNode->getChildNodes();
-//        $commentNode = end($childNodes);
-//
-//        $now = new \DateTime();
-//        $newNode->setProperty('blogPostCommentdate', $now);
-//        $newNode->setProperty('blogPostCommentAuthorName',$args['name']);
-//        $newNode->setProperty('blogPostCommentAuthorEmail',$args['email']);
-//        $newNode->setProperty('blogPostCommentMessage',$args['message']);
-//        $newNode->setProperty('title',$args['name']);
-//
-//        $commentNode->createNodeFromTemplate($newNode);
-//
-//        if(!empty($this->settings['notificationMail'])) {
-//            $this->sendNotificationAction($_SERVER['HTTP_REFERER']);
-//        }
-//
-//        $this->redirectToUri($_SERVER['HTTP_REFERER'].'#comments');
+        $now = new \DateTime();
+        $newNode->setProperty('blogPostCommentdate', $now);
+        $newNode->setProperty('blogPostCommentAuthorName',$args['name']);
+        $newNode->setProperty('blogPostCommentAuthorEmail',$args['email']);
+        $newNode->setProperty('blogPostCommentMessage',$args['message']);
+        $newNode->setProperty('title',$args['name']);
+
+        $commentNode->createNodeFromTemplate($newNode);
+
+        if(!empty($this->settings['notificationMail'])) {
+            $this->sendNotificationAction($_SERVER['HTTP_REFERER']);
+        }
+
+        $this->redirectToUri($_SERVER['HTTP_REFERER'].'#comments');
 
     }
 

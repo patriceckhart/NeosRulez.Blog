@@ -1,0 +1,3 @@
+prototype(NeosRulez.Blog:Helper.StripTags) < prototype(Neos.Fusion:Value) {
+    value = ${String.stripTags(this.text)}
+}

@@ -1,0 +1,5 @@
+'Neos.Neos:ContentCollection':
+  constraints:
+    nodeTypes:
+      'NeosRulez.Blog:Content.BlogPostComment': false
+      '*': true

@@ -1,0 +1,4 @@
+prototype(NeosRulez.Blog:Helper.Gravatar) < prototype(Neos.Fusion:Value) {
+    hashed_email = ${String.md5(this.email)}
+    value = ${'<img class="img-fluid" src="http://gravatar.com/avatar/' + this.hashed_email + '?s=250" alt="' + this.alt + '" />'}
+}

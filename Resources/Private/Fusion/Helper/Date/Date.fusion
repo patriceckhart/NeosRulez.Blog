@@ -1,0 +1,3 @@
+prototype(NeosRulez.Blog:Helper.DateHelper) < prototype(Neos.Fusion:Value) {
+    value = ${Date.format(this.date, this.format)}
+}

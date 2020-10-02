@@ -1,11 +1,10 @@
 'NeosRulez.Blog:Content.BlogPostComment':
-  label: "${q(node).property('title') + String.cropAtWord(q(node).property('blogPostCommentMessage'), 30, ' ...')}"
-  icon: 'far fa-comments'
+  label: "${q(node).property('title') + ': ' + String.cropAtWord(q(node).property('blogPostCommentMessage'), 30, ' ...')}"
   superTypes:
     'Neos.Neos:Content': TRUE
-  ui: ~
-    #label: i18n
-    #icon: 'far fa-comments'
+  ui:
+    label: i18n
+    icon: 'far fa-comments'
   properties:
     title:
       type: string

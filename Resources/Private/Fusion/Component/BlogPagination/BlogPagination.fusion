@@ -25,7 +25,7 @@ prototype(NeosRulez.Blog:Component.BlogPagination) < prototype(Neos.Neos:Content
                         <i class="fas fa-chevron-left"></i>
                     </a>
                 </li>
-                <Neos.Fusion:Loop items={props.pagination.pagination.pages} item="item">
+                <Neos.Fusion:Loop items={props.pagination.pagination.pages} itemName="item">
                     <li class="page-item">
                         <a href={props.nodeuri + '/page/' + item.text} class={'page-link' + (item.text == props.page ? ' active' : '')} >
                             {item.text}
