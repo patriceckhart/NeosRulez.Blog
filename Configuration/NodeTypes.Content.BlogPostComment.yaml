@@ -1,4 +1,6 @@
-'NeosRulez.Blog:BlogPostComment':
+'NeosRulez.Blog:Content.BlogPostComment':
+  label: "${q(node).property('title') + String.cropAtWord(q(node).property('blogPostCommentMessage'), 30, ' ...')}"
+  icon: 'far fa-comments'
   superTypes:
     'Neos.Neos:Content': TRUE
   ui: ~

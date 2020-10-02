@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="NeosRulez.Blog" source-language="de" datatype="plaintext">
+        <body>
+            <trans-unit id="ui.label" xml:space="preserve">
+				<source>Blog Artikel</source>
+			</trans-unit>
+            <trans-unit id="properties.blogdate" xml:space="preserve">
+				<source>Datum</source>
+			</trans-unit>
+            <trans-unit id="properties.blogtitle" xml:space="preserve">
+				<source>Eintrag Titel</source>
+			</trans-unit>
+            <trans-unit id="properties.blogsubtitle" xml:space="preserve">
+				<source>Untertitel</source>
+			</trans-unit>
+            <trans-unit id="properties.blogimage" xml:space="preserve">
+				<source>Vorschau-Bild</source>
+			</trans-unit>
+            <trans-unit id="properties.blogcategories" xml:space="preserve">
+				<source>Kategorien</source>
+			</trans-unit>
+            <trans-unit id="properties.blogauthor" xml:space="preserve">
+				<source>Author</source>
+			</trans-unit>
+            <trans-unit id="from" xml:space="preserve">
+				<source>von</source>
+			</trans-unit>
+            <trans-unit id="share" xml:space="preserve">
+				<source>Teilen</source>
+			</trans-unit>
+            <trans-unit id="properties.blogcontent" xml:space="preserve">
+				<source>Inhalt Blogbeitrag</source>
+			</trans-unit>
+            <trans-unit id="properties.blogimages" xml:space="preserve">
+				<source>Bilder</source>
+			</trans-unit>
+            <trans-unit id="properties.enablecomments" xml:space="preserve">
+				<source>Kommentare aktivieren</source>
+			</trans-unit>
+            <trans-unit id="groups.document" xml:space="preserve">
+				<source>Blog Artikel</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

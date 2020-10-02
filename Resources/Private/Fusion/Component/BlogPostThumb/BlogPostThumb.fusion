@@ -1,0 +1,40 @@
+prototype(NeosRulez.Blog:Component.BlogPostThumb) < prototype(Neos.Neos:ContentComponent) {
+    teaser_text = ${item.properties.blogsubtitle ? item.properties.blogsubtitle : item.properties.blogcontent}
+    teaser = ${node.properties.showsubtitle ? String.cropAtWord(this.teaser_text, 100, ' ...') : false}
+    blogdate = ${Date.format(item.properties.blogdate, 'd.m.Y')}
+    @context.item_categories = ${item.properties.blogcategories}
+    item_categories = Neos.Fusion:Loop {
+        items = ${item_categories}
+        itemName = 'category'
+        itemRenderer = ${'category-' + category.identifier + ' '}
+    }
+    categories = ${'col-md-4 mix ' + this.item_categories}
+    showauthor = ${node.properties.showauthor}
+    showcategories = ${node.properties.showcategories}
+    showdate = ${node.properties.showdate}
+
+    renderer = afx`
+        <div class={props.categories}>
+            <div class="blogpost-item">
+                <Neos.Neos:NodeLink node={item} attributes.class="d-block blogposts-thumb-link">
+                    <div @if.render={item.properties.blogimages} class="mb-3 blogpost-item-image">
+                        <Neos.Neos:ImageTag asset={item.properties.blogimages[0]} allowUpScaling="true" allowCropping="true" width="350" height="230" attributes.class="img-fluid" />
+                    </div>
+                    <h4>{item.properties.title}</h4>
+                    <small @if.render={props.showauthor} class="d-block mb-2">{item.properties.blogauthor}</small>
+                    <div @if.render={props.teaser} class="blogpost-item-teaser">
+                        {props.teaser}
+                    </div>
+                    <div class="row align-items-end">
+                        <div @if.render={props.showdate} class="col-6">
+                            {props.blogdate}
+                        </div>
+                        <div @if.render={props.showcategories} class={props.showdate ? 'col-6' : 'col-12'} >
+                            <NeosRulez.Blog:Component.BlogCategories categories={item.properties.blogcategories} />
+                        </div>
+                    </div>
+                </Neos.Neos:NodeLink>
+            </div>
+        </div>
+    `
+}

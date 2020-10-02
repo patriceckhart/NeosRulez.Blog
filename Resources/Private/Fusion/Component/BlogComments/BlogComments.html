@@ -1,0 +1,50 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+{namespace fusion=Neos\Fusion\ViewHelpers}
+{namespace media=Neos\Media\ViewHelpers}
+{namespace blog=NeosRulez\Blog\ViewHelpers}
+
+<div id="comments" class="container mt-5">
+    <f:for each="{comments}" as="comment">
+        <div class="row mt-4">
+            <div class="col-md-1 col-2">
+                <img class="img-fluid" src="http://gravatar.com/avatar/{blog:gravatar(authorMail:'{comment.properties.blogPostCommentAuthorEmail}')}?s=250" alt="{comment.properties.blogPostCommentAuthorName}">
+            </div>
+            <div class="col-md-11 col-10">
+                <strong class="d-block">{comment.properties.blogPostCommentAuthorName}</strong>
+                <span class="d-block text-muted"><f:format.date format="d.m.Y, H:i">{comment.properties.blogPostCommentdate}</f:format.date></span>
+                <span class="d-block mt-2"><f:format.stripTags>{comment.properties.blogPostCommentMessage}</f:format.stripTags></span>
+            </div>
+        </div>
+    </f:for>
+</div>
+
+<f:section name="Comment">
+    <f:if condition="{comments}">
+        <f:then>
+            <h5>{f:translate(id: 'header', package: 'NeosRulez.Blog', source: 'NodeTypes/Content/BlogPostComment')}</h5>
+        </f:then>
+        <f:else>
+            <h5>{f:translate(id: 'header0', package: 'NeosRulez.Blog', source: 'NodeTypes/Content/BlogPostComment')}</h5>
+        </f:else>
+    </f:if>
+    <p class="mb-4">{f:translate(id: 'headertext', package: 'NeosRulez.Blog', source: 'NodeTypes/Content/BlogPostComment')}</p>
+    <f:form action="create" arguments="{parentnode: node_identifier}" controller="Comment" package="NeosRulez.Blog">
+        <div class="d-block comment-form">
+            <div class="form-group">
+                <label for="name">{f:translate(id: 'name', package: 'NeosRulez.Blog', source: 'NodeTypes/Content/BlogPostComment')}</label>
+                <f:form.textfield class="form-control" id="name" name="name" placeholder="{f:translate(id: 'name', package: 'NeosRulez.Blog', source: 'NodeTypes/Content/BlogPostComment')}" required="required" />
+            </div>
+            <div class="form-group">
+                <label for="email">{f:translate(id: 'email', package: 'NeosRulez.Blog', source: 'NodeTypes/Content/BlogPostComment')}</label>
+                <f:form.textfield class="form-control" id="email" name="email" placeholder="{f:translate(id: 'email', package: 'NeosRulez.Blog', source: 'NodeTypes/Content/BlogPostComment')}" required="required" />
+            </div>
+            <div class="form-group">
+                <label for="message">{f:translate(id: 'message', package: 'NeosRulez.Blog', source: 'NodeTypes/Content/BlogPostComment')}</label>
+                <f:form.textarea class="form-control" id="message" name="message" placeholder="{f:translate(id: 'message', package: 'NeosRulez.Blog', source: 'NodeTypes/Content/BlogPostComment')}" required="required" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">{f:translate(id: 'submit', package: 'NeosRulez.Blog', source: 'NodeTypes/Content/BlogPostComment')}</button>
+            </div>
+        </div>
+    </f:form>
+</f:section>

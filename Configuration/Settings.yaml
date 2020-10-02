@@ -10,6 +10,9 @@ Neos:
           NeosRulez.Blog:
             - Main
             - 'NodeTypes/*'
+            - 'NodeTypes/Content/*'
+            - 'NodeTypes/Document/*'
+            - 'NodeTypes/Mixin/*'
       defaultLanguage: 'de'
     nodeTypes:
       groups:
@@ -19,12 +22,3 @@ Neos:
     fusion:
       autoInclude:
         NeosRulez.Blog: true
-NeosRulez:
-  Blog:
-    blogImageWidth: '1080'
-    showAuthor: true
-    showDate: true
-    showSocialShare: true #Font Awesome needed
-    showCategory: true
-    twitterAccountName: 'yourtwittername'
-    #notificationMail: 'your@mailaddress.com'

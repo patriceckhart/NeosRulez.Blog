@@ -1,0 +1,23 @@
+prototype(NeosRulez.Blog:Component.Feed) < prototype(Neos.Fusion:Http.Message) {
+    httpResponseHead {
+        headers.Content-Type = 'application/rss+xml;charset=utf-8'
+    }
+    content = NeosRulez.Blog:Content.BlogPosts {
+        @context.title = ${documentNode.properties.title}
+        @context.description = ${documentNode.properties.rss_description}
+        @context.items = ${this.blogposts}
+        @context.node = ${documentNode}
+        @context.nodeuri = Neos.Neos:NodeUri {
+            node = ${documentNode}
+            absolute = true
+        }
+        renderer = Neos.Fusion:Template {
+            title = ${title}
+            items = ${items}
+            node = ${node}
+            nodeuri = ${nodeuri}
+            description = ${description}
+            templatePath = 'resource://NeosRulez.Blog/Private/Fusion/Component/Feed/Feed.xml'
+        }
+    }
+}

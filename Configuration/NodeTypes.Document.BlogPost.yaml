@@ -1,28 +1,28 @@
-'NeosRulez.Blog:BlogPost':
+'NeosRulez.Blog:Document.BlogPost':
   ui:
     label: i18n
     icon: 'far fa-file-alt'
     inspector:
       groups:
-        blogsettings:
-          label: NeosRulez.Blog:Main:blogsettings
-          icon: 'icon-cog'
+        document:
+          label: i18n
+          icon: 'far fa-file-alt'
           position: 1
     group: 'blog'
     position: 2
   superTypes:
-    'Neos.NodeTypes:Page': TRUE
+    'NeosRulez.Blog:Document.AbstractPage': true
   properties:
     blogdate:
       type: DateTime
-      defaultValue: FALSE
+      defaultValue: false
       ui:
         label: i18n
         showInCreationDialog: true
-        inlineEditable: TRUE
-        reloadIfChanged: TRUE
+        inlineEditable: true
+        reloadIfChanged: true
         inspector:
-          group: 'blogsettings'
+          group: 'document'
     blogtitle:
       ui: ~
     blogsubtitle:
@@ -30,36 +30,40 @@
       ui:
         label: i18n
         showInCreationDialog: true
-        inlineEditable: TRUE
-        reloadIfChanged: TRUE
+        inlineEditable: true
+        reloadIfChanged: true
+        inline:
+          editorOptions:
+            placeholder: 'Enter Subtitle here'
+            autoparagraph: true
     blogimage:
       ui: ~
     blogimages:
       type: array<Neos\Media\Domain\Model\Asset>
       ui:
         inspector:
-          group: 'blogsettings'
+          group: 'document'
         label: i18n
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
     blogcategories:
       type: references
       ui:
         label: i18n
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
         inspector:
-          group: 'blogsettings'
+          group: 'document'
           editorOptions:
-            nodeTypes: ['NeosRulez.Blog:BlogCategory']
-            createNew:
-              path: /sites/site
-              type: 'NeosRulez.Blog:BlogCategory'
+            nodeTypes: ['NeosRulez.Category:Document.Category']
+#            createNew:
+#              path: /sites/site
+#              type: 'NeosRulez.Category:Document.Category'
     blogauthor:
       ui:
         label: i18n
         showInCreationDialog: true
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
         inspector:
-          group: 'blogsettings'
+          group: 'document'
           editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             dataSourceIdentifier: neosrulez-blog-authors
@@ -105,12 +109,12 @@
               a: true
     enablecomments:
       type: boolean
-      defaultValue: FALSE
+      defaultValue: false
       ui:
         label: i18n
-        reloadIfChanged: TRUE
+        reloadIfChanged: true
         inspector:
-          group: 'blogsettings'
+          group: 'document'
           position: 'end'
     faicon:
       ui: ~
@@ -121,8 +125,8 @@
       type: 'Neos.Neos:ContentCollection'
       constraints:
         nodeTypes:
-          '*': FALSE
-          'NeosRulez.Blog:BlogPostComment': TRUE
+          '*': false
+          'NeosRulez.Blog:Content.BlogPostComment': true
   constraints:
     nodeTypes:
       '*': false

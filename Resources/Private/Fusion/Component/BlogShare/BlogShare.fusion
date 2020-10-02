@@ -1,0 +1,17 @@
+prototype(NeosRulez.Blog:Component.BlogShare) < prototype(Neos.Neos:ContentComponent) {
+    header = ${this.header}
+    url = ${this.url}
+    twitterName = ${this.twitterName}
+
+    facebook_link = ${'https://www.facebook.com/sharer/sharer.php?u=' + this.url +'&amp;quote=' + this.header}
+    twitter_link = ${'https://twitter.com/intent/tweet?source=' + this.url +'&amp;text=' + this.header + '&amp;via=' + this.twitterName}
+    linkedin_link = ${'https://www.linkedin.com/shareArticle?mini=true&amp;url=' + this.url +'&amp;title=' + this.header}
+
+    renderer = afx`
+        <div class="blogpost-share">
+            <a href={props.twitter_link} target="_blank" title="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            <a href={props.linkedin_link} target="_blank" onclick="return !window.open(this.href, 'LinkedIn', 'width=500,height=500')" title="Share on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href={props.facebook_link} target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=500,height=500')" title="Share on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+        </div>
+    `
+}

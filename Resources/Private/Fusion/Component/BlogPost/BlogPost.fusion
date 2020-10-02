@@ -1,0 +1,66 @@
+prototype(NeosRulez.Blog:Component.BlogPost) < prototype(Neos.Neos:ContentComponent) {
+
+    blogdate = ${Date.format(q(documentNode).property('blogdate'), 'd.m.Y')}
+    blogauthor = ${documentNode.properties.blogauthor}
+    show_date_author_separator = ${this.blogdate ? (this.blogauthor ? true : false) : false}
+    blogimages = ${documentNode.properties.blogimages}
+    show_gallery = ${Array.length(this.blogimages) > 1 ? true : false}
+    blogcategories = ${documentNode.properties.blogcategories}
+    title = ${documentNode.properties.title}
+    show_comments = ${documentNode.properties.enablecomments}
+
+    nodeuri = Neos.Neos:NodeUri {
+        node = ${documentNode}
+        absolute = true
+    }
+
+    twittername = ${Configuration.setting('NeosRulez.Blog.twitterAccountName')}
+
+    main = Neos.Neos:ContentCollection {
+        nodePath = 'main'
+    }
+
+    renderer = afx`
+        <div class="neosrulez-blog-blogpost">
+            <div class="container">
+                <div @if.render={props.blogimages} class="mb-4 blogpost-image">
+                    <Neos.Neos:ImageTag asset={props.blogimages[0]} allowUpScaling="true" allowCropping="true" width="1110" height="650" attributes.class="img-fluid" />
+                </div>
+                <h1><Neos.Neos:Editable property="title" /></h1>
+                <div class="d-block blogpost-teaser">
+                    <Neos.Neos:Editable property="blogsubtitle" />
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <span @if.render={props.blogauthor} class="blogpost-author">{props.blogauthor}</span>
+                        <span @if.render={props.show_date_author_separator} >, </span>
+                        <span @if.render={props.blogdate} class="blogpost-date">{props.blogdate}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <NeosRulez.Blog:Component.BlogShare header={props.title} url={props.nodeuri} twitterName={props.twittername} />
+                    </div>
+                </div>
+                <div @if.render={props.blogcategories} class="d-block my-3 blogpost-categories">
+                    <NeosRulez.Blog:Component.BlogCategories categories={props.blogcategories} />
+                </div>
+                <div class="d-block mt-4 blogpost-content">
+                    <Neos.Neos:Editable property="blogcontent" />
+                </div>
+                <div @if.render={props.show_gallery} class="mt-5 blogpost-gallery">
+                    <NeosRulez.Bootstrap:Gallery assets={props.blogimages} crop="true" lightbox="true" />
+                </div>
+            </div>
+        </div>
+        {props.main}
+        <NeosRulez.Blog:Component.BlogComments @if.render={props.show_comments} />
+    `
+
+//    @cache {
+//        mode = 'uncached'
+//        context {
+//            1 = 'node'
+//            2 = 'documentNode'
+//        }
+//    }
+
+}

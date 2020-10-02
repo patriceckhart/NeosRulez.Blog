@@ -1,1 +1,0 @@
-prototype(NeosRulez.Blog:BlogCategory) < prototype(Neos.Fusion:Template)

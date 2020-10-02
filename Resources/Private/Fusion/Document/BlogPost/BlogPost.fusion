@@ -1,15 +1,14 @@
-prototype(NeosRulez.Blog:BlogPost) < prototype(Neos.NodeTypes:Page)
+prototype(NeosRulez.Blog:Document.BlogPost) < prototype(Neos.NodeTypes:Page)
 
 prototype(Neos.Neos:PrimaryContent).blogpost {
-    condition = ${q(documentNode).is('[instanceof NeosRulez.Blog:BlogPost]')}
-    type = 'NeosRulez.Blog:ShowBlogPost'
+    condition = ${q(documentNode).is('[instanceof NeosRulez.Blog:Document.BlogPost]')}
+    type = 'NeosRulez.Blog:Component.BlogPost'
 }
 
 ## If you use something other than PrimaryContent
-
-# prototype(NeosRulez.Blog:BlogPost) < prototype(Foo.Bar:Document.AbstractPage) {
-#     body.content = Neos.Neos:PrimaryContent {
-#         condition = ${q(documentNode).is('[instanceof NeosRulez.Blog:BlogPost]')}
-#         type = 'NeosRulez.Blog:ShowBlogPost'
-#     }
-# }
+prototype(NeosRulez.Blog:Document.BlogPost) < prototype(Raw.Site:Document.AbstractPage) {
+    body.content = Neos.Neos:PrimaryContent {
+        condition = ${q(documentNode).is('[instanceof NeosRulez.Blog:Document.BlogPost]')}
+        type = 'NeosRulez.Blog:Component.BlogPost'
+    }
+}

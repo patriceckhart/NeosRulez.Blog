@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="NeosRulez.Blog" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="ui.label" xml:space="preserve">
+				<source>RSS Feed</source>
+			</trans-unit>
+            <trans-unit id="properties.rss_description" xml:space="preserve">
+				<source>Feed description</source>
+			</trans-unit>
+            <trans-unit id="groups.neosrulez_blog_posts" xml:space="preserve">
+				<source>RSS Feed</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

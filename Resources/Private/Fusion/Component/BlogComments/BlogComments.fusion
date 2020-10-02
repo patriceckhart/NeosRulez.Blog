@@ -1,0 +1,47 @@
+prototype(NeosRulez.Blog:Component.BlogComments) < prototype(NeosRulez.Blog:Content.AbstractContent) {
+    templatePath = 'resource://NeosRulez.Blog/Private/Fusion/Component/BlogComments/BlogComments.html'
+    comments = ${q(documentNode).children().children('[instanceof NeosRulez.Blog:Content.BlogPostComment]').sort('_index', 'DESC').get()}
+    node_identifier = ${node.identifier}
+}
+
+//prototype(NeosRulez.Blog:Component.BlogComments) < prototype(Neos.Neos:ContentComponent) {
+//
+//    comments = ${q(documentNode).children().children('[instanceof NeosRulez.Blog:Content.BlogPostComment]').sort('_index', 'DESC').get()}
+//    comments_count = ${Array.length(this.comments)}
+//    node_identifier = ${node.identifier}
+//
+//    renderer = afx`
+//        <div class="container">
+//            <div class="mt-5 neosrulez-blog-blogpost-add-comment-header">
+//                <h5 @if.render={props.comments_count != 0 ? true : false} >{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:header')}</h5>
+//                <h5 @if.render={props.comments_count != 0 ? false : true}>{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:header0')}</h5>
+//                <p class="mb-4 neosrulez-blog-blogpost-add-comment-header-text">{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:headertext')}</p>
+//            </div>
+//            <div class="neosrulez-blog-blogpost-add-comment">
+//                <Neos.Fusion.Form:Form form.target.action="create" form.target.controller="Comment" form.target.package="NeosRulez.Blog" form.data.args={args} >
+//                    <div class="form-group">
+//                        <label for="name">{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:name')}</label>
+//                        <Neos.Fusion.Form:Input attributes.id="name" attributes.class="form-control" field.name="args[name]" attributes.placeholder={I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:name')} attributes.required="required" />
+//                    </div>
+//                    <div class="form-group">
+//                        <label for="email">{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:email')}</label>
+//                        <Neos.Fusion.Form:Input attributes.id="email" attributes.class="form-control" field.name="args[email]" attributes.placeholder={I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:email')} attributes.required="required" />
+//                    </div>
+//                    <div class="form-group">
+//                        <label for="message">{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:message')}</label>
+//                        <Neos.Fusion.Form:Textarea attributes.id="message" attributes.class="form-control" field.name="args[message]" attributes.placeholder={I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:message')} attributes.required="required" />
+//                    </div>
+//                    <div class="form-group">
+//                        <Neos.Fusion.Form:Button attributes.class="btn btn-primary" >{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:submit')}</Neos.Fusion.Form:Button>
+//                    </div>
+//                </Neos.Fusion.Form:Form>
+//            </div>
+//            <div @if.render={props.comments} class="mt-5 neosrulez-blog-blogpost-comments">
+//                <Neos.Fusion:Loop items={props.comments} item="comment">
+//                    {comment.properties.blogPostCommentAuthorName}<br />
+//                </Neos.Fusion:Loop>
+//            </div>
+//        </div>
+//    `
+//
+//}

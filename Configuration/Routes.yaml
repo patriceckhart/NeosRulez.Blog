@@ -9,4 +9,16 @@
   routeParts:
     node:
       handler: Neos\Neos\Routing\FrontendNodeRoutePartHandlerInterface
-  appendExceedingArguments: TRUE
+  appendExceedingArguments: true
+-
+  name: 'xml format'
+  uriPattern: '{node}.xml'
+  defaults:
+    '@package': Neos.Neos
+    '@controller': Frontend\Node
+    '@action': show
+    '@format': xml
+  routeParts:
+    node:
+      handler: Neos\Neos\Routing\FrontendNodeRoutePartHandlerInterface
+  appendExceedingArguments: true

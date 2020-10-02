@@ -1,42 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file original="" product-name="NeosRulez.Blog" source-language="de" datatype="plaintext">
+	<file original="" product-name="NeosRulez.Blog" source-language="en" datatype="plaintext">
 		<body>
 			<trans-unit id="ui.label" xml:space="preserve">
-				<source>Blog Eintrag</source>
+				<source>Blog Post</source>
 			</trans-unit>
 			<trans-unit id="properties.blogdate" xml:space="preserve">
-				<source>Datum</source>
+				<source>Post date</source>
 			</trans-unit>
 			<trans-unit id="properties.blogtitle" xml:space="preserve">
-				<source>Eintrag Titel</source>
+				<source>Post title</source>
 			</trans-unit>
 			<trans-unit id="properties.blogsubtitle" xml:space="preserve">
-				<source>Untertitel</source>
+				<source>Subtitle</source>
 			</trans-unit>
 			<trans-unit id="properties.blogimage" xml:space="preserve">
-				<source>Vorschau-Bild</source>
+				<source>Thumbnail Image</source>
 			</trans-unit>
 			<trans-unit id="properties.blogcategories" xml:space="preserve">
-				<source>Kategorien</source>
+				<source>Post categories</source>
 			</trans-unit>
             <trans-unit id="properties.blogauthor" xml:space="preserve">
-				<source>Author</source>
+				<source>Post author</source>
 			</trans-unit>
 			<trans-unit id="from" xml:space="preserve">
-				<source>von</source>
+				<source>from</source>
 			</trans-unit>
 			<trans-unit id="share" xml:space="preserve">
-				<source>Teilen</source>
+				<source>Share</source>
 			</trans-unit>
 			<trans-unit id="properties.blogcontent" xml:space="preserve">
-				<source>Inhalt Blogbeitrag</source>
+				<source>Content Blogpost</source>
 			</trans-unit>
 			<trans-unit id="properties.blogimages" xml:space="preserve">
-				<source>Bilder</source>
+				<source>Images</source>
 			</trans-unit>
 			<trans-unit id="properties.enablecomments" xml:space="preserve">
-				<source>Kommentare aktivieren</source>
+				<source>Enable comments</source>
+			</trans-unit>
+			<trans-unit id="groups.document" xml:space="preserve">
+				<source>Blog Post</source>
 			</trans-unit>
 		</body>
 	</file>

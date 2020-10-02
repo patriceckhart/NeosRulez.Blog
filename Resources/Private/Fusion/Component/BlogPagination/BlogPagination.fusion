@@ -1,0 +1,43 @@
+prototype(NeosRulez.Blog:Component.BlogPagination) < prototype(Neos.Neos:ContentComponent) {
+
+    @context.posts = ${this.posts}
+    @context.countposts = ${this.countposts}
+    @context.page = ${this.page}
+    node = ${this.node}
+    page = ${this.page}
+
+    pagination = NeosRulez.Blog:Helper.Pagination {
+        posts = ${posts}
+        countposts = ${countposts}
+        page = ${page}
+    }
+
+    nodeuri = Neos.Neos:NodeUri {
+        node = ${documentNode}
+        absolute = true
+    }
+
+    renderer = afx`
+        <nav class="blog-pagination" aria-label="blog-pagination">
+            <ul class="pagination">
+                <li @if.render={props.pagination.prev} class="page-item prev-item">
+                    <a href={props.nodeuri + '/page/' + props.pagination.prev} class="page-link" >
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                </li>
+                <Neos.Fusion:Loop items={props.pagination.pagination.pages} item="item">
+                    <li class="page-item">
+                        <a href={props.nodeuri + '/page/' + item.text} class={'page-link' + (item.text == props.page ? ' active' : '')} >
+                            {item.text}
+                        </a>
+                    </li>
+                </Neos.Fusion:Loop>
+                <li @if.render={props.pagination.next} class="page-item next-item">
+                    <a href={props.nodeuri + '/page/' + props.pagination.next} class="page-link" >
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    `
+}

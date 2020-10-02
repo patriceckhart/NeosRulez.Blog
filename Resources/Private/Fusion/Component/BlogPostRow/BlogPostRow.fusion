@@ -1,0 +1,19 @@
+prototype(NeosRulez.Blog:Component.BlogPostRow) < prototype(Neos.Neos:ContentComponent) {
+    blogdate = ${Date.format(item.properties.blogdate, 'd.m.Y')}
+    renderer = afx`
+        <div class="col-12">
+            <div class="blogposts-row">
+                <Neos.Neos:NodeLink node={item} attributes.class="d-block blogposts-row-link">
+                    <div class="row align-items-center">
+                        <div class="col-3">
+                            {props.blogdate}
+                        </div>
+                        <div class="col-9">
+                            {item.properties.title}
+                        </div>
+                    </div>
+                </Neos.Neos:NodeLink>
+            </div>
+        </div>
+    `
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="NeosRulez.Blog" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="properties.posts" xml:space="preserve">
+				<source>Maximum amount</source>
+			</trans-unit>
+            <trans-unit id="properties.nodeidentifier" xml:space="preserve">
+				<source>Blog folder</source>
+			</trans-unit>
+            <trans-unit id="properties.post" xml:space="preserve">
+				<source>Single Blog Post</source>
+			</trans-unit>
+            <trans-unit id="properties.pagebrowser" xml:space="preserve">
+				<source>Show pagebrowser</source>
+			</trans-unit>
+            <trans-unit id="properties.showdate" xml:space="preserve">
+				<source>Show date</source>
+			</trans-unit>
+            <trans-unit id="properties.showsubtitle" xml:space="preserve">
+				<source>Show subtitle</source>
+			</trans-unit>
+            <trans-unit id="properties.showauthor" xml:space="preserve">
+				<source>Show author</source>
+			</trans-unit>
+            <trans-unit id="properties.showcategories" xml:space="preserve">
+				<source>Show categories</source>
+			</trans-unit>
+            <trans-unit id="properties.sorting" xml:space="preserve">
+				<source>Sorting</source>
+			</trans-unit>
+            <trans-unit id="properties.sorting.selectBoxEditor.values.ASC" xml:space="preserve">
+                <source>Ascending</source>
+            </trans-unit>
+            <trans-unit id="properties.sorting.selectBoxEditor.values.DESC" xml:space="preserve">
+                <source>Descending</source>
+            </trans-unit>
+            <trans-unit id="properties.blogcategories" xml:space="preserve">
+				<source>Categories</source>
+			</trans-unit>
+            <trans-unit id="properties.showaslist" xml:space="preserve">
+				<source>Show as list</source>
+			</trans-unit>
+            <trans-unit id="properties.posts.selectBoxEditor.values.0" xml:space="preserve">
+                <source>Show all</source>
+            </trans-unit>
+            <trans-unit id="properties.filter" xml:space="preserve">
+                <source>Show Filter</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -11,6 +11,14 @@ use Neos\ContentRepository\Domain\Model\NodeInterface;
  * Extended EEL filter() operation for NeosRulez.Blog
  */
 class FilterOperation extends \Neos\ContentRepository\Eel\FlowQueryOperations\FilterOperation {
+
+    /**
+     * {@inheritdoc}
+     *
+     * @var string
+     */
+    protected static $shortName = 'filterByReference';
+
     /**
      * {@inheritdoc}
      *
@@ -28,7 +36,7 @@ class FilterOperation extends \Neos\ContentRepository\Eel\FlowQueryOperations\Fi
      * @return boolean TRUE if the operation can be applied onto the $context, FALSE otherwise
      */
     public function canEvaluate($context) {
-        return (isset($context[0]) && ($context[0] instanceof NodeInterface) && $context[0]->getNodeType()->isOfType('NeosRulez.Blog:BlogPost'));
+        return (isset($context[0]) && ($context[0] instanceof NodeInterface) && $context[0]->getNodeType()->isOfType('NeosRulez.Blog:Document.BlogPost'));
     }
     /**
      * {@inheritdoc}

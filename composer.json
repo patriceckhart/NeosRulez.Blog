@@ -13,7 +13,10 @@
     ],
     "require": {
         "neos/neos": "*",
-        "neosrulez/bootstrap": "^3.3"
+        "neosrulez/bootstrap": "^3.3",
+        "neosrulez/folder": "*",
+        "neosrulez/category": "*",
+        "neos/fusion-form": "^1.0"
     },
     "autoload": {
         "psr-4": {

@@ -1,0 +1,19 @@
+{namespace neos=Neos\Neos\ViewHelpers}{namespace fusion=Neos\Fusion\ViewHelpers}{namespace media=Neos\Media\ViewHelpers}<rss version="2.0">
+    <channel>
+        <title>{title}</title>
+        <link>{nodeuri}</link>
+        <lastBuildDate><f:format.date format="D, d M Y H:i:s">now</f:format.date> +0000</lastBuildDate>
+        <f:if condition="{description}"><description>{description}</description></f:if>
+        <language>{node.context.targetDimensions.language}</language>
+        <generator>Neos CMS with NeosRulez.Blog</generator>
+        <f:for each="{items}" as="item"><item>
+            <title>{item.properties.title}</title>
+            <link><neos:uri.node node="{item}" absolute="{true}" /></link>
+            <guid isPermaLink="true"><neos:uri.node node="{item}" absolute="{true}" /></guid>
+            <description><f:if condition="{item.properties.blogsubtitle}"><f:format.stripTags>{item.properties.blogsubtitle} </f:format.stripTags></f:if><f:format.stripTags>{item.properties.blogcontent}</f:format.stripTags></description>
+            <pubDate><f:format.date format="D, d M Y H:i:s">{item.creationdatetime}</f:format.date> +0000</pubDate>
+            <f:if condition="{item.properties.blogcategories}"><category><f:for each="{item.properties.blogcategories}" as="category" iteration="categoryIterator">{category.properties.title}<f:if condition="{categoryIterator.isLast}"><f:else>,</f:else></f:if></f:for></category></f:if>
+            <f:if condition="{item.properties.blogimages}"><enclosure url="{neos.media:uri.image(image: item.properties.blogimages.0)}" type="{item.properties.blogimages.0.resource.mediatype}"/></f:if>
+        </item></f:for>
+    </channel>
+</rss>

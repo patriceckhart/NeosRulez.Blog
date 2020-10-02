@@ -1,0 +1,6 @@
+prototype(NeosRulez.Blog:Helper.Pagination) {
+    @class = 'NeosRulez\\Blog\\Fusion\\PaginationImplementation'
+    posts = false
+    countposts = false
+    page = false
+}
