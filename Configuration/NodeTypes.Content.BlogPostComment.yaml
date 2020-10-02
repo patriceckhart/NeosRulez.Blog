@@ -16,3 +16,11 @@
       type: string
     blogPostCommentMessage:
       type: string
+#    blogPostCommentAnswer:
+#      type: string
+#      ui:
+#        inlineEditable: true
+#        inline:
+#          editorOptions:
+#            placeholder: 'Enter Answer here'
+#            autoparagraph: false

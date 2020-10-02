@@ -23,6 +23,9 @@
 			<trans-unit id="header" xml:space="preserve">
 				<source>Der Diskussion beitreten</source>
 			</trans-unit>
+			<trans-unit id="answer" xml:space="preserve">
+				<source>Antwort</source>
+			</trans-unit>
 			<trans-unit id="headertext" xml:space="preserve">
 				<source>Ihre E-Mail Adresse wird nicht veröffentlicht. Sie müssen alle Felder ausfüllen.</source>
 			</trans-unit>

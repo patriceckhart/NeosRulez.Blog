@@ -6,7 +6,7 @@ prototype(NeosRulez.Blog:Component.BlogComments) < prototype(Neos.Neos:ContentCo
     node_identifier = ${node.identifier}
 
     renderer = afx`
-        <div class="container">
+        <div id="comments" class="container">
             <div class="mt-5 neosrulez-blog-blogpost-add-comment-header">
                 <h5 @if.render={props.comments_count != 0 ? true : false} >{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:header')}</h5>
                 <h5 @if.render={props.comments_count != 0 ? false : true}>{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:header0')}</h5>
@@ -41,7 +41,7 @@ prototype(NeosRulez.Blog:Component.BlogComments) < prototype(Neos.Neos:ContentCo
                         <div class="col-md-11 col-10">
                             <strong class="d-block">{comment.properties.blogPostCommentAuthorName}</strong>
                             <span class="d-block text-muted">
-                                <NeosRulez.Blog:Helper.DateHelper date={comment.properties.blogPostCommentdate} format="d.m.Y" />
+                                <NeosRulez.Blog:Helper.DateHelper date={comment.properties.blogPostCommentdate} format="d.m.Y, H:i" />
                             </span>
                             <span class="d-block mt-2">
                                 <NeosRulez.Blog:Helper.StripTags text={comment.properties.blogPostCommentMessage} />
