@@ -6,9 +6,9 @@ prototype(Neos.Neos:PrimaryContent).blogpost {
 }
 
 ## If you use something other than PrimaryContent
-prototype(NeosRulez.Blog:Document.BlogPost) < prototype(Raw.Site:Document.AbstractPage) {
-    body.content = Neos.Neos:PrimaryContent {
-        condition = ${q(documentNode).is('[instanceof NeosRulez.Blog:Document.BlogPost]')}
-        type = 'NeosRulez.Blog:Component.BlogPost'
-    }
-}
+//prototype(NeosRulez.Blog:Document.BlogPost) < prototype(Raw.Site:Document.AbstractPage) {
+//    body.content = Neos.Neos:PrimaryContent {
+//        condition = ${q(documentNode).is('[instanceof NeosRulez.Blog:Document.BlogPost]')}
+//        type = 'NeosRulez.Blog:Component.BlogPost'
+//    }
+//}
