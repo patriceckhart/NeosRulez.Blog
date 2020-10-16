@@ -3,11 +3,12 @@ prototype(NeosRulez.Blog:Component.BlogPost) < prototype(Neos.Neos:ContentCompon
     blogdate = ${Date.format(q(documentNode).property('blogdate'), 'd.m.Y')}
     blogauthor = ${documentNode.properties.blogauthor}
     show_date_author_separator = ${this.blogdate ? (this.blogauthor ? true : false) : false}
-    blogimages = ${documentNode.properties.blogimages}
+    blogimages = ${documentNode.properties.blogimages ? documentNode.properties.blogimages : []}
     show_gallery = ${Array.length(this.blogimages) > 1 ? true : false}
     blogcategories = ${documentNode.properties.blogcategories}
     title = ${documentNode.properties.title}
     show_comments = ${documentNode.properties.enablecomments}
+
 
     nodeuri = Neos.Neos:NodeUri {
         node = ${documentNode}
