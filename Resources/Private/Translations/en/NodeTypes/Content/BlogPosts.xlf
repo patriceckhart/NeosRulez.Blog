@@ -8,6 +8,9 @@
 			<trans-unit id="groups.neosrulez_blog_posts" xml:space="preserve">
                 <source>Blog Posts Overview</source>
             </trans-unit>
+			<trans-unit id="properties.postsperpage" xml:space="preserve">
+				<source>Maximum amount per page</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

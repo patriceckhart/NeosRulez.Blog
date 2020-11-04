@@ -22,7 +22,7 @@
         showInCreationDialog: true
         reloadIfChanged: true
         inspector:
-          hidden: 'ClientEval:node.properties.post ? true : false'
+          hidden: 'ClientEval:node.properties.post ? true : node.properties.pagebrowser ? true : false'
           group: 'neosrulez_blog_posts'
           editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:

@@ -20,12 +20,17 @@ prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentCompone
     }
     filterstring = ${'[blogcategories *= "' + this.filter + '"]'}
 
-    blogposts = ${this.startingPoint ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').get() : false}
+    posts = ${node.properties.posts != '0' ? String.toInteger(node.properties.posts) : 9999}
+    postsperpage = ${node.properties.postsperpage != '0' ? String.toInteger(node.properties.postsperpage) : 9999}
 
-    countposts = ${this.startingPoint ? Array.length(this.blogposts) : 0}
-    page = ${request.arguments.page ? request.arguments.page : 0}
-    posts = ${node.properties.posts}
+    countposts = ${this.startingPoint ? Array.length(q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').filterByReference(this.filterstring, 'blogcategories').get()) : 0}
+    page = ${request.arguments.page ? request.arguments.page : 1}
     node = ${node}
+
+    nextpostsStart = ${this.pagebrowser ? (String.toInteger(this.postsperpage) * (String.toInteger(this.page) - 1)) : 0}
+    nextpostsEnd = ${this.pagebrowser ? (String.toInteger(this.nextpostsStart) + String.toInteger(this.postsperpage)) : 9999}
+
+    blogposts = ${this.startingPoint ? this.pagebrowser ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').slice(this.nextpostsStart, this.nextpostsEnd).get() : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').slice(0, this.posts).get() : false}
 
     renderer = afx`
         <NeosRulez.Blog:Content.AbstractContent>
@@ -35,19 +40,22 @@ prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentCompone
                     <NeosRulez.Blog:Component.BlogPostRow @if.render={props.showaslist} item={item} />
                 </Neos.Fusion:Loop>
             </div>
-            <NeosRulez.Blog:Component.BlogPagination @if.render={props.pagebrowser} posts={props.posts} countposts={props.countposts} page={props.page} node={props.node} />
+            <NeosRulez.Blog:Component.BlogPagination @if.render={props.pagebrowser} posts={props.postsperpage} countposts={props.countposts} page={props.page} node={props.node} />
         </NeosRulez.Blog:Content.AbstractContent>
     `
 
     @cache {
-        mode = 'cached'
+        mode = 'dynamic'
         entryIdentifier {
-            documentNode = ${documentNode}
             node = ${node}
         }
+        entryDiscriminator = ${request.arguments.page}
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
         entryTags {
-            1 = ${Neos.Caching.nodeTypeTag('Neos.Neos:Document', node)}
-            2 = ${Neos.Caching.nodeTag(node)}
+            1 = ${Neos.Caching.nodeTag(node)}
         }
     }
 

@@ -26,8 +26,8 @@ prototype(NeosRulez.Blog:Component.BlogPagination) < prototype(Neos.Neos:Content
                     </a>
                 </li>
                 <Neos.Fusion:Loop items={props.pagination.pagination.pages} itemName="item">
-                    <li class="page-item">
-                        <a href={props.nodeuri + '/page/' + item.text} class={'page-link' + (item.text == props.page ? ' active' : '')} >
+                    <li class={'page-item' + (String.toInteger(item.text) == String.toInteger(props.page) ? ' active' : '')} >
+                        <a href={props.nodeuri + '/page/' + item.text} class="page-link" >
                             {item.text}
                         </a>
                     </li>
