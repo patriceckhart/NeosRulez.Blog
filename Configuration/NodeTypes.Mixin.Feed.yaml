@@ -244,7 +244,7 @@
             nodeTypes: [ 'NeosRulez.Folder:Document.Folder' ]
     pagebrowser:
       type: boolean
-      defaultValue: true
+      defaultValue: false
       ui:
         label: i18n
         reloadIfChanged: true

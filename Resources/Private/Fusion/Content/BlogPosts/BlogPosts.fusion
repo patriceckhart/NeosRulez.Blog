@@ -23,14 +23,14 @@ prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentCompone
     posts = ${node.properties.posts != '0' ? String.toInteger(node.properties.posts) : 9999}
     postsperpage = ${node.properties.postsperpage != '0' ? String.toInteger(node.properties.postsperpage) : 9999}
 
-    countposts = ${this.startingPoint ? Array.length(q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').filterByReference(this.filterstring, 'blogcategories').get()) : 0}
+    countposts = ${this.startingPoint ? Array.length((this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').filterByReference(this.filterstring, 'blogcategories').get() : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').get())) : 0}
     page = ${request.arguments.page ? request.arguments.page : 1}
     node = ${node}
 
     nextpostsStart = ${this.pagebrowser ? (String.toInteger(this.postsperpage) * (String.toInteger(this.page) - 1)) : 0}
     nextpostsEnd = ${this.pagebrowser ? (String.toInteger(this.nextpostsStart) + String.toInteger(this.postsperpage)) : 9999}
 
-    blogposts = ${this.startingPoint ? this.pagebrowser ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').slice(this.nextpostsStart, this.nextpostsEnd).get() : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').slice(0, this.posts).get() : false}
+    blogposts = ${this.startingPoint ? this.pagebrowser ? (this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').slice(this.nextpostsStart, this.nextpostsEnd).get() : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).slice(this.nextpostsStart, this.nextpostsEnd).get()) : (this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').slice(0, this.posts).get() : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).slice(0, this.posts).get()) : false}
 
     renderer = afx`
         <NeosRulez.Blog:Content.AbstractContent>
