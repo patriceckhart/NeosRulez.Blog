@@ -9,7 +9,6 @@ prototype(NeosRulez.Blog:Component.BlogPost) < prototype(Neos.Neos:ContentCompon
     title = ${documentNode.properties.title}
     show_comments = ${documentNode.properties.enablecomments}
 
-
     nodeuri = Neos.Neos:NodeUri {
         node = ${documentNode}
         absolute = true
