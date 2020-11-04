@@ -56,12 +56,4 @@ prototype(NeosRulez.Blog:Component.BlogPost) < prototype(Neos.Neos:ContentCompon
         <NeosRulez.Blog:Component.BlogComments @if.render={props.show_comments} />
     `
 
-//    @cache {
-//        mode = 'uncached'
-//        context {
-//            1 = 'node'
-//            2 = 'documentNode'
-//        }
-//    }
-
 }

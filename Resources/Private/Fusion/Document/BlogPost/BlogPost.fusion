@@ -1,4 +1,10 @@
-prototype(NeosRulez.Blog:Document.BlogPost) < prototype(Neos.NodeTypes:Page)
+prototype(NeosRulez.Blog:Document.BlogPost) < prototype(Neos.NodeTypes:Page) {
+    head {
+        openGraphMetaTags {
+            type = 'article'
+        }
+    }
+}
 
 prototype(Neos.Neos:PrimaryContent).blogpost {
     condition = ${q(documentNode).is('[instanceof NeosRulez.Blog:Document.BlogPost]')}

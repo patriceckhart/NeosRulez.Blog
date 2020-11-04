@@ -34,6 +34,7 @@
       ui:
         inspector:
           group: ~
-#   constraints:
-#     nodeTypes:
-#       'Neos.Neos:Document': false
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neos.Neos.Document': false
