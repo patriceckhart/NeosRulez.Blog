@@ -1,6 +1,6 @@
 prototype(NeosRulez.Blog:Component.BlogPost) < prototype(Neos.Neos:ContentComponent) {
 
-    blogdate = ${Date.format(q(documentNode).property('blogdate'), 'd.m.Y')}
+    blogdate = ${Date.format(documentNode.properties.blogdate, 'd.m.Y')}
     blogauthor = ${documentNode.properties.blogauthor}
     show_date_author_separator = ${this.blogdate ? (this.blogauthor ? true : false) : false}
     blogimages = ${documentNode.properties.blogimages ? documentNode.properties.blogimages : []}
