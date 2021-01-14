@@ -15,7 +15,6 @@
   properties:
     blogdate:
       type: DateTime
-      defaultValue: false
       ui:
         label: i18n
         showInCreationDialog: true
