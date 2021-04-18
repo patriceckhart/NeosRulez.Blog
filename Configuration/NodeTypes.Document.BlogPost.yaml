@@ -120,6 +120,12 @@
     onlyicon:
       ui: ~
   childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': true
+          'NeosRulez.Blog:Content.BlogPostComment': false
     comments:
       type: 'Neos.Neos:ContentCollection'
       constraints:

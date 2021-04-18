@@ -1,4 +1,4 @@
-prototype(NeosRulez.Blog:Component.BlogPagination) < prototype(Neos.Neos:ContentComponent) {
+prototype(NeosRulez.Blog:Component.BlogPagination) < prototype(Neos.Fusion:Component) {
 
     @context.posts = ${this.posts}
     @context.countposts = ${this.countposts}

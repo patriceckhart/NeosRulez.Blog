@@ -1,4 +1,4 @@
-prototype(NeosRulez.Blog:Component.BlogComments) < prototype(Neos.Neos:ContentComponent) {
+prototype(NeosRulez.Blog:Component.BlogComments) < prototype(Neos.Fusion:Component) {
 
     comments = ${q(documentNode).children().children('[instanceof NeosRulez.Blog:Content.BlogPostComment]').sort('_index', 'DESC').get()}
     @context.comments = ${this.comments}
@@ -34,21 +34,28 @@ prototype(NeosRulez.Blog:Component.BlogComments) < prototype(Neos.Neos:ContentCo
             </div>
             <div @if.render={props.comments} class="mt-5 neosrulez-blog-blogpost-comments">
                 <Neos.Fusion:Loop items={comments} itemName="comment">
-                    <div class="row mt-4">
-                        <div class="col-md-1 col-2">
-                            <NeosRulez.Blog:Helper.Gravatar email={comment.properties.blogPostCommentAuthorEmail} alt={comment.properties.blogPostCommentAuthorName} />
-                        </div>
-                        <div class="col-md-11 col-10">
-                            <strong class="d-block">{comment.properties.blogPostCommentAuthorName}</strong>
-                            <span class="d-block text-muted">
+                    <NeosRulez.Blog:Component.BlogComments.Comment />
+                </Neos.Fusion:Loop>
+            </div>
+        </div>
+    `
+}
+
+prototype(NeosRulez.Blog:Component.BlogComments.Comment) < prototype(Neos.Fusion:Component) {
+
+    renderer = afx`
+        <div class="row mt-4">
+            <div class="col-md-1 col-2">
+                <NeosRulez.Blog:Helper.Gravatar email={comment.properties.blogPostCommentAuthorEmail} alt={comment.properties.blogPostCommentAuthorName} />
+            </div>
+            <div class="col-md-11 col-10">
+                <strong class="d-block">{comment.properties.blogPostCommentAuthorName}</strong>
+                <span class="d-block text-muted">
                                 <NeosRulez.Blog:Helper.DateHelper date={comment.properties.blogPostCommentdate} format="d.m.Y, H:i" />
                             </span>
-                            <span class="d-block mt-2">
+                <span class="d-block mt-2">
                                 <NeosRulez.Blog:Helper.StripTags text={comment.properties.blogPostCommentMessage} />
                             </span>
-                        </div>
-                    </div>
-                </Neos.Fusion:Loop>
             </div>
         </div>
     `

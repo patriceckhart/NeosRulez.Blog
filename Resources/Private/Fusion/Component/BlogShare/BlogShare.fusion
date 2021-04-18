@@ -1,4 +1,4 @@
-prototype(NeosRulez.Blog:Component.BlogShare) < prototype(Neos.Neos:ContentComponent) {
+prototype(NeosRulez.Blog:Component.BlogShare) < prototype(Neos.Fusion:Component) {
     header = ${this.header}
     url = ${this.url}
     twitterName = ${this.twitterName}
