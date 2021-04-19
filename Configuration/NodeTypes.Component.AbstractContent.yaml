@@ -1,0 +1,9 @@
+'NeosRulez.Blog:Component.AbstractContent':
+  abstract: true
+  superTypes:
+    'NeosRulez.Bootstrap:Component.AbstractContent': true
+  properties:
+    link:
+      ui: ~
+    linktarget:
+      ui: ~

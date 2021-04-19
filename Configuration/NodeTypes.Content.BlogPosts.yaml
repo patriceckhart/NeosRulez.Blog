@@ -1,6 +1,6 @@
 'NeosRulez.Blog:Content.BlogPosts':
   superTypes:
-    'Neos.Neos:Content': true
+    'NeosRulez.Blog:Component.AbstractContent': true
     'NeosRulez.Blog:Mixin.Feed': true
   ui:
     label: i18n

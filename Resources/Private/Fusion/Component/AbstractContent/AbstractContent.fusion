@@ -1,0 +1,1 @@
+prototype(NeosRulez.Blog:Component.AbstractContent) < prototype(NeosRulez.Bootstrap:Component.AbstractContent)

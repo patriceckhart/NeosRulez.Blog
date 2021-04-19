@@ -18,7 +18,7 @@ prototype(NeosRulez.Blog:Component.BlogPostThumb) < prototype(Neos.Neos:ContentC
             <div class="blogpost-item">
                 <Neos.Neos:NodeLink node={item} attributes.class="d-block blogposts-thumb-link">
                     <div @if.render={item.properties.blogimages} class="mb-3 blogpost-item-image">
-                        <Neos.Neos:ImageTag asset={item.properties.blogimages[0]} allowUpScaling="true" allowCropping="true" width="350" height="230" attributes.class="img-fluid" />
+                        <NeosRulez.Bootstrap:Component.ImageTag image={item.properties.blogimages[0]} width="350" height="230" allowCropping="true" allowUpScaling="true" />
                     </div>
                     <h4>{item.properties.title}</h4>
                     <small @if.render={props.showauthor} class="d-block mb-2">{item.properties.blogauthor}</small>

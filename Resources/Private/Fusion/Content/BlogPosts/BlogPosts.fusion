@@ -23,17 +23,17 @@ prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentCompone
     posts = ${node.properties.posts != '0' ? String.toInteger(node.properties.posts) : 9999}
     postsperpage = ${node.properties.postsperpage != '0' ? String.toInteger(node.properties.postsperpage) : 9999}
 
-    countposts = ${this.startingPoint ? Array.length((this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').filterByReference(this.filterstring, 'blogcategories').get() : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').get())) : 0}
+    countposts = ${this.startingPoint ? Array.length((this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').get() : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').filter('[_hiddenInIndex=false]').get())) : 0}
     page = ${request.arguments.page ? request.arguments.page : 1}
     node = ${node}
 
     nextpostsStart = ${this.pagebrowser ? (String.toInteger(this.postsperpage) * (String.toInteger(this.page) - 1)) : 0}
     nextpostsEnd = ${this.pagebrowser ? (String.toInteger(this.nextpostsStart) + String.toInteger(this.postsperpage)) : 9999}
 
-    blogposts = ${this.startingPoint ? this.pagebrowser ? (this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').slice(this.nextpostsStart, this.nextpostsEnd).get() : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).slice(this.nextpostsStart, this.nextpostsEnd).get()) : (this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').slice(0, this.posts).get() : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).slice(0, this.posts).get()) : false}
+    blogposts = ${this.startingPoint ? this.pagebrowser ? (this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').slice(this.nextpostsStart, this.nextpostsEnd).get() : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filter('[_hiddenInIndex=false]').slice(this.nextpostsStart, this.nextpostsEnd).get()) : (this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').slice(0, this.posts).get() : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filter('[_hiddenInIndex=false]').slice(0, this.posts).get()) : false}
 
     renderer = afx`
-        <NeosRulez.Blog:Content.AbstractContent>
+        <NeosRulez.Blog:Component.AbstractContent>
             <div @if.render={props.blogposts} class="row filtered">
                 <Neos.Fusion:Loop items={props.blogposts} item="item">
                     <NeosRulez.Blog:Component.BlogPostThumb @if.render={!props.showaslist} item={item} />
@@ -41,7 +41,7 @@ prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentCompone
                 </Neos.Fusion:Loop>
             </div>
             <NeosRulez.Blog:Component.BlogPagination @if.render={props.pagebrowser} posts={props.postsperpage} countposts={props.countposts} page={props.page} node={props.node} />
-        </NeosRulez.Blog:Content.AbstractContent>
+        </NeosRulez.Blog:Component.AbstractContent>
     `
 
     @cache {

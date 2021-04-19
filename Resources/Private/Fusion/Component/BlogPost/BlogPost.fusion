@@ -24,7 +24,7 @@ prototype(NeosRulez.Blog:Component.BlogPost) < prototype(Neos.Neos:ContentCompon
         <div class="neosrulez-blog-blogpost">
             <div class="container">
                 <div @if.render={props.blogimages} class="mb-4 blogpost-image">
-                    <Neos.Neos:ImageTag asset={props.blogimages[0]} allowUpScaling="true" allowCropping="true" width="1110" height="650" attributes.class="img-fluid" />
+                    <NeosRulez.Bootstrap:Component.ImageTag image={props.blogimages[0]} width="1320" height="650" allowCropping="true" allowUpScaling="true" />
                 </div>
                 <h1><Neos.Neos:Editable property="title" /></h1>
                 <div class="d-block blogpost-teaser">
@@ -47,12 +47,11 @@ prototype(NeosRulez.Blog:Component.BlogPost) < prototype(Neos.Neos:ContentCompon
                     <Neos.Neos:Editable property="blogcontent" />
                 </div>
                 <div @if.render={props.show_gallery} class="mt-5 blogpost-gallery">
-                    <NeosRulez.Bootstrap:Gallery assets={props.blogimages} crop="true" lightbox="true" />
+                    <NeosRulez.Bootstrap:Content.Gallery assets={props.blogimages} crop="true" lightbox="true" columns="col-6 col-md-3" />
                 </div>
             </div>
         </div>
         {props.main}
         <NeosRulez.Blog:Component.BlogComments @if.render={props.show_comments} />
     `
-
 }
