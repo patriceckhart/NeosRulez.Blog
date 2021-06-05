@@ -11,7 +11,7 @@
     group: 'blog'
     position: 3
   superTypes:
-    'NeosRulez.Blog:Document.AbstractPage': true
+    'NeosRulez.Blog:Document.GenericPage': true
     'NeosRulez.Blog:Mixin.Feed': true
   properties:
     title:

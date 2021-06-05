@@ -1,7 +1,7 @@
 'NeosRulez.Blog:Document.GenericPage':
   abstract: true
   superTypes:
-    'Neos.Neos:Shortcut': true
+    'Neos.Neos:Document': true
   properties:
     faicon:
       ui: ~

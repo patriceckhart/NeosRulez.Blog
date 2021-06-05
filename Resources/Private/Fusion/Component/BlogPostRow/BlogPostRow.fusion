@@ -1,4 +1,4 @@
-prototype(NeosRulez.Blog:Component.BlogPostRow) < prototype(Neos.Neos:ContentComponent) {
+prototype(NeosRulez.Blog:Component.BlogPostRow) < prototype(Neos.Fusion:Component) {
     blogdate = ${Date.format(item.properties.blogdate, 'd.m.Y')}
     renderer = afx`
         <div class="col-12">

@@ -3,6 +3,14 @@ prototype(NeosRulez.Blog:Document.BlogPost) < prototype(Neos.NodeTypes:Page) {
         openGraphMetaTags {
             type = 'article'
         }
+        additionalOpenGraphMetaTags = afx`
+            <Neos.Fusion:Tag @if.render={documentNode.properties.blogimages} tagName="meta" attributes.property="og:image" @children="attributes.content">
+                <Neos.Neos:ImageUri asset={documentNode.properties.blogimages[0]} width="1200" height="627" allowCropping="true" allowUpScaling="true" />
+            </Neos.Fusion:Tag>
+            <Neos.Fusion:Tag @if.render={documentNode.properties.blogcontent} tagName="meta" attributes.property="og:description" @children="attributes.content">
+                {String.cropAtWord(String.stripTags(documentNode.properties.blogcontent), 55, '')}
+            </Neos.Fusion:Tag>
+        `
     }
 }
 

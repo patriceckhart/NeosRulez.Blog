@@ -1,4 +1,4 @@
-prototype(NeosRulez.Blog:Component.BlogPostThumb) < prototype(Neos.Neos:ContentComponent) {
+prototype(NeosRulez.Blog:Component.BlogPostThumb) < prototype(Neos.Fusion:Component) {
     teaser_text = ${item.properties.blogsubtitle ? item.properties.blogsubtitle : item.properties.blogcontent}
     teaser = ${node.properties.showsubtitle ? String.cropAtWord(this.teaser_text, 100, ' ...') : false}
     blogdate = ${Date.format(item.properties.blogdate, 'd.m.Y')}
