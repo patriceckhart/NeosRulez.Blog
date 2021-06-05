@@ -1,6 +1,6 @@
 # Neos CMS Blog Plugin
 
-A Neos CMS plugin for a simple blog
+A blog package for Neos CMS
 
 ## Installation
 
