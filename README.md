@@ -1,6 +1,6 @@
 # Neos CMS Blog Plugin
 
-A blog package for Neos CMS
+A blog package for Neos CMS. This package requires NeosRulez.Bootstrap
 
 ## Installation
 

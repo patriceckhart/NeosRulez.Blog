@@ -1,5 +1,5 @@
 {
-    "description": "A blog package for Neos CMS",
+    "description": "A blog package for Neos CMS. (This package requires NeosRulez.Bootstrap)",
     "license": "GPL-3.0+",
     "type": "neos-plugin",
     "name": "neosrulez/blog",
