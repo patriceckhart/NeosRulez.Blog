@@ -1,6 +1,6 @@
 prototype(NeosRulez.Blog:Component.Feed) < prototype(Neos.Fusion:Http.Message) {
     httpResponseHead {
-        headers.Content-Type = 'application/rss+xml;charset=utf-8'
+        headers.Content-Type = 'application/xml;charset=utf-8'
     }
     content = NeosRulez.Blog:Content.BlogPosts {
         @context.title = ${documentNode.properties.title}

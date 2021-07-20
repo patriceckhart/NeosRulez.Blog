@@ -11,6 +11,9 @@
 			<trans-unit id="properties.postsperpage" xml:space="preserve">
 				<source>Maximum amount per page</source>
 			</trans-unit>
+            <trans-unit id="properties.postsperpage.selectBoxEditor.values.0" xml:space="preserve">
+				<source>All</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

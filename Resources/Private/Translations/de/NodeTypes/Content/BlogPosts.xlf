@@ -11,6 +11,9 @@
 			<trans-unit id="properties.postsperpage" xml:space="preserve">
 				<source>Maximale Anzahl pro Seite</source>
 			</trans-unit>
+            <trans-unit id="properties.postsperpage.selectBoxEditor.values.0" xml:space="preserve">
+				<source>Alle</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

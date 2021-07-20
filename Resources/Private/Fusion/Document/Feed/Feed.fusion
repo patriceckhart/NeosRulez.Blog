@@ -26,3 +26,11 @@ prototype(NeosRulez.Blog:Document.Feed) < prototype(Neos.Fusion:Case) {
         }
     }
 }
+
+xml = Neos.Fusion:Case {
+    feed {
+        condition = ${!site.context.inBackend && q(documentNode).is('[instanceof NeosRulez.Blog:Document.Feed]')}
+        type = 'NeosRulez.Blog:Component.Feed'
+    }
+}
+xml.@if.cond = ${!site.context.inBackend}
