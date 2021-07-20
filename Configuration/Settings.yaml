@@ -22,3 +22,8 @@ Neos:
     fusion:
       autoInclude:
         NeosRulez.Blog: true
+NeosRulez:
+  Blog:
+    showSocialShare: true
+    twitterAccountName: ''
+    notificationMail: ''
