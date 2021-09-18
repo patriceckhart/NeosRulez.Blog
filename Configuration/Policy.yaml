@@ -2,9 +2,15 @@ privilegeTargets:
   Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
     'NeosRulez.Blog:CommentControllerActions':
       matcher: 'method(NeosRulez\Blog\Controller\CommentController->.*Action())'
+  Neos\ContentRepository\Security\Authorization\Privilege\Node\CreateNodePrivilege:
+    'NeosRulez.Blog:CreateBlogPostComment':
+      matcher: 'createdNodeIsOfType("NeosRulez.Blog:Content.BlogPostComment")'
 roles:
   'Neos.Flow:Everybody':
     privileges:
       -
         privilegeTarget: 'NeosRulez.Blog:CommentControllerActions'
+        permission: GRANT
+      -
+        privilegeTarget: 'NeosRulez.Blog:CreateBlogPostComment'
         permission: GRANT
