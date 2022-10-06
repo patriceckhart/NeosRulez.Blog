@@ -41,6 +41,9 @@
             <trans-unit id="groups.document" xml:space="preserve">
 				<source>Blog Artikel</source>
 			</trans-unit>
+			<trans-unit id="properties.archived" xml:space="preserve">
+				<source>Archiviert</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>

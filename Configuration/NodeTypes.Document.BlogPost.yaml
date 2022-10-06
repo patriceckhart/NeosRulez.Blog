@@ -103,6 +103,15 @@
               ol: true
               ul: true
               a: true
+    archived:
+      type: boolean
+      defaultValue: false
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: 'document'
+          position: 'before enablecomments'
     enablecomments:
       type: boolean
       defaultValue: false

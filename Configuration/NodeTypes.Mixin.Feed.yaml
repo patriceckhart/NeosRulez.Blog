@@ -324,3 +324,12 @@
         inspector:
           hidden: 'ClientEval:node.properties.post ? true : false'
           group: 'neosrulez_blog_posts'
+    showArchived:
+      type: boolean
+      defaultValue: false
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: 'neosrulez_blog_posts'
+          position: 'after showaslist'

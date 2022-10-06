@@ -47,6 +47,9 @@
             <trans-unit id="properties.filter" xml:space="preserve">
                 <source>Show Filter</source>
             </trans-unit>
+            <trans-unit id="properties.showArchived" xml:space="preserve">
+				<source>Only show archived</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>
