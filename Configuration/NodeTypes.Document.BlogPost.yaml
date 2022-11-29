@@ -44,6 +44,14 @@
           group: 'document'
         label: i18n
         reloadIfChanged: true
+    dontCropFirstImage:
+      type: boolean
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: document
+          position: after blogimages
     blogcategories:
       type: references
       ui:

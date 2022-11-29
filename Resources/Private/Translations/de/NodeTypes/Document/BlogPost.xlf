@@ -44,6 +44,9 @@
 			<trans-unit id="properties.archived" xml:space="preserve">
 				<source>Archiviert</source>
 			</trans-unit>
+			<trans-unit id="properties.dontCropFirstImage" xml:space="preserve">
+				<source>Bild nicht beschneiden</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>

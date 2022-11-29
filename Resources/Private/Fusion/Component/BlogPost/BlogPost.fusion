@@ -20,11 +20,13 @@ prototype(NeosRulez.Blog:Component.BlogPost) < prototype(Neos.Fusion:Component) 
         nodePath = 'main'
     }
 
+    dontCropFirstImage = ${q(node).property('dontCropFirstImage')}
+
     renderer = afx`
         <div class="neosrulez-blog-blogpost">
             <div class="container">
                 <div @if.render={props.blogimages} class="mb-4 blogpost-image">
-                    <NeosRulez.Bootstrap:Component.ImageTag image={props.blogimages[0]} width="1320" height="650" allowCropping="true" allowUpScaling="true" async="true" />
+                    <NeosRulez.Bootstrap:Component.ImageTag image={props.blogimages[0]} width="1320" height={props.dontCropFirstImage ? false : 650} allowCropping={!props.dontCropFirstImage} allowUpScaling="true" async="true" />
                 </div>
                 <h1><Neos.Neos:Editable property="title" /></h1>
                 <div class="d-block blogpost-teaser">
