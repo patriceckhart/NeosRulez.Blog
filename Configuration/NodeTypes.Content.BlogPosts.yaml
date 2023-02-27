@@ -23,7 +23,6 @@
           hidden: 'ClientEval:node.properties.pagebrowser ? false : true'
           group: 'neosrulez_blog_posts'
           editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
-          position: 'after pagebrowser'
           editorOptions:
             allowEmpty: false
             values:

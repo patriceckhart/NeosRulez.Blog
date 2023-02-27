@@ -30,7 +30,6 @@
         reloadIfChanged: true
         inspector:
           group: 'neosrulez_blog_posts'
-          position: 'after uriPathSegment'
           editor: 'Neos.Neos/Inspector/Editors/TextAreaEditor'
     titleOverride:
       ui: ~
