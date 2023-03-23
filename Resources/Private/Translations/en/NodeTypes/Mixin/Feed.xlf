@@ -50,6 +50,9 @@
             <trans-unit id="properties.showArchived" xml:space="preserve">
 				<source>Only show archived</source>
 			</trans-unit>
+            <trans-unit id="properties.recursive" xml:space="preserve">
+				<source>Recursive</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>
