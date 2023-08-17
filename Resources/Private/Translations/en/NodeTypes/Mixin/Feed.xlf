@@ -53,6 +53,21 @@
             <trans-unit id="properties.recursive" xml:space="preserve">
 				<source>Recursive</source>
 			</trans-unit>
+            <trans-unit id="properties.orderBy" xml:space="preserve">
+                <source>Sort by</source>
+            </trans-unit>
+            <trans-unit id="properties.orderBy.selectBoxEditor.values.blogdate" xml:space="preserve">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="properties.orderBy.selectBoxEditor.values._creationDateTime" xml:space="preserve">
+                <source>Creation date</source>
+            </trans-unit>
+            <trans-unit id="properties.orderBy.selectBoxEditor.values._index" xml:space="preserve">
+                <source>Backend sorting</source>
+            </trans-unit>
+            <trans-unit id="properties.orderBy.selectBoxEditor.values.title" xml:space="preserve">
+                <source>Title</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

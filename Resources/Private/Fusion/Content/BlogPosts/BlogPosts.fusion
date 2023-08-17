@@ -27,6 +27,8 @@ prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentCompone
 
     recursive = ${q(node).property('recursive')}
 
+    orderBy = ${q(node).property('orderBy') ? q(node).property('orderBy') : 'blogdate'}
+
     countposts = ${!this.recursive ?
         (this.startingPoint ? Array.length((this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').get()
         : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').get())) : 0)
@@ -43,14 +45,14 @@ prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentCompone
         (this.startingPoint ?
             this.pagebrowser ?
                 (this.blogcategories ?
-                    q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(this.nextpostsStart, this.nextpostsEnd).get()
-                    : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(this.nextpostsStart, this.nextpostsEnd).get())
-                    : (this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(0, this.posts).get()
-                    : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(0, this.posts).get()) : false)
-                    : (this.startingPoint ? this.pagebrowser ? (this.blogcategories ? q(this.startingPoint).find('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(this.nextpostsStart, this.nextpostsEnd).get()
-                    : q(this.startingPoint).find('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(this.nextpostsStart, this.nextpostsEnd).get())
-                    : (this.blogcategories ? q(this.startingPoint).find('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(0, this.posts).get()
-                    : q(this.startingPoint).find('[instanceof NeosRulez.Blog:Document.BlogPost]').sort('blogdate', this.sorting).filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(0, this.posts).get()) : false)}
+                    q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort(this.orderBy, this.sorting).filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(this.nextpostsStart, this.nextpostsEnd).get()
+                    : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort(this.orderBy, this.sorting).filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(this.nextpostsStart, this.nextpostsEnd).get())
+                    : (this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort(this.orderBy, this.sorting).filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(0, this.posts).get()
+                    : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').sort(this.orderBy, this.sorting).filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(0, this.posts).get()) : false)
+                    : (this.startingPoint ? this.pagebrowser ? (this.blogcategories ? q(this.startingPoint).find('[instanceof NeosRulez.Blog:Document.BlogPost]').sort(this.orderBy, this.sorting).filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(this.nextpostsStart, this.nextpostsEnd).get()
+                    : q(this.startingPoint).find('[instanceof NeosRulez.Blog:Document.BlogPost]').sort(this.orderBy, this.sorting).filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(this.nextpostsStart, this.nextpostsEnd).get())
+                    : (this.blogcategories ? q(this.startingPoint).find('[instanceof NeosRulez.Blog:Document.BlogPost]').sort(this.orderBy, this.sorting).filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(0, this.posts).get()
+                    : q(this.startingPoint).find('[instanceof NeosRulez.Blog:Document.BlogPost]').sort(this.orderBy, this.sorting).filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').slice(0, this.posts).get()) : false)}
 
     renderer = afx`
         <NeosRulez.Blog:Component.AbstractContent>

@@ -304,6 +304,26 @@
                 label: i18n
               'DESC':
                 label: i18n
+    orderBy:
+      type: string
+      defaultValue: 'blogdate'
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: 'neosrulez_blog_posts'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            allowEmpty: false
+            values:
+              'blogdate':
+                label: i18n
+              '_creationDateTime':
+                label: i18n
+              '_index':
+                label: i18n
+              'title':
+                label: i18n
     blogcategories:
       type: references
       ui:
