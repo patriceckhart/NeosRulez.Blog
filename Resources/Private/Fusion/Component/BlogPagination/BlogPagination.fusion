@@ -5,6 +5,7 @@ prototype(NeosRulez.Blog:Component.BlogPagination) < prototype(Neos.Fusion:Compo
     @context.page = ${this.page}
     node = ${this.node}
     page = ${this.page}
+    showFirstLast = false
 
     pagination = NeosRulez.Blog:Helper.Pagination {
         posts = ${posts}
@@ -22,7 +23,12 @@ prototype(NeosRulez.Blog:Component.BlogPagination) < prototype(Neos.Fusion:Compo
             <ul class="pagination">
                 <li @if.render={props.pagination.prev} class="page-item prev-item">
                     <a href={props.nodeuri + '/page/' + props.pagination.prev} class="page-link" >
-                        <i class="fas fa-chevron-left"></i>
+                        <i class="fas fa-angle-left"></i>
+                    </a>
+                </li>
+                <li @if.render={props.pagination.prev && props.showFirstLast} class="page-item first-page">
+                    <a href={props.nodeuri + '/page/1'} class="page-link" >
+                        <i class="fas fa-angle-double-left"></i>
                     </a>
                 </li>
                 <Neos.Fusion:Loop items={props.pagination.pagination.pages} itemName="item">
@@ -32,9 +38,14 @@ prototype(NeosRulez.Blog:Component.BlogPagination) < prototype(Neos.Fusion:Compo
                         </a>
                     </li>
                 </Neos.Fusion:Loop>
+                <li @if.render={props.pagination.next && props.showFirstLast} class="page-item last-page">
+                    <a href={props.nodeuri + '/page/' + Array.length(props.pagination.pagination.pages)} class="page-link" >
+                        <i class="fas fa-angle-double-right"></i>
+                    </a>
+                </li>
                 <li @if.render={props.pagination.next} class="page-item next-item">
                     <a href={props.nodeuri + '/page/' + props.pagination.next} class="page-link" >
-                        <i class="fas fa-chevron-right"></i>
+                        <i class="fas fa-angle-right"></i>
                     </a>
                 </li>
             </ul>

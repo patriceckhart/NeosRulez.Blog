@@ -29,6 +29,8 @@ prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentCompone
 
     orderBy = ${q(node).property('orderBy') ? q(node).property('orderBy') : 'blogdate'}
 
+    showFirstLast = ${q(node).property('showFirstLast')}
+
     countposts = ${!this.recursive ?
         (this.startingPoint ? Array.length((this.blogcategories ? q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').filterByReference(this.filterstring, 'blogcategories').filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').get()
         : q(this.startingPoint).children('[instanceof NeosRulez.Blog:Document.BlogPost]').filter('[_hiddenInIndex=false]').filter(this.showArchived ? '[archived=true]' : '[archived!=true]').get())) : 0)
@@ -62,7 +64,7 @@ prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentCompone
                     <NeosRulez.Blog:Component.BlogPostRow @if.render={props.showaslist} item={item} />
                 </Neos.Fusion:Loop>
             </div>
-            <NeosRulez.Blog:Component.BlogPagination @if.render={props.pagebrowser} posts={props.postsperpage} countposts={props.countposts} page={props.page} node={props.node} />
+            <NeosRulez.Blog:Component.BlogPagination @if.render={props.pagebrowser} posts={props.postsperpage} countposts={props.countposts} page={props.page} node={props.node} showFirstLast={props.showFirstLast} />
         </NeosRulez.Blog:Component.AbstractContent>
     `
 

@@ -14,6 +14,15 @@
             <trans-unit id="properties.postsperpage.selectBoxEditor.values.0" xml:space="preserve">
 				<source>All</source>
 			</trans-unit>
+            <trans-unit id="properties.showFirstLast" xml:space="preserve">
+				<source>Show link to first and last page</source>
+			</trans-unit>
+            <trans-unit id="content.firstPage" xml:space="preserve">
+				<source>First</source>
+			</trans-unit>
+            <trans-unit id="content.lastPage" xml:space="preserve">
+				<source>Last</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
