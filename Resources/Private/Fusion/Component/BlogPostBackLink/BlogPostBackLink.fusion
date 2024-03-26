@@ -1,0 +1,31 @@
+prototype(NeosRulez.Blog:Component.BlogPostBackLink) < prototype(Neos.Fusion:Component) {
+
+    backLinkTargets = ${q(site).find('[instanceof NeosRulez.Blog:Content.BlogPosts]').filter('[_hiddenInIndex=false]').filter('[backLinkTarget=true]').get()}
+    backLinkTarget = ${this.backLinkTargets && Array.length(this.backLinkTargets) > 0 ? this.backLinkTargets[0] : false}
+    backLinkTargetDocument = ${this.backLinkTarget ? Node.findClosestDocumentNode(this.backLinkTarget) : false}
+
+    backLinkTargetOverride = ${q(node).property('backLinkTargetOverride')}
+
+    renderer = afx`
+        <div @if.render={props.backLinkTargetDocument || props.backLinkTargetOverride} class="d-block mt-4">
+            <Neos.Neos:NodeLink node={props.backLinkTargetOverride ? props.backLinkTargetOverride : props.backLinkTargetDocument} class="blogpost-backlink">
+                {I18n.translate('NeosRulez.Blog:NodeTypes.Document.BlogPost:content.backLink')}
+            </Neos.Neos:NodeLink>
+        </div>
+    `
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            node = ${node}
+        }
+        context {
+            1 = 'site'
+            2 = 'node'
+            3 = 'documentNode'
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTag(node)}
+            2 = ${Neos.Caching.nodeTypeTag('NeosRulez.Blog:Content.BlogPosts', node)}
+        }
+    }
+}

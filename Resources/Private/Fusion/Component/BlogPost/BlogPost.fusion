@@ -42,12 +42,14 @@ prototype(NeosRulez.Blog:Component.BlogPost) < prototype(Neos.Fusion:Component) 
                         <NeosRulez.Blog:Component.BlogShare header={props.title} url={props.nodeuri} twitterName={props.twittername} />
                     </div>
                 </div>
+
                 <div @if.render={props.blogcategories} class="d-block my-3 blogpost-categories">
                     <NeosRulez.Blog:Component.BlogCategories categories={props.blogcategories} />
                 </div>
                 <div class="d-block mt-4 blogpost-content">
                     <Neos.Neos:Editable property="blogcontent" />
                 </div>
+                <NeosRulez.Blog:Component.BlogPostBackLink />
                 <div @if.render={props.show_gallery} class="mt-5 blogpost-gallery">
                     <NeosRulez.Bootstrap:Content.Gallery assets={props.blogimages} lightbox={true} columns="col-6 col-md-3" />
                 </div>

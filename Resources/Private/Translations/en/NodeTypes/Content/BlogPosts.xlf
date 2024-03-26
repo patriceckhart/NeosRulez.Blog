@@ -23,6 +23,9 @@
             <trans-unit id="content.lastPage" xml:space="preserve">
 				<source>Last</source>
 			</trans-unit>
+            <trans-unit id="properties.backLinkTarget" xml:space="preserve">
+				<source>Show "Back to overview" for blog posts</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

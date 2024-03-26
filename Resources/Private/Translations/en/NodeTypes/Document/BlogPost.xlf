@@ -47,6 +47,12 @@
 			<trans-unit id="properties.dontCropFirstImage" xml:space="preserve">
 				<source>Do not crop image</source>
 			</trans-unit>
+            <trans-unit id="properties.backLinkTargetOverride" xml:space="preserve">
+				<source>"Back to overview" overwrite destination</source>
+			</trans-unit>
+            <trans-unit id="content.backLink" xml:space="preserve">
+				<source>Back to overview</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

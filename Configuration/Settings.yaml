@@ -22,6 +22,10 @@ Neos:
     fusion:
       autoInclude:
         NeosRulez.Blog: true
+  Fusion:
+    defaultContext:
+      'Node': 'NeosRulez\Blog\Eel\NodeHelper'
+
 NeosRulez:
   Blog:
     showSocialShare: true
