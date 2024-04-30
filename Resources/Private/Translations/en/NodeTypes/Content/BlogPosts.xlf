@@ -26,6 +26,9 @@
             <trans-unit id="properties.backLinkTarget" xml:space="preserve">
 				<source>Show "Back to overview" for blog posts</source>
 			</trans-unit>
+            <trans-unit id="properties.lazyLoadedImages" xml:space="preserve">
+				<source>Lazy loading of images</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -245,3 +245,11 @@
         inspector:
           group: neosrulez_blog_posts
           position: end
+    lazyLoadedImages:
+      type: boolean
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: neosrulez_blog_posts
+          position: end
