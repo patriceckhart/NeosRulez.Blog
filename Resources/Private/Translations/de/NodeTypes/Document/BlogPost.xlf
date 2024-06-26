@@ -53,6 +53,12 @@
             <trans-unit id="content.backLink" xml:space="preserve">
 				<source>Zurück zur Übersicht</source>
 			</trans-unit>
+            <trans-unit id="content.prevBlogPost" xml:space="preserve">
+				<source>Voriger Artikel</source>
+			</trans-unit>
+            <trans-unit id="content.nextBlogPost" xml:space="preserve">
+				<source>Nächster Artikel</source>
+			</trans-unit>
         </body>
     </file>
 </xliff>

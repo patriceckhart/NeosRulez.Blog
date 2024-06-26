@@ -1,0 +1,23 @@
+prototype(NeosRulez.Blog:Component.Navigation) < prototype(Neos.Fusion:Component) {
+
+    prevNode = ${q(node).prev().get()}
+    nextNode = ${q(node).next().get()}
+
+    prevNodeIsBlogPost = ${this.prevNode && Array.length(this.prevNode) > 0 && this.prevNode[0].nodeType.name == 'NeosRulez.Blog:Document.BlogPost' ? true : false}
+    nextNodeIsBlogPost = ${this.nextNode && Array.length(this.nextNode) > 0 && this.nextNode[0].nodeType.name == 'NeosRulez.Blog:Document.BlogPost' ? true : false}
+
+    renderer = afx`
+        <div class="row align-items-center my-5 neosrulez-blog-blogpost-navigation">
+            <div @if.render={props.prevNodeIsBlogPost} class="col-6">
+                <Neos.Neos:NodeLink node={props.prevNode[0]} attributes.class="prev-link">
+                    <i class="fas fa-chevron-left me-2"></i> {I18n.translate('NeosRulez.Blog:NodeTypes.Document.BlogPost:content.prevBlogPost')}
+                </Neos.Neos:NodeLink>
+            </div>
+            <div @if.render={props.nextNodeIsBlogPost} class={'col-6' + (props.prevNodeIsBlogPost ? ' text-end' : '')}>
+                <Neos.Neos:NodeLink node={props.nextNode[0]} attributes.class="next-link">
+                    {I18n.translate('NeosRulez.Blog:NodeTypes.Document.BlogPost:content.nextBlogPost')} <i class="fas fa-chevron-right ms-2"></i>
+                </Neos.Neos:NodeLink>
+            </div>
+        </div>
+    `
+}

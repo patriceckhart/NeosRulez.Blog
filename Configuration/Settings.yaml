@@ -31,3 +31,5 @@ NeosRulez:
     showSocialShare: true
     twitterAccountName: ''
     notificationMail: ''
+    navigation:
+      enablePrevNext: false

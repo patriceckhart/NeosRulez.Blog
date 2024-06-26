@@ -22,6 +22,8 @@ prototype(NeosRulez.Blog:Component.BlogPost) < prototype(Neos.Fusion:Component) 
 
     dontCropFirstImage = ${q(node).property('dontCropFirstImage')}
 
+    enablePrevNext = ${Configuration.setting('NeosRulez.Blog.navigation.enablePrevNext')}
+
     renderer = afx`
         <div class="neosrulez-blog-blogpost">
             <div class="container">
@@ -53,6 +55,7 @@ prototype(NeosRulez.Blog:Component.BlogPost) < prototype(Neos.Fusion:Component) 
                 <div @if.render={props.show_gallery} class="mt-5 blogpost-gallery">
                     <NeosRulez.Bootstrap:Content.Gallery assets={props.blogimages} lightbox={true} columns="col-6 col-md-3" />
                 </div>
+                <NeosRulez.Blog:Component.Navigation @if.render={props.enablePrevNext} />
             </div>
         </div>
         {props.main}
