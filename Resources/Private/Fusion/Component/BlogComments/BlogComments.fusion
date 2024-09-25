@@ -15,19 +15,19 @@ prototype(NeosRulez.Blog:Component.BlogComments) < prototype(Neos.Fusion:Compone
             <div class="neosrulez-blog-blogpost-add-comment">
                 <Neos.Fusion.Form:Form form.target.action="create" form.target.controller="Comment" form.target.package="NeosRulez.Blog" form.data.args={args} >
                     <Neos.Fusion.Form:Hidden field.name="args[parentnode]" attributes.value={props.node_identifier} />
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="name">{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:name')}</label>
                         <Neos.Fusion.Form:Input attributes.id="name" attributes.class="form-control" field.name="args[name]" attributes.placeholder={I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:name')} attributes.required="required" />
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="email">{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:email')}</label>
                         <Neos.Fusion.Form:Input attributes.id="email" attributes.class="form-control" field.name="args[email]" attributes.placeholder={I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:email')} attributes.required="required" />
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="message">{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:message')}</label>
                         <Neos.Fusion.Form:Textarea attributes.id="message" attributes.class="form-control" field.name="args[message]" attributes.placeholder={I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:message')} attributes.required="required" />
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3">
                         <Neos.Fusion.Form:Button attributes.class="btn btn-primary" >{I18n.translate('NeosRulez.Blog:NodeTypes.Content.BlogPostComment:submit')}</Neos.Fusion.Form:Button>
                     </div>
                 </Neos.Fusion.Form:Form>
@@ -39,6 +39,21 @@ prototype(NeosRulez.Blog:Component.BlogComments) < prototype(Neos.Fusion:Compone
             </div>
         </div>
     `
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            node = ${node}
+        }
+        context {
+            1 = 'site'
+            2 = 'node'
+            3 = 'documentNode'
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTag(node)}
+            2 = ${Neos.Caching.nodeTypeTag('NeosRulez.Blog:Content.BlogPostComment', node)}
+        }
+    }
 }
 
 prototype(NeosRulez.Blog:Component.BlogComments.Comment) < prototype(Neos.Fusion:Component) {
