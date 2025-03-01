@@ -73,7 +73,7 @@ prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentCompone
         entryIdentifier {
             node = ${node}
         }
-        entryDiscriminator = ${request.arguments.page}
+        entryDiscriminator = ${request.arguments.page || 'static'}
         context {
             1 = 'node'
             2 = 'documentNode'
@@ -82,5 +82,4 @@ prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentCompone
             1 = ${Neos.Caching.nodeTag(node)}
         }
     }
-
 }
