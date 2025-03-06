@@ -61,15 +61,15 @@ prototype(NeosRulez.Blog:Component.BlogComments.Comment) < prototype(Neos.Fusion
     renderer = afx`
         <div class="row mt-4">
             <div class="col-md-1 col-2">
-                <NeosRulez.Blog:Helper.Gravatar email={comment.properties.blogPostCommentAuthorEmail} alt={comment.properties.blogPostCommentAuthorName} />
+                <NeosRulez.Blog:Helper.Gravatar email={q(comment).property('blogPostCommentAuthorEmail')} alt={q(comment).property('blogPostCommentAuthorName')} />
             </div>
             <div class="col-md-11 col-10">
-                <strong class="d-block">{comment.properties.blogPostCommentAuthorName}</strong>
+                <strong class="d-block">{q(comment).property('blogPostCommentAuthorName')}</strong>
                 <span class="d-block text-muted">
-                    <NeosRulez.Blog:Helper.DateHelper date={comment.properties.blogPostCommentdate} format="d.m.Y, H:i" />
+                    <NeosRulez.Blog:Helper.DateHelper date={q(comment).property('blogPostCommentdate')} format="d.m.Y, H:i" />
                 </span>
                 <span class="d-block mt-2">
-                    <NeosRulez.Blog:Helper.StripTags text={comment.properties.blogPostCommentMessage} />
+                    <NeosRulez.Blog:Helper.StripTags text={q(comment).property('blogPostCommentMessage')} />
                 </span>
             </div>
         </div>

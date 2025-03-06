@@ -1,17 +1,17 @@
 prototype(NeosRulez.Blog:Component.BlogPostThumb) < prototype(Neos.Fusion:Component) {
-    teaser_text = ${item.properties.blogsubtitle ? item.properties.blogsubtitle : item.properties.blogcontent}
-    teaser = ${node.properties.showsubtitle ? String.cropAtWord(this.teaser_text, 100, ' ...') : false}
-    blogdate = ${Date.format(item.properties.blogdate, 'd.m.Y')}
-    @context.item_categories = ${item.properties.blogcategories}
+    teaser_text = ${q(item).property('blogsubtitle') ? q(item).property('blogsubtitle') : q(item).property('blogcontent')}
+    teaser = ${q(node).property('showsubtitle') ? String.cropAtWord(this.teaser_text, 100, ' ...') : false}
+    blogdate = ${Date.format(q(item).property('blogdate'), 'd.m.Y')}
+    @context.item_categories = ${q(item).property('blogcategories')}
     item_categories = Neos.Fusion:Loop {
         items = ${item_categories}
         itemName = 'category'
         itemRenderer = ${'category-' + category.identifier + ' '}
     }
     categories = ${'col-md-4 mix ' + this.item_categories}
-    showauthor = ${node.properties.showauthor}
-    showcategories = ${node.properties.showcategories}
-    showdate = ${node.properties.showdate}
+    showauthor = ${q(node).property('showauthor')}
+    showcategories = ${q(node).property('showcategories')}
+    showdate = ${q(node).property('showdate')}
 
     lazyLoadedImages = ${q(node).property('lazyLoadedImages')}
 
@@ -20,10 +20,10 @@ prototype(NeosRulez.Blog:Component.BlogPostThumb) < prototype(Neos.Fusion:Compon
             <div class="blogpost-item">
                 <Neos.Neos:NodeLink node={item} attributes.class="d-block blogposts-thumb-link">
                     <div @if.render={item.properties.blogimages} class="mb-3 blogpost-item-image">
-                        <NeosRulez.Bootstrap:Component.ImageTag image={item.properties.blogimages[0]} width="350" height="230" allowCropping="true" allowUpScaling="true" async="true" loading={props.lazyLoadedImages ? 'lazy' : false} />
+                        <NeosRulez.Bootstrap:Component.ImageTag image={q(item).property('blogimages')} width="350" height="230" allowCropping="true" allowUpScaling="true" async="true" loading={props.lazyLoadedImages ? 'lazy' : false} />
                     </div>
-                    <h4>{item.properties.title}</h4>
-                    <small @if.render={props.showauthor} class="d-block mb-2">{item.properties.blogauthor}</small>
+                    <h4>{q(item).property('title')}</h4>
+                    <small @if.render={props.showauthor} class="d-block mb-2">{q(item).property('blogauthor')}</small>
                     <div @if.render={props.teaser} class="blogpost-item-teaser">
                         {props.teaser}
                     </div>
@@ -32,7 +32,7 @@ prototype(NeosRulez.Blog:Component.BlogPostThumb) < prototype(Neos.Fusion:Compon
                             {props.blogdate}
                         </div>
                         <div @if.render={props.showcategories} class={props.showdate ? 'col-6' : 'col-12'} >
-                            <NeosRulez.Blog:Component.BlogCategories categories={item.properties.blogcategories} />
+                            <NeosRulez.Blog:Component.BlogCategories categories={q(item).property('blogcategories')} />
                         </div>
                     </div>
                 </Neos.Neos:NodeLink>

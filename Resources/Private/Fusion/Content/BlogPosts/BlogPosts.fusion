@@ -1,27 +1,27 @@
 prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentComponent) {
 
-    showaslist = ${node.properties.showaslist ? true : false}
-    blogcategories = ${node.properties.blogcategories}
-    startingPoint = ${node.properties.nodeidentifier}
+    showaslist = ${q(node).property('showaslist') ? true : false}
+    blogcategories = ${q(node).property('blogcategories')}
+    startingPoint = ${q(node).property('nodeidentifier')}
 
-    pagebrowser = ${node.properties.pagebrowser}
-    showdate = ${node.properties.showdate}
-    showsubtitle = ${node.properties.showsubtitle}
-    sorting = ${node.properties.sorting}
+    pagebrowser = ${q(node).property('pagebrowser')}
+    showdate = ${q(node).property('showdate')}
+    showsubtitle = ${q(node).property('showsubtitle')}
+    sorting = ${q(node).property('sorting')}
 
-    showauthor = ${node.properties.showauthor}
-    showcategories = ${node.properties.showcategories}
+    showauthor = ${q(node).property('showauthor')}
+    showcategories = ${q(node).property('showcategories')}
 
     filter = Neos.Fusion:Loop {
-        items = ${node.properties.blogcategories}
+        items = ${q(node).property('blogcategories')}
         itemName = 'category'
         itemKey = 'key'
         itemRenderer = ${category.identifier + (iterator.isLast ? '' : ',')}
     }
     filterstring = ${'[blogcategories *= "' + this.filter + '"]'}
 
-    posts = ${node.properties.posts != '0' ? String.toInteger(node.properties.posts) : 9999}
-    postsperpage = ${node.properties.postsperpage != '0' ? String.toInteger(node.properties.postsperpage) : 9999}
+    posts = ${q(node).property('posts') != '0' ? String.toInteger(q(node).property('posts')) : 9999}
+    postsperpage = ${q(node).property('postsperpage') != '0' ? String.toInteger(q(node).property('postsperpage')) : 9999}
 
     showArchived = ${q(node).property('showArchived')}
 

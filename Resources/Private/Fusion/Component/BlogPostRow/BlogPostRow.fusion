@@ -1,5 +1,5 @@
 prototype(NeosRulez.Blog:Component.BlogPostRow) < prototype(Neos.Fusion:Component) {
-    blogdate = ${Date.format(item.properties.blogdate, 'd.m.Y')}
+    blogdate = ${Date.format(q(item).property('blogdate'), 'd.m.Y')}
     renderer = afx`
         <div class="col-12">
             <div class="blogposts-row">
@@ -9,7 +9,7 @@ prototype(NeosRulez.Blog:Component.BlogPostRow) < prototype(Neos.Fusion:Componen
                             {props.blogdate}
                         </div>
                         <div class="col-9">
-                            {item.properties.title}
+                            {q(item).property('title')}
                         </div>
                     </div>
                 </Neos.Neos:NodeLink>

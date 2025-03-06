@@ -3,8 +3,8 @@ prototype(NeosRulez.Blog:Component.Feed) < prototype(Neos.Fusion:Http.Message) {
         headers.Content-Type = 'application/xml;charset=utf-8'
     }
     content = NeosRulez.Blog:Content.BlogPosts {
-        @context.title = ${documentNode.properties.title}
-        @context.description = ${documentNode.properties.rss_description}
+        @context.title = ${q(documentNode).property('title')}
+        @context.description = ${q(documentNode).property('rss_description')}
         @context.items = ${this.blogposts}
         @context.node = ${documentNode}
         @context.nodeuri = Neos.Neos:NodeUri {

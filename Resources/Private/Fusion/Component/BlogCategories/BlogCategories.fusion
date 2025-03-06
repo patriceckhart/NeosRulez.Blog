@@ -5,7 +5,7 @@ prototype(NeosRulez.Blog:Component.BlogCategories) < prototype(Neos.Fusion:Compo
         itemName = 'category'
         itemRenderer = afx`
             <span class="blogpost-category mr-3">
-                <i class="fas fa-tag"></i> {category.properties.title}
+                <i class="fas fa-tag"></i> {q(category).property('title')}
             </span>
         `
     }
