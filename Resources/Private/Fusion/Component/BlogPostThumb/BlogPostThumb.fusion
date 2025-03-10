@@ -19,8 +19,8 @@ prototype(NeosRulez.Blog:Component.BlogPostThumb) < prototype(Neos.Fusion:Compon
         <div class={props.categories}>
             <div class="blogpost-item">
                 <Neos.Neos:NodeLink node={item} attributes.class="d-block blogposts-thumb-link">
-                    <div @if.render={item.properties.blogimages} class="mb-3 blogpost-item-image">
-                        <NeosRulez.Bootstrap:Component.ImageTag image={q(item).property('blogimages')} width="350" height="230" allowCropping="true" allowUpScaling="true" async="true" loading={props.lazyLoadedImages ? 'lazy' : false} />
+                    <div @if.render={q(item).property('blogimages') && Array.length(q(item).property('blogimages')) > 0} class="mb-3 blogpost-item-image">
+                        <NeosRulez.Bootstrap:Component.ImageTag image={q(item).property('blogimages')[0]} width="350" height="230" allowCropping="true" allowUpScaling="true" async="true" loading={props.lazyLoadedImages ? 'lazy' : false} />
                     </div>
                     <h4>{q(item).property('title')}</h4>
                     <small @if.render={props.showauthor} class="d-block mb-2">{q(item).property('blogauthor')}</small>
