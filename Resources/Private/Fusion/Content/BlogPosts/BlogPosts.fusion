@@ -80,6 +80,7 @@ prototype(NeosRulez.Blog:Content.BlogPosts) < prototype(Neos.Neos:ContentCompone
         }
         entryTags {
             1 = ${Neos.Caching.nodeTag(node)}
+            2 = ${Neos.Caching.nodeTypeTag('NeosRulez.Blog:Document.BlogPost', node)}
         }
     }
 }
